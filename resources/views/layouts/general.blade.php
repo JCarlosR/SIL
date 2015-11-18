@@ -13,7 +13,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ 'dist/css/AdminLTE.min.css' }}">
+    <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
@@ -213,23 +213,22 @@
                 <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
               </ul>
             </li>
+            <li>
+              <a href="{{ url('perfil-trabajador') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Perfil del trabajador</span>
+              </a>
+            </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-files-o"></i>
-                <span>Layout Options</span>
-                <span class="label label-primary pull-right">4</span>
+                <i class="fa fa-book"></i></i>
+                <span>MOF</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                <li><a href="{{ url('MOF') }}"><i class="fa fa-circle-o"></i> Gestionar MOF</a></li>
+                <li><a href="{{ url('MOF/cargos') }}"><i class="fa fa-circle-o"></i> Lista de cargos</a></li>
               </ul>
-            </li>
-            <li>
-              <a href="../widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">Hot</small>
-              </a>
             </li>
             <li class="treeview">
               <a href="#">
@@ -300,11 +299,6 @@
               <ul class="treeview-menu">
                 <li><a href="invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
                 <li><a href="profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-                <li><a href="login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-                <li><a href="register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                <li><a href="lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                <li><a href="404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-                <li><a href="500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
                 <li class="active"><a href="blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
               </ul>
             </li>
@@ -331,7 +325,6 @@
                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
               </ul>
             </li>
-            <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
@@ -353,9 +346,7 @@
           </h1>
           <ol class="breadcrumb">
             @section('items')
-            <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Examples</a></li>
-            <li class="active">Blank page</li>
+            <li class="active"><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
             @show
           </ol>
         </section>
@@ -368,7 +359,7 @@
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <b>Version</b> 1.0
         </div>
         <strong>Copyright &copy; 2015-2016 <a href="#">Lezama Consultores</a>.</strong> All rights reserved.
       </footer>
