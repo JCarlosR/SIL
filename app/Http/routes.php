@@ -23,3 +23,8 @@ Route::get('registro', 'Auth\AuthController@getRegister');
 
 // Autenticado
 Route::get('panel', 'HomeController@getPanel');
+
+// Relacionadas al MOF
+Route::get('MOF', 'MOFController@getIndex');
+Route::get('MOF/cargos', 'MOFController@getCargos');
+Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
