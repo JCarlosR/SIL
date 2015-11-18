@@ -21,5 +21,9 @@ Route::post('ingresar', 'Auth\AuthController@postLogin');
 Route::get('salir', 'Auth\AuthController@getLogout');
 Route::get('registro', 'Auth\AuthController@getRegister');
 
+// Atencion y Consulta
+Route::get('registrarProtocolo', 'ProtocoloController@getRegister');
+Route::get('registrarEmpresa', 'EmpresaController@getRegister');
+
 // Autenticado
 Route::get('panel', 'HomeController@getPanel');
