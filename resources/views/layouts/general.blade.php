@@ -213,6 +213,12 @@
                 <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
               </ul>
             </li>
+            <li>
+              <a href="{{ url('perfil-trabajador') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Perfil del trabajador</span>
+              </a>
+            </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-book"></i></i>
@@ -223,11 +229,6 @@
                 <li><a href="{{ url('MOF') }}"><i class="fa fa-circle-o"></i> Gestionar MOF</a></li>
                 <li><a href="{{ url('MOF/cargos') }}"><i class="fa fa-circle-o"></i> Lista de cargos</a></li>
               </ul>
-            </li>
-            <li>
-              <a href="../widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">Hot</small>
-              </a>
             </li>
             <li class="treeview">
               <a href="#">

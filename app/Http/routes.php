@@ -24,6 +24,9 @@ Route::get('registro', 'Auth\AuthController@getRegister');
 // Autenticado
 Route::get('panel', 'HomeController@getPanel');
 
+// Relacionados al perfil de trabajador
+Route::get('perfil-trabajador', 'PerfilTrabajadorController@getIndex');
+
 // Relacionadas al MOF
 Route::get('MOF', 'MOFController@getIndex');
 Route::get('MOF/cargos', 'MOFController@getCargos');
