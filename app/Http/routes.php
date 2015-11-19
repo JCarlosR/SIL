@@ -24,6 +24,10 @@ Route::get('registro', 'Auth\AuthController@getRegister');
 // Atencion y Consulta
 Route::get('registrarProtocolo', 'ProtocoloController@getRegister');
 Route::get('registrarEmpresa', 'EmpresaController@getRegister');
+Route::post('asignarEmpresa', 'EmpresaController@postAsignar');
+Route::post('asignarProtocolo', 'ProtocoloController@postAsignar');
+Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
+Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
 
 // Autenticado
 Route::get('panel', 'HomeController@getPanel');
@@ -39,3 +43,13 @@ Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
 Route::get('MOF', 'MOFController@getIndex');
 Route::get('MOF/cargos', 'MOFController@getCargos');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
+
+// Relacionadas a la Hoja de Ruta
+Route::get('HojaRuta/registrar', 'HojaRutaController@getHojaRuta');
+
+// Relacionadas al triaje
+Route::get('Triaje/registrar', 'TriajeController@getTriaje');
+Route::post('listar/pacientes', 'TriajeController@postPacientes');
+
+// Relacionadas al Historial
+Route::get('Historial/registrar', 'HistorialClinicoController@getHistorial');

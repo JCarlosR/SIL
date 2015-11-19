@@ -208,11 +208,11 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span> Atención</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                <li><a href=" {{ url('registrarProtocolo') }} "><i class="fa fa-circle-o"></i> Registrar Protocolo</a></li>
+                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Verificar Orden</a></li>
               </ul>
             </li>
             <li>
@@ -537,5 +537,6 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
     @yield('scripts')
+
   </body>
 </html>

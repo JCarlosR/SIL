@@ -6,7 +6,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h2 class="box-title">Registro de protocolo</h2>
+            <h2 class="box-title">Registro de protocolo <span id="max">{{ $maxid }}</span></h2>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -19,12 +19,10 @@
                         <form>
                             <div class="form-group">
                                 <h3>Empresa</h3>
-                                <select class="form-control">
-                                    <option>Seagro SAC</option>
-                                    <option>Laredo EIRL</option>
-                                    <option>Empresa 3</option>
-                                    <option>Empresa 4</option>
-                                    <option>Empresa 5</option>
+                                <select class="form-control" id="cboEmpresa">
+                                    @foreach($empresas as $empresa)
+                                    <option value="{{ $empresa->id }}">{{ $empresa->nombre_comercial }}</option>
+                                    @endforeach
                                 </select>
                                 <br>
                                 <button id="btnNueva" type="button" class="btn btn-primary" onclick="location.href= '{{url('registrarEmpresa')}}' ">Nueva</button>
@@ -39,10 +37,27 @@
                                 <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
                             </div>
                             <label for="txtPerfil">Perfil</label>
-                            <select class="form-control">
-                                <option>Trabajador en Oficina</option>
-                                <option>Trabajador en Planta</option>
+                            <select id="cboPerfil" class="form-control">
+                                <option value="1">Trabajador en Oficina</option>
+                                <option value="2">Trabajador en Planta</option>
                             </select>
+                            <br>
+                            <button id="btnAgregar" type="button" class="btn btn-success" >Agregar</button>
+                            <br>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Trabajador</th>
+                                    <th>DNI</th>
+                                    <th>Perfil</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                </tr>
+                                </tbody>
+                            </table>
                             <br>
                             <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Continuar Registro</button>
                         </form>
@@ -57,4 +72,8 @@
         </div><!-- /.box-footer-->
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('scripts/Protocolo/gestionar.js') }}"></script>
 @endsection
