@@ -30,7 +30,10 @@ Route::get('panel', 'HomeController@getPanel');
 
 // Relacionados al perfil de trabajador
 Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
+Route::get('perfil-trabajador/ver', 'WorkerProfileController@getPrevisualizar');
 Route::post('registrar/skill', 'WorkerProfileController@postSkill');
+Route::put('modificar/skill', 'WorkerProfileController@putSkill');
+Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
 
 // Relacionadas al MOF
 Route::get('MOF', 'MOFController@getIndex');

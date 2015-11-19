@@ -1,14 +1,24 @@
 var $modalEditar;
+var $formEditar;
+var _token;
 
 $(document).on('ready', function() {
     // Referencias a usar
     $modalEditar = $('#modalEditar');
+    $formEditar = $('#formEditar');
+    _token = $('[name="_token"]').val();
 
     // Evento de envío de formularios (registro)
     $('form').on('submit', registrarSkill);
 
     // Evento para mostrar el modal de edición
-    $('[data-editar]').on('click', mostrarModal);
+    $(document).on('click', '[data-editar]', mostrarModal);
+
+    // Evento para guardar los cambios de edición
+    $formEditar.on('submit', guardarCambios);
+
+    // Evento para eliminar un skill
+    $(document).on('click', '[data-eliminar]', eliminarSkill);
 });
 
 function registrarSkill() {
@@ -33,20 +43,68 @@ function registrarSkill() {
     });
 }
 
+var $filaEditar;
+
 function mostrarModal() {
     // Cargar los datos al modal
-    var $tr = $(this).parents('tr');
+    $filaEditar = $(this).parents('tr');
     var id = $(this).data('editar');
 
-    var nombre = $tr.find('[data-name]').text();
-    var descripcion = $tr.find('[data-description]').text();
+    var nombre = $filaEditar.find('[data-name]').text();
+    var descripcion = $filaEditar.find('[data-description]').text();
 
-    $modalEditar.find('[name="id"]').val(id);
-    $modalEditar.find('[name="name"]').val(nombre);
-    $modalEditar.find('[name="description"]').val(descripcion);
+    $formEditar.find('[name="id"]').val(id);
+    $formEditar.find('[name="name"]').val(nombre);
+    $formEditar.find('[name="description"]').val(descripcion);
 
     // Mostrar el modal
     $modalEditar.modal('show');
+}
+
+function guardarCambios() {
+    event.preventDefault();
+
+    $.ajax({
+        url: 'modificar/skill',
+        type: 'POST',
+        data: $form.serialize(),
+        success: function (data) {
+            editarFila(data.name, data.description);
+            $modalEditar.modal('hide');
+        },
+        error: function (data) {
+            var errors = data.responseJSON;
+
+            $.each(errors, function (i, value) {
+                renderTemplateAlerta($modalEditar.find('.modal-body'), value);
+            });
+        }
+    });
+}
+
+function eliminarSkill() {
+    var id = $(this).prev().data('editar');
+    var $filaEliminar = $(this).parents('tr');
+    var $tbody = $filaEliminar.parents('tbody');
+
+    $.ajax({
+        url: 'eliminar/skill',
+        type: 'POST',
+        data: { id: id, _token: _token },
+        success: function (data) {
+            $filaEliminar.fadeOut('slow', function() {
+                $(this).remove();
+                actualizarEnumeracion($tbody);
+            });
+        },
+        error: function (data) {
+            var errors = data.responseJSON;
+
+            $.each(errors, function (i, value) {
+                renderTemplateAlerta($filaEliminar.parents('.panel-body'), value);
+            });
+        }
+    });
 }
 
 // En adelante, funciones de ayuda
@@ -59,7 +117,7 @@ function activateTemplate(id) {
 function renderTemplateAlerta($target, mensaje) {
     var $alerta = activateTemplate('#template-alerta');
     $alerta.find('span').text(mensaje);
-    $target.before($alerta);
+    $target.prepend($alerta);
 }
 
 function agregarFila($table, id, nombre, descripcion) {
@@ -68,10 +126,15 @@ function agregarFila($table, id, nombre, descripcion) {
     $fila.find('[data-description]').text(descripcion);
     $fila.find('[data-editar]').data('editar', id);
 
-    $tbody = $table.find('tbody');
+    var $tbody = $table.find('tbody');
     $tbody.append($fila);
 
     actualizarEnumeracion($tbody);
+}
+
+function editarFila(nombre, descripcion) {
+    $filaEditar.find('[data-name]').text(nombre);
+    $filaEditar.find('[data-description]').text(descripcion);
 }
 
 function actualizarEnumeracion($tbody) {
