@@ -37,5 +37,6 @@
         <label for="descripcion">Descripción</label>
         <input type="text" name="descripcion" class="form-control"/>
     </div>
+
     <button type="submit" class="btn btn-primary pull-right">Registrar nuevo valor</button>
 </form>

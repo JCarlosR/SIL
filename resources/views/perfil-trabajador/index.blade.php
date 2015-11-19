@@ -28,6 +28,39 @@
         </tr>
     </template>
 
+    <!-- Modal para editar un skill -->
+    <div id="modalEditar" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ventana de edición</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                        <input type="hidden" name="id" value=""/>
+                        <div class="form-group">
+                            <label for="nombre">Nuevo nombre</label>
+                            <input type="text" name="name" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Nueva descripción</label>
+                            <input type="text" name="description" class="form-control"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success">Guardar cambios</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
@@ -68,6 +101,11 @@
                         </div>
                     </div>
                 </div>
+
+                <button type="submit" class="btn btn-block bg-orange margin">
+                    <span class="glyphicon glyphicon-new-window pull-left"></span>
+                    Generar perfil del trabajador en PDF
+                </button>
             </div><!-- /.box-body -->
         </div>
     </div>

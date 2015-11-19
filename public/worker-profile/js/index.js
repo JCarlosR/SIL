@@ -1,6 +1,14 @@
+var $modalEditar;
+
 $(document).on('ready', function() {
+    // Referencias a usar
+    $modalEditar = $('#modalEditar');
+
     // Evento de envío de formularios (registro)
     $('form').on('submit', registrarSkill);
+
+    // Evento para mostrar el modal de edición
+    $('[data-editar]').on('click', mostrarModal);
 });
 
 function registrarSkill() {
@@ -24,6 +32,24 @@ function registrarSkill() {
         }
     });
 }
+
+function mostrarModal() {
+    // Cargar los datos al modal
+    var $tr = $(this).parents('tr');
+    var id = $(this).data('editar');
+
+    var nombre = $tr.find('[data-name]').text();
+    var descripcion = $tr.find('[data-description]').text();
+
+    $modalEditar.find('[name="id"]').val(id);
+    $modalEditar.find('[name="name"]').val(nombre);
+    $modalEditar.find('[name="description"]').val(descripcion);
+
+    // Mostrar el modal
+    $modalEditar.modal('show');
+}
+
+// En adelante, funciones de ayuda
 
 function activateTemplate(id) {
     var t = document.querySelector(id);
