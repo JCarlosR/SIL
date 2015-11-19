@@ -35,3 +35,13 @@ Route::get('perfil-trabajador', 'PerfilTrabajadorController@getIndex');
 Route::get('MOF', 'MOFController@getIndex');
 Route::get('MOF/cargos', 'MOFController@getCargos');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
+
+// Relacionadas a la Hoja de Ruta
+Route::get('HojaRuta/registrar', 'HojaRutaController@getHojaRuta');
+
+// Relacionadas al triaje
+Route::get('Triaje/registrar', 'TriajeController@getTriaje');
+Route::post('listar/pacientes', 'TriajeController@postPacientes');
+
+// Relacionadas al Historial
+Route::get('Historial/registrar', 'HistorialClinicoController@getHistorial');

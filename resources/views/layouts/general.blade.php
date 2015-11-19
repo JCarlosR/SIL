@@ -544,5 +544,7 @@
     <script src="{{ asset('dist/js/app.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
+
+    <script src="{{ asset('script/registrarTriaje.js') }}"></script>
   </body>
 </html>
