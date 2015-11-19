@@ -24,12 +24,20 @@ Route::get('registro', 'Auth\AuthController@getRegister');
 // Atencion y Consulta
 Route::get('registrarProtocolo', 'ProtocoloController@getRegister');
 Route::get('registrarEmpresa', 'EmpresaController@getRegister');
+Route::post('asignarEmpresa', 'EmpresaController@postAsignar');
+Route::post('asignarProtocolo', 'ProtocoloController@postAsignar');
+Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
+Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
 
 // Autenticado
 Route::get('panel', 'HomeController@getPanel');
 
 // Relacionados al perfil de trabajador
-Route::get('perfil-trabajador', 'PerfilTrabajadorController@getIndex');
+Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
+Route::get('perfil-trabajador/ver', 'WorkerProfileController@getPrevisualizar');
+Route::post('registrar/skill', 'WorkerProfileController@postSkill');
+Route::put('modificar/skill', 'WorkerProfileController@putSkill');
+Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
 
 // Relacionadas al MOF
 Route::get('MOF', 'MOFController@getIndex');

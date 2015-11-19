@@ -144,3 +144,6 @@
     </div>
 @endsection
 
+@section('scripts')
+    <script src="{{ asset('script/registrarTriaje.js') }}"></script>
+@endsection

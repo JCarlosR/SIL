@@ -18,6 +18,8 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
 
+    @yield('styles')
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -206,11 +208,11 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span> Atención</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                <li><a href=" {{ url('registrarProtocolo') }} "><i class="fa fa-circle-o"></i> Registrar Protocolo</a></li>
+                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Verificar Orden</a></li>
               </ul>
             </li>
             <li>
@@ -290,17 +292,6 @@
                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
-            </li>
-            <li class="treeview active">
-              <a href="#">
-                <i class="fa fa-folder"></i> <span>Examples</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                <li><a href="profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-                <li class="active"><a href="blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-              </ul>
             </li>
             <li class="treeview">
               <a href="#">
@@ -545,6 +536,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
-    <script src="{{ asset('script/registrarTriaje.js') }}"></script>
+    @yield('scripts')
+
   </body>
 </html>
