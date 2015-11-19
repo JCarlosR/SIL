@@ -19,12 +19,12 @@
                         <form>
                             <h3>Datos Principales</h3>
                             <div class="form-group">
-                                <label for="txtDNI">Nombre Comercial</label>
-                                <input type="text" class="form-control" id="txtDNI" placeholder="DNI">
+                                <label for="txtnombre">Nombre Comercial</label>
+                                <input type="text" class="form-control" id="txtnombre" placeholder="Nombre comercial">
                             </div>
                             <div class="form-group">
-                                <label for="txtDNI">RUC</label>
-                                <input type="text" class="form-control" id="txtDNI" placeholder="DNI">
+                                <label for="txtruc">RUC</label>
+                                <input type="text" class="form-control" id="txtruc" placeholder="RUC">
                             </div>
                             <h3>Datos de Contacto</h3>
                             <div class="form-group">
@@ -40,7 +40,8 @@
                                 <input type="text" class="form-control" id="txtc2" placeholder="Contacto 2">
                             </div>
                             <br>
-                            <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block"  onclick="location.href='index.php'">Registrar</button>
+                            <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Registrar</button>
+                            <button id="btnAceptar" type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href= '{{url('registrarProtocolo')}}' ">Aceptar</button>
                         </form>
                     </div>
                 </div>
@@ -51,4 +52,8 @@
         </div><!-- /.box-footer-->
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('scripts/Empresa/gestionar.js') }}"></script>
 @endsection

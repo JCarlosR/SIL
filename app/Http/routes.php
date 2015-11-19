@@ -24,6 +24,10 @@ Route::get('registro', 'Auth\AuthController@getRegister');
 // Atencion y Consulta
 Route::get('registrarProtocolo', 'ProtocoloController@getRegister');
 Route::get('registrarEmpresa', 'EmpresaController@getRegister');
+Route::post('asignarEmpresa', 'EmpresaController@postAsignar');
+Route::post('asignarProtocolo', 'ProtocoloController@postAsignar');
+Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
+Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
 
 // Autenticado
 Route::get('panel', 'HomeController@getPanel');
