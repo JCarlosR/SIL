@@ -16,6 +16,18 @@
         </div>
     </template>
 
+    <template id="template-fila">
+        <tr>
+            <td class="col-md-1" data-i></td>
+            <td class="col-md-2" data-name></td>
+            <td class="col-md-7" data-description></td>
+            <td class="col-md-2">
+                <button class="btn btn-success" data-editar="">Editar</button>
+                <button class="btn btn-danger" data-eliminar>Eliminar</button>
+            </td>
+        </tr>
+    </template>
+
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">

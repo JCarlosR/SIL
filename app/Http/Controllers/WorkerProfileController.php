@@ -25,10 +25,21 @@ class WorkerProfileController extends Controller
     public function postSkill(Request $request)
     {
         $this->validate($request, [
-            'type' => 'required|in:Valor,Habilidad,Conocimiento',
-            'name' => 'required|unique:skills|max:55',
-            'description' => 'required|max:255|min:5'
+            'tipo' => 'required|in:Valor,Habilidad,Conocimiento',
+            'nombre' => 'required|unique:skills,name|max:55',
+            'descripcion' => 'required|max:255|min:5'
         ]);
+
+        // Luego hacer más complejo con ctrl de versiones para el perfil de trab
+
+        $skill = Skill::create([
+            'worker_profile_id' => 1,
+            'type' => $request->get('tipo'),
+            'name' => $request->get('nombre'),
+            'description' => $request->get('descripcion')
+        ]);
+
+        return response()->json($skill);
     }
 
 }

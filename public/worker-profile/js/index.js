@@ -3,8 +3,6 @@ $(document).on('ready', function() {
     $('form').on('submit', registrarSkill);
 });
 
-var rpta;
-
 function registrarSkill() {
     event.preventDefault();
 
@@ -15,8 +13,7 @@ function registrarSkill() {
         type: 'POST',
         data: $form.serialize(),
         success: function (data) {
-
-            // $form.agregarFila();
+            agregarFila($form.prev('table'), data.id, data.name, data.description);
         },
         error: function (data) {
             var errors = data.responseJSON;
@@ -28,14 +25,32 @@ function registrarSkill() {
     });
 }
 
-// Funciones relacionadas al template HTML5
 function activateTemplate(id) {
     var t = document.querySelector(id);
     return $(document.importNode(t.content, true));
 }
 
 function renderTemplateAlerta($target, mensaje) {
-    var $clone = activateTemplate('#template-alerta');
-    $clone.find('span').html(mensaje);
-    $target.before($clone);
+    var $alerta = activateTemplate('#template-alerta');
+    $alerta.find('span').text(mensaje);
+    $target.before($alerta);
+}
+
+function agregarFila($table, id, nombre, descripcion) {
+    var $fila = activateTemplate('#template-fila');
+    $fila.find('[data-name]').text(nombre);
+    $fila.find('[data-description]').text(descripcion);
+    $fila.find('[data-editar]').data('editar', id);
+
+    $tbody = $table.find('tbody');
+    $tbody.append($fila);
+
+    actualizarEnumeracion($tbody);
+}
+
+function actualizarEnumeracion($tbody) {
+    var i = 0;
+    $tbody.find('tr').each(function() {
+        $(this).find('[data-i]').text(++i);
+    });
 }
