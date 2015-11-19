@@ -9,6 +9,13 @@
 @endsection
 
 @section('content')
+    <template id="template-alerta">
+        <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Hey!</strong> <span></span>
+        </div>
+    </template>
+
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
@@ -52,4 +59,8 @@
             </div><!-- /.box-body -->
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('worker-profile/js/index.js') }}"></script>
 @endsection

@@ -18,6 +18,8 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
 
+    @yield('styles')
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -291,17 +293,6 @@
                 <small class="label pull-right bg-yellow">12</small>
               </a>
             </li>
-            <li class="treeview active">
-              <a href="#">
-                <i class="fa fa-folder"></i> <span>Examples</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                <li><a href="profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-                <li class="active"><a href="blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-              </ul>
-            </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-share"></i> <span>Multilevel</span>
@@ -544,5 +535,7 @@
     <script src="{{ asset('dist/js/app.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
+
+    @yield('scripts')
   </body>
 </html>

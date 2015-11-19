@@ -29,7 +29,8 @@ Route::get('registrarEmpresa', 'EmpresaController@getRegister');
 Route::get('panel', 'HomeController@getPanel');
 
 // Relacionados al perfil de trabajador
-Route::get('perfil-trabajador', 'PerfilTrabajadorController@getIndex');
+Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
+Route::post('registrar/skill', 'WorkerProfileController@postSkill');
 
 // Relacionadas al MOF
 Route::get('MOF', 'MOFController@getIndex');
