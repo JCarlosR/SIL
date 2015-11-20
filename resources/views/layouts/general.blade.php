@@ -131,8 +131,8 @@
                 <i class="fa fa-dashboard"></i><span> Atención</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href=" {{ url('registrarProtocolo') }} "><i class="fa fa-circle-o"></i> Registrar Protocolo</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Verificar Orden</a></li>
+                <li><a href="{{ url('protocolo/registrar') }} "><i class="fa fa-circle-o"></i> Registrar protocolo</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Verificar orden</a></li>
               </ul>
             </li>
             <li class="header">MÓDULO GESTIÓN DE PERSONAL</li>

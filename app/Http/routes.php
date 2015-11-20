@@ -21,16 +21,16 @@ Route::post('ingresar', 'Auth\AuthController@postLogin');
 Route::get('salir', 'Auth\AuthController@getLogout');
 Route::get('registro', 'Auth\AuthController@getRegister');
 
-// Atencion y Consulta
-Route::get('registrarProtocolo', 'ProtocoloController@getRegister');
-Route::get('registrarEmpresa', 'EmpresaController@getRegister');
-Route::post('asignarEmpresa', 'EmpresaController@postAsignar');
-Route::post('asignarProtocolo', 'ProtocoloController@postAsignar');
+// Usuario autenticado
+Route::get('panel', 'HomeController@getPanel');
+
+// Atención y consulta
+Route::get('protocolo/registrar', 'ProtocoloController@getRegister');
+Route::get('empresa/registrar', 'EmpresaController@getRegister');
+Route::post('empresa/registrar', 'EmpresaController@postRegister');
+Route::post('protocolo/registrar', 'ProtocoloController@postRegister');
 Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
 Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
-
-// Autenticado
-Route::get('panel', 'HomeController@getPanel');
 
 // Relacionados al perfil de trabajador
 Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
@@ -44,12 +44,12 @@ Route::get('MOF', 'MOFController@getIndex');
 Route::get('MOF/cargos', 'MOFController@getCargos');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
 
-// Relacionadas a la Hoja de Ruta
+// Relacionadas a la hoja de Ruta
 Route::get('HojaRuta/registrar', 'HojaRutaController@getHojaRuta');
 
 // Relacionadas al triaje
 Route::get('Triaje/registrar', 'TriajeController@getTriaje');
 Route::post('listar/pacientes', 'TriajeController@postPacientes');
 
-// Relacionadas al Historial
+// Relacionadas al historial
 Route::get('Historial/registrar', 'HistorialClinicoController@getHistorial');

@@ -15,7 +15,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-offset-2 col-md-6">
-                    <h3>Asignación de Exámenes</h3>
+                    <h3>Asignación de exámenes</h3>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -23,7 +23,7 @@
                             <th>Trabajador</th>
                             <th>DNI</th>
                             <th>Perfil</th>
-                            <th>Examenes</th>
+                            <th>Exámenes</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -45,18 +45,14 @@
                 </div>
             </div>
         </div><!-- /.box-body -->
-        <div class="box-footer">
-            Lezama Consultores
-        </div><!-- /.box-footer-->
     </div>
-
 
     <div class="modal fade" id="modalExamenes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Examenes</h4>
+                    <h4 class="modal-title" id="myModalLabel">Exámenes</h4>
                 </div>
                 <form>
                     <div class="modal-body">
