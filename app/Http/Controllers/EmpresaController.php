@@ -20,22 +20,25 @@ class EmpresaController extends Controller
 
     public function getRegister()
     {
-        return view('registrarEmpresa');
+        return view('empresa.registrar');
     }
 
-    public function postAsignar(Request $request)
+    public function postRegister(Request $request)
     {
-        $insert = Empresa::create([
-                'nombre_comercial'=>$request->get('nombre_comercial'),
-                'ruc'=>$request->get('ruc'),
-                'web'=>$request->get('web'),
-                'contacto1'=>$request->get('contacto1'),
-                'contacto2'=>$request->get('contacto2')
+        $this->validate($request, [
+            'nombre_comercial' => 'required|min:3',
+            'ruc'              => 'required|digits:11'
         ]);
-        if($insert)
-             return ['exito'=>true];
-        return ['exito'=>false];
 
+        Empresa::create([
+            'nombre_comercial' => $request->get('nombre_comercial'),
+            'ruc'              => $request->get('ruc'),
+            'web'              => $request->get('web'),
+            'contacto1'        => $request->get('contacto1'),
+            'contacto2'        => $request->get('contacto2')
+        ]);
+
+        return redirect('protocolo/registrar');
     }
 
 

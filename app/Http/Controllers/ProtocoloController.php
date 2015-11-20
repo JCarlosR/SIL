@@ -26,13 +26,15 @@ class ProtocoloController extends Controller
     public function getRegister()
     {
         $empresas = Empresa::all();
+
         $maxid = Protocolo::all()->max('id');
-        if($maxid == null){$maxid = 0;}
+        if ($maxid == null) $maxid = 0;
         $maxid++;
-        return view('registrarProtocolo')->with(compact(['empresas','maxid']));
+
+        return view('protocolo.registrar')->with(compact(['empresas', 'maxid']));
     }
 
-    public function postAsignar(Request $request)
+    public function postRegister(Request $request)
     {
         $filas = $request->get('filas');
 
@@ -48,12 +50,14 @@ class ProtocoloController extends Controller
             ]);
             $ultimo = Paciente::all()->max('id');
             $insert2 = Orden::create([
-                'paciente_id'=>$ultimo,
-                'protocolo_id'=>$request->get('id')
+                'paciente_id' => $ultimo,
+                'protocolo_id' => $request->get('id')
             ]);
         }
-        if($insert1)
+
+        if ($insert1)
             return ['exito'=>true];
+
         return ['exito'=>false];
     }
 
@@ -65,7 +69,7 @@ class ProtocoloController extends Controller
         foreach($ordenes as $orden) {
             $pacientes[] = Paciente::find($orden->paciente_id);
         }
-        return view('registrarExamenes')->with(compact(['maxid','pacientes','examenes']));
+        return view('protocolo.examenes')->with(compact(['maxid','pacientes','examenes']));
     }
 
     public function asignarExamenes(Request $request){
