@@ -28,8 +28,8 @@ class CreateTriajesTable extends Migration
             $table->foreign('protocolo_id')->references('id')->on('protocolos');
             $table->integer('orden_id')->unsigned();
             $table->foreign('orden_id')->references('id')->on('ordenes');
-            $table->integer('historial_medico_id')->unsigned();
-            $table->foreign('historial_medico_id')->references('id')->on('historial_clinicos');
+            $table->integer('historial_clinico_id')->unsigned();
+            $table->foreign('historial_clinico_id')->references('id')->on('historial_clinicos');
 //            $table->integer('user_id')->unsigned();
 //            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
