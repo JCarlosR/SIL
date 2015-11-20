@@ -148,7 +148,7 @@ return [
         /*
          * Service Providers agregados por nosotros
          */
-        Barryvdh\DomPDF\ServiceProvider::class,
+        //Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -200,7 +200,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         // En adelante, dependencias agregas por nosotros
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        //'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 
