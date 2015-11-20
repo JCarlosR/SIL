@@ -6,17 +6,17 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Título de la sección</h3>
+            <h3 class="box-title">Bienvenido</h3>
             <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
             </div>
         </div>
         <div class="box-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni deleniti officiis, fugiat, labore vitae sint dolores necessitatibus possimus officia, autem veniam. Id ad iste itaque illo quos, dignissimos ullam architecto!
+            <img src="{{ asset('images/banner-lezama.png') }}"/>
         </div><!-- /.box-body -->
         <div class="box-footer">
-            Contenido del Footer
+            Por favor seleccione una de las opciones de la izquierda.
         </div><!-- /.box-footer-->
     </div>
 @endsection
