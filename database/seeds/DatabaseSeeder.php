@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PacientePerfilesTableSeeder::class);
         $this->call(ExamenesTableSeeder::class);
 
-        // Suyón
+        // Ramos
         $this->call(WorkerProfilesTableSeeder::class);
 
         Model::reguard();
