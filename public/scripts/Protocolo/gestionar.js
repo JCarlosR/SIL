@@ -71,7 +71,7 @@ function guardarProtocolo(){
         encode: true
     }).done(function(datos){
         if(datos.exito){
-            alert('Se realizo el registro con éxito');
+            alert('Se realizo el registro satisfactoriamente');
             // Redirigir a asignar examenes
         }
         else

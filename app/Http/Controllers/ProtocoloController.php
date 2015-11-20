@@ -6,6 +6,7 @@ use App\Empresa;
 use App\Examen;
 use App\Orden;
 use App\Paciente;
+use App\PacienteExamen;
 use App\Protocolo;
 use App\User;
 use Illuminate\Http\Request;
@@ -68,5 +69,21 @@ class ProtocoloController extends Controller
     }
 
     public function asignarExamenes(Request $request){
+        $idpaciente = $request->get('pacienteid');
+        $idprotocolo = $request->get('protocoloid');
+        $examenes = $request->get('examenes');
+        $orden = Orden::where('protocolo_id',$idprotocolo)->where('paciente_id',$idpaciente)->first();
+        foreach($examenes as $examen){
+            $insert = PacienteExamen::create([
+                'orden_id' => $orden->id,
+                'examen_id' => $examen
+            ]);
+
+            if (! $insert)
+                return ['exito'=>false];
+        }
+
+        return ['exito'=>true];
+
     }
 }
