@@ -34,14 +34,14 @@
                             <td>{{ $paciente->dni }}</td>
                             <td>{{ $paciente->pacienteperfil_id }}</td>
                             <td>
-                                <button type="button" class="btn btn-danger" id="asignarExamenes">Asignar</button>
+                                <button type="button" id="{{ $paciente->id }}" class="asignar btn btn-danger">Asignar</button>
                             </td>
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
                     <br>
-                    <button id="btnGuardar" type="button" class="btn btn-primary btn-lg btn-block"  onclick="location.href='{{ '../' }}'">Guardar</button>
+                    <button id="btnGuardar" type="button" class="btn btn-primary btn-lg btn-block"  onclick="location.href='{{ '../' }}'">Aceptar</button>
                 </div>
             </div>
         </div><!-- /.box-body -->
@@ -51,28 +51,30 @@
     </div>
 
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="modalExamenes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Examenes</h4>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                    @foreach($examenes as $examen)
-                        <div class="col-md-6">
-                            <div class="checkbox">
-                                <label><input type="checkbox">{{ $examen->nombre }}</label>
+                <form>
+                    <div class="modal-body">
+                        <div class="row">
+                        @foreach($examenes as $examen)
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="examenes[]" value="{{ $examen->id }}">{{ $examen->nombre }}</label>
+                                </div>
                             </div>
+                        @endforeach
                         </div>
-                    @endforeach
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="btnGuardar">Guardar Cambios</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="guardar btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
