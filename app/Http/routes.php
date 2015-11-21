@@ -53,3 +53,6 @@ Route::post('listar/pacientes', 'TriajeController@postPacientes');
 
 // Relacionadas al historial
 Route::get('Historial/registrar', 'HistorialClinicoController@getHistorial');
+
+// Relacionadas a psicología
+Route::get('psicologia', 'PsicologiaController@getIngreso');
