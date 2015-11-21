@@ -27,7 +27,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ url('Triaje/registrar') }}" id="formRegistraTriaje" method="POST">
+                        <form action="{{ url('triaje/registrar') }}" id="formRegistraTriaje" method="POST">
                             <div class="col-md-offset-2 col-md-8">
                                 <h3>Datos del Paciente</h3>
                                 {{--NO OLVIDAR CAMBIAR LOS NAMES DE LOS INPUT--}}
@@ -153,5 +153,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('Triaje/registrarTriaje.js') }}"></script>
+    <script src="{{ asset('triaje/registrarTriaje.js') }}"></script>
 @endsection

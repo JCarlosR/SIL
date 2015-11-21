@@ -136,7 +136,7 @@
               </ul>
             </li>
             <li>
-              <a href="{{ url('Triaje/registrar') }}">
+              <a href="{{ url('triaje/registrar') }}">
                 <i class="glyphicon glyphicon-file"></i>
                 <span>Triaje</span>
               </a>
