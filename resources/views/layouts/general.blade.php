@@ -136,12 +136,18 @@
                 <li><a href="#"><i class="fa fa-circle-o"></i> Verificar orden</a></li>
               </ul>
             </li>
+              <a href="{{ url('Triaje/registrar') }}">
+                <i class="glyphicon glyphicon-file"></i>
+                <span>Triaje</span>
+              </a>
+            </li>
             <li>
               <a href="{{ url('psicologia') }}">
                 <i class="glyphicon glyphicon-tint"></i>
                 <span>Psicología</span>
               </a>
             </li>
+            <li>
 
             <li class="header">MÓDULO GESTIÓN DE PERSONAL</li>
             <li>
@@ -161,6 +167,7 @@
                 <li><a href="{{ url('MOF/cargos') }}"><i class="fa fa-circle-o"></i> Lista de cargos</a></li>
               </ul>
             </li>
+
             <li class="header">SALIR</li>
             <li>
               <a href="{{ url('salir') }}">

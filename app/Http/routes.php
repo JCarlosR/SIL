@@ -49,10 +49,11 @@ Route::get('HojaRuta/registrar', 'HojaRutaController@getHojaRuta');
 
 // Relacionadas al triaje
 Route::get('Triaje/registrar', 'TriajeController@getTriaje');
-Route::post('listar/pacientes', 'TriajeController@postPacientes');
+Route::post('Triaje/registrar', 'TriajeController@postRegistrar');
+Route::get('pacientes/listar', 'TriajeController@getPacientes');
 
 // Relacionadas al historial
-Route::get('Historial/registrar', 'HistorialClinicoController@getHistorial');
+Route::get('Historial/registrar/{triaje_id}', 'HistorialClinicoController@getHistorial');
 
 // Relacionadas a psicología
 Route::get('psicologia', 'PsicologiaController@getIngreso');

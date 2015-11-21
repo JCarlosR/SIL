@@ -22,12 +22,16 @@ class CreateTriajesTable extends Migration
 
             $table->integer('paciente_id')->unsigned();
             $table->foreign('paciente_id')->references('id')->on('pacientes');
+
             $table->integer('hojaruta_id')->unsigned();
             $table->foreign('hojaruta_id')->references('id')->on('hoja_rutas');
+
             $table->integer('protocolo_id')->unsigned();
             $table->foreign('protocolo_id')->references('id')->on('protocolos');
+
             $table->integer('orden_id')->unsigned();
             $table->foreign('orden_id')->references('id')->on('ordenes');
+
             $table->integer('historial_clinico_id')->unsigned();
             $table->foreign('historial_clinico_id')->references('id')->on('historial_clinicos');
 //            $table->integer('user_id')->unsigned();
