@@ -45,12 +45,12 @@ Route::get('MOF/cargos', 'MOFController@getCargos');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
 
 // Relacionadas a la hoja de Ruta
-Route::get('HojaRuta/registrar', 'HojaRutaController@getHojaRuta');
+Route::get('hojaruta/registrar', 'HojaRutaController@getHojaRuta');
 
 // Relacionadas al triaje
-Route::get('Triaje/registrar', 'TriajeController@getTriaje');
-Route::post('Triaje/registrar', 'TriajeController@postRegistrar');
+Route::get('triaje/registrar', 'TriajeController@getTriaje');
+Route::post('triaje/registrar', 'TriajeController@postRegistrar');
 Route::get('pacientes/listar', 'TriajeController@getPacientes');
 
 // Relacionadas al historial
-Route::get('Historial/registrar/{triaje_id}', 'HistorialClinicoController@getHistorial');
+Route::get('historial/registrar/{triaje_id}', 'HistorialClinicoController@getHistorial');

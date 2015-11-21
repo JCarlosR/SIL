@@ -58,6 +58,6 @@ class TriajeController extends Controller
         ]);
 
         
-        return redirect('Historial/registrar/'.$triaje->id);
+        return redirect('historial/registrar/'.$triaje->id);
     }
 }
