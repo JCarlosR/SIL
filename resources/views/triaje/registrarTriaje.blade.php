@@ -16,69 +16,81 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-10">
-                        <form action="#">
+                        @if($errors->has())
+                            <div class="alert alert-danger fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <ul class="list-unstyled">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form action="{{ url('Triaje/registrar') }}" id="formRegistraTriaje" method="POST">
                             <div class="col-md-offset-2 col-md-8">
                                 <h3>Datos del Paciente</h3>
                                 {{--NO OLVIDAR CAMBIAR LOS NAMES DE LOS INPUT--}}
+                                {{ csrf_field() }}
+
+                                <input type="hidden" class="form-control" name="paciente_id" >
+                                <input type="hidden" class="form-control" name="hojaruta_id" value="1">
+                                <input type="hidden" class="form-control" name="protocolo_id" value="1">
+                                <input type="hidden" class="form-control" name="orden_id" value="1">
+                                <input type="hidden" class="form-control" name="historial_clinico_id" value="1">
+
                                 <div class="form-group">
-                                    <label for="txtNombre">Paciente</label>
-                                    <input type="text" class="form-control" id="txtNombre" placeholder="Juan Perez" readonly>
+                                    <label for="nombre">Paciente</label>
+                                    <input type="text" class="form-control" name="nombre" required readonly>
                                     <button type="button" class="btn btn-primary pull-right" data-buscar>Buscar</button>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtDNI">Hoja de ruta</label>
-                                    <input type="text" class="form-control" id="txtDNI" placeholder="48317532" readonly>
+                                    <input type="text" class="form-control" name="txtHoja" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEmpresa">Empresa</label>
-                                    <input type="text" class="form-control" id="txtEmpresa" placeholder="SOl de Laredo SA" readonly>
+                                    <input type="text" class="form-control" name="txtEmpresa" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtHijos">Número de hijos</label>
-                                    <input type="text" class="form-control" id="txtHijos" placeholder="3" readonly>
+                                    <input type="text" class="form-control" name="txtHijos" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEstudios">Nivel de estudios</label>
-                                    <input type="text" class="form-control" id="txtEstudios" placeholder="Carretera central Km 4" readonly>
+                                    <input type="text" class="form-control" name="txtEstudios" readonly>
                                 </div>
-
 
                                 <h3>Datos del Triaje</h3>
                                 <div class="form-group">
-                                    <label for="txtPeso">Peso</label>
-                                    <input type="text" class="form-control" id="txtweb" placeholder="Peso" >
+                                    <label for="peso">Peso</label>
+                                    <input type="text" class="form-control" name="peso" placeholder="Peso" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtTalla">Talla</label>
-                                    <input type="text" class="form-control" id="txtTalla" placeholder="Talla" >
+                                    <label for="talla">Talla</label>
+                                    <input type="text" class="form-control" name="talla" placeholder="Talla" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtPresion">Presión arterial</label>
-                                    <input type="text" class="form-control" id="txtPresion" placeholder="Presión arterial" >
+                                    <label for="presion_arterial">Presión arterial</label>
+                                    <input type="text" class="form-control" name="presion_arterial" placeholder="Presión arterial" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtFrecuencia">Frecuencia arterial</label>
-                                    <input type="text" class="form-control" id="txtFrecuencia" placeholder="Frecuencia arterial" >
+                                    <label for="frecuencia_cardiaca">Frecuencia arterial</label>
+                                    <input type="text" class="form-control" name="frecuencia_cardiaca" placeholder="Frecuencia arterial" >
                                 </div>
                             </div>
 
                             <br>
-                            <div class="col-md-offset-2 col-md-8">
-                                <div class="pull-left col-md-4">
-                                    <button id="btnRegistrarg" type="button" class="btn btn-primary btn-lg btn-block" >Volver</button>
-                                </div>
-                                <div class="pull-right col-md-8">
-                                    <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Registrar Historial Clínico</button>
-                                </div>
+
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Registrar Historial Clínico</button>
                             </div>
+
                         </form>
                     </div>
                 </div>
             </div>
-        </div><!-- /.box-body -->
-        <div class="box-footer">
-            Lezama Consultores
-        </div><!-- /.box-footer-->
+        </div>
     </div>
 
     <div id="buscarPaciente" class="modal fade in">
@@ -97,39 +109,35 @@
                             <input type="text" class="form-control" name="buscado" placeholder="Nuevo nombre del detalle" required/>
                         </div>
                         <table class="table table-hover">
-                            <tr>
-                                <td>
-                                    Hoja de Ruta
-                                </td>
-                                <td>
-                                    Paciente
-                                </td>
-                                <td>
-                                    Acción
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HDR-001
-                                </td>
-                                <td>
-                                    Edith Carbajal
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-primary">Elegir</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    HDR-002
-                                </td>
-                                <td>
-                                    Francisco Tadeo
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-primary">Elegir</button>
-                                </td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        Hoja de Ruta
+                                    </td>
+                                    <td>
+                                        Paciente
+                                    </td>
+                                    <td>
+                                        Acción
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <template id="template-fila">
+                                    <tr>
+                                        <td data-hoja>
+                                            HDR-001
+                                        </td>
+                                        <td data-paciente>
+                                            Edith Carbajal
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-id="">Elegir</button>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
                         </table>
 
                     </div>
@@ -145,5 +153,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('Triaje/registrarTriaje') }}"></script>
+    <script src="{{ asset('Triaje/registrarTriaje.js') }}"></script>
 @endsection
