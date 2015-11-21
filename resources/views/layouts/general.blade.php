@@ -135,6 +135,12 @@
                 <li><a href="#"><i class="fa fa-circle-o"></i> Verificar orden</a></li>
               </ul>
             </li>
+            <li>
+              <a href="{{ url('Triaje/registrar') }}">
+                <i class="glyphicon glyphicon-file"></i>
+                <span>Triaje</span>
+              </a>
+            </li>
             <li class="header">MÓDULO GESTIÓN DE PERSONAL</li>
             <li>
               <a href="{{ url('perfil-trabajador') }}">
