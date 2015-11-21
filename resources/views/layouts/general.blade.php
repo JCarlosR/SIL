@@ -125,6 +125,7 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
+
             <li class="header">MÓDULO ATENCIÓN Y CONSULTA</li>
             <li class="treeview">
               <a href="#">
@@ -137,10 +138,19 @@
             </li>
             <li>
               <a href="{{ url('triaje/registrar') }}">
+
                 <i class="glyphicon glyphicon-file"></i>
                 <span>Triaje</span>
               </a>
             </li>
+            <li>
+              <a href="{{ url('psicologia') }}">
+                <i class="glyphicon glyphicon-tint"></i>
+                <span>Psicología</span>
+              </a>
+            </li>
+            <li>
+
             <li class="header">MÓDULO GESTIÓN DE PERSONAL</li>
             <li>
               <a href="{{ url('perfil-trabajador') }}">
@@ -159,6 +169,7 @@
                 <li><a href="{{ url('MOF/cargos') }}"><i class="fa fa-circle-o"></i> Lista de cargos</a></li>
               </ul>
             </li>
+
             <li class="header">SALIR</li>
             <li>
               <a href="{{ url('salir') }}">
