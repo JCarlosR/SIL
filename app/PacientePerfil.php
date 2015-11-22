@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PacientePerfil extends Model
 {
-    protected $table = 'PacientePerfiles';
-
-    public $timestamps = false;
+    protected $table = 'pacientePerfiles';
 
     /**
      * The attributes that are mass assignable.

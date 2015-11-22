@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
 
         // Ramos
         $this->call(WorkerProfilesTableSeeder::class);
+        $this->call(MOFTableSeeder::class);
+        $this->call(CargosTableSeeder::class);
 
         Model::reguard();
     }
