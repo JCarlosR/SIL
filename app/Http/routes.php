@@ -40,7 +40,9 @@ Route::put('modificar/skill', 'WorkerProfileController@putSkill');
 Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
 
 // Relacionadas al MOF
-Route::get('MOF', 'MOFController@getIndex');
+Route::get('MOF', 'MOFController@getMOF');
+Route::post('MOF', 'MOFController@postMOF');
+Route::get('organigrama', 'MOFController@getOrganigrama');
 Route::get('MOF/cargos', 'MOFController@getCargos');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
 
@@ -53,7 +55,6 @@ Route::post('triaje/registrar', 'TriajeController@postRegistrar');
 Route::get('pacientes/listar', 'TriajeController@getPacientes');
 
 // Relacionadas al historial
-
 Route::get('historial/registrar/{triaje_id}', 'HistorialClinicoController@getHistorial');
 
 // Relacionadas a psicología

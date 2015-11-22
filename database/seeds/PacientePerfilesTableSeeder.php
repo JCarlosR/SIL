@@ -13,10 +13,10 @@ class PacientePerfilesTableSeeder extends Seeder
     public function run()
     {
         PacientePerfil::create([
-            'descripcion'=>"Trabajador en Oficina"
+            'descripcion' => 'Trabajador en oficina'
         ]);
         PacientePerfil::create([
-            'descripcion'=>"Trabajador en Planta"
+            'descripcion' => 'Trabajador en planta'
         ]);
     }
 }

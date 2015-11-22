@@ -21,23 +21,25 @@
             <div class="box-body">
                 <table class="table table-hover">
                     <tr>
-                        <th>#</th>
-                        <th>Unidad</th>
-                        <th>Cargo</th>
-                        <th>Función</th>
-                        <th>Opciones</th>
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-2">Unidad</th>
+                        <th class="col-md-2">Cargo</th>
+                        <th class="col-md-5">Función</th>
+                        <th class="col-md-2">Opciones</th>
                     </tr>
                     <tbody>
+                    @foreach($cargos as $cargo)
                         <tr>
-                            <td>1</td>
-                            <td>Gerencia general</td>
-                            <td>Gerente general</td>
-                            <td>Planificar, organizar y coordinar</td>
+                            <td>{{ ++$c }}</td>
+                            <td>{{ $cargo->unidad }}</td>
+                            <td>{{ $cargo->nombre }}</td>
+                            <td>{{ $cargo->funcion }}</td>
                             <td>
-                                <a href="{{ url('MOF/cargos/1') }}" class="btn btn-success">Editar</a>
+                                <a href="{{ url('MOF/cargos') }}/{{ $cargo->id }}" class="btn btn-success">Editar</a>
                                 <button class="btn btn-danger">Eliminar</button>
                             </td>
                         </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div><!-- /.box-body -->

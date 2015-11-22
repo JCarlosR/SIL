@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
-    protected $table = 'Empresas';
-
-    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.

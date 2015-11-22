@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orden extends Model
 {
-    protected $table = 'Ordenes';
-
-    public $timestamps = false;
+    protected $table = 'ordenes';
 
     /**
      * The attributes that are mass assignable.
