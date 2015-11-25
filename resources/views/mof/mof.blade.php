@@ -35,11 +35,11 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="finalidad">Finalidad</label>
-                        <input type="text" name="finalidad" class="form-control" value="{{ old('finalidad') ?: $mof->finalidad }}"/>
+                        <textarea name="finalidad" class="form-control" rows="4">{{ old('finalidad') ?: $mof->finalidad }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="alcance">Alcance</label>
-                        <input type="text" name="alcance" class="form-control" value="{{ old('alcance') ?: $mof->alcance }}"/>
+                        <textarea name="alcance" class="form-control" rows="2">{{ old('alcance') ?: $mof->alcance }}</textarea>
                     </div>
                     <div class="form-group">
                         @if ($mof->organigrama)

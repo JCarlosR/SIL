@@ -44,6 +44,7 @@ Route::get('MOF', 'MOFController@getMOF');
 Route::post('MOF', 'MOFController@postMOF');
 Route::get('organigrama', 'MOFController@getOrganigrama');
 Route::get('MOF/cargos', 'MOFController@getCargos');
+Route::post('MOF/cargo/registrar', 'MOFController@postCargo');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
 
 // Relacionadas a la hoja de Ruta

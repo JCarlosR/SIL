@@ -85,8 +85,27 @@ class MOFController extends Controller
         return view('mof.cargos')->with(compact('cargos', 'c'));
     }
 
+    public function postCargo(Request $request)
+    {
+        $this->validate($request, [
+            'unidad' => 'required|min:5',
+            'nombre' => 'required|unique:cargos|min:5',
+            'funcion' => 'required|max:255|min:5'
+        ]);
+
+        $cargo = Cargo::create([
+            'MOF_id' => 1,
+            'unidad' => $request->get('unidad'),
+            'nombre' => $request->get('nombre'),
+            'funcion' => $request->get('funcion')
+        ]);
+
+        return response()->json($cargo);
+    }
+
     public function getEditarCargo($id)
     {
-        return view('mof.editar-cargo');
+        $cargo = Cargo::find($id);
+        return view('mof.editar-cargo')->with(compact('cargo'));
     }
 }

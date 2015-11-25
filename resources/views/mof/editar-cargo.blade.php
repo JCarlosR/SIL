@@ -26,19 +26,19 @@
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="unidad">Unidad</label>
-                            <input type="text" name="unidad" class="form-control" placeholder="Ejemplo: Gerencia general" />
+                            <input type="text" name="unidad" class="form-control" value="{{ old('unidad') ?: $cargo->unidad }}" placeholder="Ejemplo: Gerencia general" />
                         </div>
                     </div>
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="cargo">Cargo</label>
-                            <input type="text" name="cargo" class="form-control" placeholder="Ejemplo: Gerente general" />
+                            <input type="text" name="nombre" class="form-control" value="{{ old('nombre') ?: $cargo->nombre }}" placeholder="Ejemplo: Gerente general" />
                         </div>
                     </div>
                     </div>
                     <div class="form-group">
                         <label for="funcion">Función</label>
-                        <input type="text" name="funcion" class="form-control" placeholder="Ingrese una descripción general" />
+                        <input type="text" name="funcion" class="form-control" value="{{ old('funcion') ?: $cargo->funcion }}" placeholder="Ingrese una descripción general" />
                     </div>
                 </form>
                 <button type="submit" class="btn btn-primary pull-right">Modificar cargo</button>
