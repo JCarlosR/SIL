@@ -114,5 +114,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('worker-profile/js/index.js') }}"></script>
+    <script src="{{ asset('scripts/worker-profile/index.js') }}"></script>
 @endsection

@@ -111,5 +111,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('mof/cargos.js') }}"></script>
+    <script src="{{ asset('scripts/mof/cargos.js') }}"></script>
 @endsection
