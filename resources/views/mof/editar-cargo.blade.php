@@ -20,8 +20,16 @@
                 </div>
             </div>
             <div class="box-body">
+                @if (session('notif'))
+                <div class="alert alert-success fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Éxito!</strong> {{ session('notif') }}
+                </div>
+                @endif
                 <p>Modifique los campos siguientes si desea modificar los datos del cargo seleccionado.</p>
-                <form action="">
+                <form action="" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
                     <div class="row">
                         <div class="col-md-6">
                         <div class="form-group">
@@ -40,8 +48,8 @@
                         <label for="funcion">Función</label>
                         <input type="text" name="funcion" class="form-control" value="{{ old('funcion') ?: $cargo->funcion }}" placeholder="Ingrese una descripción general" />
                     </div>
+                    <button type="submit" class="btn btn-primary pull-right">Modificar cargo</button>
                 </form>
-                <button type="submit" class="btn btn-primary pull-right">Modificar cargo</button>
             </div><!-- /.box-body -->
         </div>
 

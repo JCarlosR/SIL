@@ -108,4 +108,21 @@ class MOFController extends Controller
         $cargo = Cargo::find($id);
         return view('mof.editar-cargo')->with(compact('cargo'));
     }
+
+    public function putEditarCargo($id, Request $request)
+    {
+        $this->validate($request, [
+            'unidad' => 'required|min:5',
+            'nombre' => 'required|unique:cargos,nombre,'.$id.',id|min:5',
+            'funcion' => 'required|max:255|min:5'
+        ]);
+
+        $cargo = Cargo::find($id);
+        $cargo->unidad = $request->get('unidad');
+        $cargo->nombre = $request->get('nombre');
+        $cargo->funcion = $request->get('funcion');
+        $cargo->save();
+
+        return redirect('MOF/cargos/'.$id)->withNotif('Los datos del cargo se han actualizado correctamente.');
+    }
 }
