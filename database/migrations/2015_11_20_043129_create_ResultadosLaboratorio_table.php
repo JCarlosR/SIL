@@ -18,6 +18,8 @@ class CreateResultadosLaboratorioTable extends Migration
             $table->string('tipoAnalisis');
             $table->date('fechaRegistro');
             $table->string('descripcion');
+            $table->string('estado');
+            $table->string('resultado');
 
             $table->integer('historialClinico_id')->unsigned();
             $table->integer('hojaruta_id')->unsigned();
