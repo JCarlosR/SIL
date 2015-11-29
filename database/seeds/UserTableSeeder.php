@@ -30,5 +30,11 @@ class UserTableSeeder extends Seeder
             'username' => 'jgonzales',
             'password' => Hash::make('123456')
         ]);
+
+        User::create([
+            'full_name' => 'Soles Cavero, Edilberto',
+            'username' => 'SoleS',
+            'password' => Hash::make('7654321')
+        ]);
     }
 }
