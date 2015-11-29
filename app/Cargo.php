@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cargo extends Model
 {
-    
+
     protected $fillable = [ 'MOF_id', 'unidad', 'nombre', 'funcion' ];
 
     public function MOF()

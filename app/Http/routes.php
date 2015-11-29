@@ -77,3 +77,17 @@ Route::get('historial/registrar/{triaje_id}', 'HistorialClinicoController@getHis
 
 // Relacionadas a psicología
 Route::get('psicologia', 'PsicologiaController@getIngreso');
+
+
+//Relacionadas con laboratorio
+Route::get('LaboratorioHDR', 'LaboratorioController@getIndex');
+Route::get('LaboratorioHC', 'LaboratorioController@getHC');
+
+//Relacionadas con consultoria
+Route::get('consultoria', 'ConsultoriaController@getIndex');
+Route::get('consultoriaHC', 'ConsultoriaController@getHCl');
+
+//Relacionadas con radiologia
+Route::get('radiologia', 'RadiologiaController@getIndex');
+Route::get('radiologiHC', 'RadiologiaController@getHR');
+
