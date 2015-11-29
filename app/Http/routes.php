@@ -32,7 +32,8 @@ Route::post('protocolo/registrar', 'ProtocoloController@postRegister');
 Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
 Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
 
-// Relacionados al perfil de trabajador
+
+// Relacionadas al perfil de trabajador
 Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
 Route::get('perfil-trabajador/ver', 'WorkerProfileController@getPrevisualizar');
 Route::post('registrar/skill', 'WorkerProfileController@postSkill');
@@ -48,7 +49,22 @@ Route::post('MOF/cargo/registrar', 'MOFController@postCargo');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
 Route::put('MOF/cargos/{id}', 'MOFController@putEditarCargo');
 
-// Relacionadas a la hoja de Ruta
+// Relacionadas a datos particulares de los cargos
+Route::post('cargos/relaciones/registrar', 'RelacionController@store');
+Route::put('cargos/relaciones/modificar', 'RelacionController@update');
+Route::post('cargos/relaciones/eliminar', 'RelacionController@destroy');
+Route::post('cargos/atribuciones/registrar', 'AtribucionController@store');
+Route::put('cargos/atribuciones/modificar', 'AtribucionController@update');
+Route::post('cargos/atribuciones/eliminar', 'AtribucionController@destroy');
+Route::post('cargos/funciones/registrar', 'FuncionController@store');
+Route::put('cargos/funciones/modificar', 'FuncionController@update');
+Route::post('cargos/funciones/eliminar', 'FuncionController@destroy');
+Route::post('cargos/requisitos/registrar', 'RequisitoController@store');
+Route::put('cargos/requisitos/modificar', 'RequisitoController@update');
+Route::post('cargos/requisitos/eliminar', 'RequisitoController@destroy');
+
+
+// Relacionadas a la hoja de ruta
 Route::get('hojaruta/registrar', 'HojaRutaController@getHojaRuta');
 
 // Relacionadas al triaje

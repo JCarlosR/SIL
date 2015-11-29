@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Atribucion;
 use App\Cargo;
+use App\Funcion;
 use App\MOF;
+use App\Relacion;
+use App\Requisito;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -106,7 +110,19 @@ class MOFController extends Controller
     public function getEditarCargo($id)
     {
         $cargo = Cargo::find($id);
-        return view('mof.editar-cargo')->with(compact('cargo'));
+
+        $rel = 0;
+        $relaciones = Relacion::where('cargo_id', $id)->get();
+
+        $atr = 0;
+        $atribuciones = Atribucion::where('cargo_id', $id)->get();
+
+        $fun = 0;
+        $funciones = Funcion::where('cargo_id', $id)->get();
+
+        $req = 0;
+        $requisitos = Requisito::where('cargo_id', $id)->get();
+        return view('mof.editar-cargo')->with(compact('cargo', 'rel', 'relaciones', 'atr', 'atribuciones', 'fun', 'funciones', 'req', 'requisitos'));
     }
 
     public function putEditarCargo($id, Request $request)
