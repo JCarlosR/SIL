@@ -138,7 +138,6 @@
             </li>
             <li>
               <a href="{{ url('triaje/registrar') }}">
-
                 <i class="glyphicon glyphicon-file"></i>
                 <span>Triaje</span>
               </a>
@@ -149,6 +148,35 @@
                 <span>Psicología</span>
               </a>
             </li>
+            <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-book"></i></i>
+                  <span>Laboratorio</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ url('LaboratorioHDR') }}"><i class="fa fa-circle-o"></i>Gestionar Hojas de Ruta</a></li>
+                  <li><a href="{{ url('LaboratorioHC') }}"><i class="fa fa-circle-o"></i>Registrar Resultados</a></li>
+                </ul>
+              </li>
+             <li class="treeview">
+              <a href="#">
+                <i class="glyphicon glyphicon-book"></i><span>Asesoría / Consultoría</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ url('consultoria') }}"><i class="fa fa-circle-o"></i>Gestionar hojas de ruta</a></li>
+                  <li><a href="{{ url('consultoriaHC') }}"><i class="fa fa-circle-o"></i>Registrar resultados</a></li>
+                </ul>
+              </li>
+              <li class="treeview">
+              <a href="#">
+                <i class="glyphicon glyphicon-registration-mark"></i><span>Radiología</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ url('radiologia') }}"><i class="fa fa-circle-o"></i>Gestionar hojas de ruta</a></li>
+                  <li><a href="{{ url('radiologiHC') }}"><i class="fa fa-circle-o"></i>Registrar resultados</a></li>
+                </ul>
+              </li>
             <li>
 
             <li class="header">MÓDULO GESTIÓN DE PERSONAL</li>

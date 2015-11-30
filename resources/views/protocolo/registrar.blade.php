@@ -75,5 +75,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('scripts/Protocolo/gestionar.js') }}"></script>
+    <script src="{{ asset('scripts/protocolo/gestionar.js') }}"></script>
 @endsection

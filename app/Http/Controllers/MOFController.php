@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Atribucion;
 use App\Cargo;
+use App\Funcion;
 use App\MOF;
+use App\Relacion;
+use App\Requisito;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -85,8 +89,56 @@ class MOFController extends Controller
         return view('mof.cargos')->with(compact('cargos', 'c'));
     }
 
+    public function postCargo(Request $request)
+    {
+        $this->validate($request, [
+            'unidad' => 'required|min:5',
+            'nombre' => 'required|unique:cargos|min:5',
+            'funcion' => 'required|max:255|min:5'
+        ]);
+
+        $cargo = Cargo::create([
+            'MOF_id' => 1,
+            'unidad' => $request->get('unidad'),
+            'nombre' => $request->get('nombre'),
+            'funcion' => $request->get('funcion')
+        ]);
+
+        return response()->json($cargo);
+    }
+
     public function getEditarCargo($id)
     {
-        return view('mof.editar-cargo');
+        $cargo = Cargo::find($id);
+
+        $rel = 0;
+        $relaciones = Relacion::where('cargo_id', $id)->get();
+
+        $atr = 0;
+        $atribuciones = Atribucion::where('cargo_id', $id)->get();
+
+        $fun = 0;
+        $funciones = Funcion::where('cargo_id', $id)->get();
+
+        $req = 0;
+        $requisitos = Requisito::where('cargo_id', $id)->get();
+        return view('mof.editar-cargo')->with(compact('cargo', 'rel', 'relaciones', 'atr', 'atribuciones', 'fun', 'funciones', 'req', 'requisitos'));
+    }
+
+    public function putEditarCargo($id, Request $request)
+    {
+        $this->validate($request, [
+            'unidad' => 'required|min:5',
+            'nombre' => 'required|unique:cargos,nombre,'.$id.',id|min:5',
+            'funcion' => 'required|max:255|min:5'
+        ]);
+
+        $cargo = Cargo::find($id);
+        $cargo->unidad = $request->get('unidad');
+        $cargo->nombre = $request->get('nombre');
+        $cargo->funcion = $request->get('funcion');
+        $cargo->save();
+
+        return redirect('MOF/cargos/'.$id)->withNotif('Los datos del cargo se han actualizado correctamente.');
     }
 }

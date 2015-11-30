@@ -65,5 +65,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('scripts/Protocolo/verificar.js') }}"></script>
+    <script src="{{ asset('protocolo') }}"></script>
 @endsection

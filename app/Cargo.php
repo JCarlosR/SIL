@@ -16,6 +16,9 @@ class Cargo extends Model
         return $this->belongsTo('App\MOF');
     }
 
+
+    // Un cargo tiene muchas:
+
     public function relaciones()
     {
         return $this->hasMany('App\Relacion');
@@ -35,6 +38,7 @@ class Cargo extends Model
     {
         return $this->hasMany('App\Requisito');
     }
+
 
     // Soles:
 

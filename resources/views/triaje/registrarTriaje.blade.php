@@ -153,5 +153,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('triaje/registrarTriaje.js') }}"></script>
+    <script src="{{ asset('scripts/triaje/registrarTriaje.js') }}"></script>
 @endsection

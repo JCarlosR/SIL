@@ -77,5 +77,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('scripts/Protocolo/asignar.js') }}"></script>
+    <script src="{{ asset('scripts/protocolo/asignar.js') }}"></script>
 @endsection

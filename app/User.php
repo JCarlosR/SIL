@@ -37,8 +37,10 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+
     // Soles:
     
+
     public function personal()
     {
         return $this->belongsTo('App\Personal','personal_id');
