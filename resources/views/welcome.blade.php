@@ -3,6 +3,14 @@
 @section('title', 'Página de bienvenida')
 @section('sub-title', '¡ Bienvenido nuevamente !')
 
+@section('styles')
+    <style>
+        .image-responsive {
+            max-width: 85%;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="box">
         <div class="box-header with-border">
@@ -13,7 +21,11 @@
             </div>
         </div>
         <div class="box-body">
-            <img src="{{ asset('images/banner-lezama.png') }}"/>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img class="image-responsive" src="{{ asset('images/banner-lezama.png') }}"/>
+                </div>
+            </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
             Por favor seleccione una de las opciones de la izquierda.

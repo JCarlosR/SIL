@@ -23,7 +23,7 @@ class RequisitoController extends Controller
             'descripcion' => 'required|max:255|min:5'
         ]);
 
-        $requisito = Relacion::create([
+        $requisito = Requisito::create([
             'cargo_id' => $request->get('cargo_id'),
             'nombre' => $request->get('nombre'),
             'descripcion' => $request->get('descripcion')

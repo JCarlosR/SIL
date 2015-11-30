@@ -14,6 +14,7 @@
     @include('mof.modals.relaciones')
     @include('mof.modals.atribuciones')
     @include('mof.modals.funciones')
+    @include('mof.modals.requisitos')
 
     <div class="box">
         <div class="box-header with-border">
@@ -105,7 +106,7 @@
                 <div id="requisitos" class="tab-pane fade">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            {{--@include('mof.tabs.requisitos')--}}
+                            @include('mof.tabs.requisitos')
                         </div>
                     </div>
                 </div>
