@@ -13,11 +13,11 @@ class ExamenesTableSeeder extends Seeder
     public function run()
     {
         Examen::create([
-            'nombre' => 'Espirometría',
+            'nombre' => 'EspirometrÃ­a',
             'pacienteperfil_id' => 1
         ]);
         Examen::create([
-            'nombre' => 'Psicología',
+            'nombre' => 'PsicologÃ­a',
             'pacienteperfil_id' => 2
         ]);
         Examen::create([
@@ -25,11 +25,11 @@ class ExamenesTableSeeder extends Seeder
             'pacienteperfil_id' => 2
         ]);
         Examen::create([
-            'nombre' => 'Musculoesquelético',
+            'nombre' => 'MusculoesquelÃ©tico',
             'pacienteperfil_id' => 1
         ]);
         Examen::create([
-            'nombre' => 'Psicosensométricos',
+            'nombre' => 'PsicosensomÃ©tricos',
             'pacienteperfil_id' => 1
         ]);
         Examen::create([
@@ -41,7 +41,7 @@ class ExamenesTableSeeder extends Seeder
             'pacienteperfil_id' => 2
         ]);
         Examen::create([
-            'nombre'=> 'Oftalmología',
+            'nombre'=> 'OftalmologÃ­a',
             'pacienteperfil_id' => 2
         ]);
     }

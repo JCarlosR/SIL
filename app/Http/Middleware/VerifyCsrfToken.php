@@ -13,6 +13,8 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         'protocolo/registrar',
-        'asignar/examenes/paciente*'
+        'asignar/examenes/paciente*',
+        'orden/verificar*',
+        'orden/empresa*'
     ];
 }
