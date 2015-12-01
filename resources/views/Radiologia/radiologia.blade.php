@@ -21,7 +21,7 @@
                 <div class="box-body">
                         <div class="form-group">
                             <label for="funcion">Ingrese Apellidos y Nombres</label>
-                            <input type="text" name="NombreP" class="form-control" placeholder="Apellidos y Nombres" />
+                            <input id="buscar" type="text" name="NombreP" class="form-control" placeholder="Apellidos y Nombres" />
                         </div>
                 </div><!-- /.box-body -->
     </div>
@@ -43,17 +43,13 @@
                         <th>Paciente</th>
                         <th><p align="left">Seleccion</p></th>
                     </tr>
-                    <tbody>
+                    <tbody id="resultado">
                         <tr>
-                            <td>HDR58</td>
-                            <td>5</td>
-                            <td>Pendiente</td>
-                            <td>Rivera Roman, Eduardo Daniel</td>
-                            <td>
-                                <div>
-                                    &nbsp;&nbsp;<input type="checkbox">
-                                </div>
-                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
                         </tr>
                     </tbody>
                 </table>
@@ -71,63 +67,21 @@
             </div>
             <div class="box-body">
                 <form action="">
-                    <div class="tabbable"> <!-- Only required for left/right tabs -->
+                    <div id="radiologias" class="tabbable"> <!-- Only required for left/right tabs -->
                       <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab1" data-toggle="tab">Radiologia 1</a></li>
-                            <li><a href="#tab2" data-toggle="tab">Radiologia 2</a></li>
-                            <li><a href="#tab3" data-toggle="tab">Radiologia 3</a></li>
-                            <li><a href="#tab4" data-toggle="tab">Radiologia 4</a></li>
                       </ul>
                       <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 <label for="comment"> Tipo de Radiologia:</label>
-                                <input type="text" name="unidad" class="form-control" />
+                                <input readonly type="text" name="unidad" class="form-control" />
                                 <div class="form-group">
                                   <label for="comment">Detalles:</label>
-                                  <textarea class="form-control" rows="5" id="comment" style="resize: none;"></textarea>
+                                  <textarea readonly class="form-control" rows="5" id="comment" style="resize: none;"></textarea>
                                 </div>
                                 <div>
                                     <div class="checkbox" align="center">
-                                    &nbsp;&nbsp;<input type="checkbox">Realizado
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab2">
-                              <label for="comment">Tipo de Radiologia:</label>
-                                <input type="text" name="unidad" class="form-control" />
-                                <div class="form-group">
-                                  <label for="comment">Detalles:</label>
-                                  <textarea class="form-control" rows="5" id="comment" style="resize: none;"></textarea>
-                                </div>
-                                <div>
-                                    <div class="checkbox" align="center">
-                                    &nbsp;&nbsp;<input type="checkbox">Realizado
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab3">
-                              <label for="comment">Tipo de Radiologia:</label>
-                                <input type="text" name="unidad" class="form-control" />
-                                <div class="form-group">
-                                  <label for="comment">Detalles:</label>
-                                  <textarea class="form-control" rows="5" id="comment" style="resize: none;"></textarea>
-                                </div>
-                                <div>
-                                    <div class="checkbox" align="center">
-                                    &nbsp;&nbsp;<input type="checkbox">Realizado
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab4">
-                              <label for="comment">Tipo de Radiologia:</label>
-                                <input type="text" name="unidad" class="form-control" />
-                                <div class="form-group">
-                                  <label for="comment">Detalles:</label>
-                                  <textarea class="form-control" rows="5" id="comment" style="resize: none;"></textarea>
-                                </div>
-                                <div>
-                                    <div class="checkbox" align="center">
-                                    &nbsp;&nbsp;<input type="checkbox">Realizado
+                                    &nbsp;&nbsp;<input disabled type="checkbox">Realizado
                                     </div>
                                 </div>
                             </div>
@@ -136,4 +90,7 @@
                 </form>
             </div><!-- /.box-body -->
         </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('scripts/radiologia/buscarR.js') }}"></script>
 @endsection
