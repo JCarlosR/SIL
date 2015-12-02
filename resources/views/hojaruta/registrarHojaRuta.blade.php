@@ -41,11 +41,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txtNumHijo">Número de hijos</label>
-                                    <input type="text" class="form-control" id="txtNumHijo" value="{{ $paciente->dni }}" readonly>
+                                    <input type="text" class="form-control" id="txtNumHijo" value="{{ $paciente->numhijos }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtNivelEstudio">Nivel de estudios</label>
-                                    <input type="text" class="form-control" id="txtNivelEstudio" value="{{ $paciente->nombre }}" readonly>
+                                    <input type="text" class="form-control" id="txtNivelEstudio" value="{{ $paciente->estudios }}" readonly>
                                 </div>
                             </div>
                             <br>
@@ -62,7 +62,6 @@
                                     <th>E.A.</th>
                                     <th>Lab.</th>
                                     <th>Oft.</th>
-                                    <th>Hoja de ruta</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -105,9 +104,6 @@
                                         <td>{{ $ea }}</td>
                                         <td>{{ $lab }}</td>
                                         <td>{{ $oft }}</td>
-                                        <td>
-                                            {{--<button type="button" class="btn btn-success" onclick="location.href='{{ url('hojaruta/registrar') }}/{{ $id }}/{{ $orden->paciente->id }}'">Ver Hoja de ruta</button>--}}
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -120,14 +116,11 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Volver</button>
+                                <div class=" col-md-6">
+                                    <a class="btn btn-primary btn-lg btn-block" href="{{ url('orden/verificar') }}/{{ $protocolo->id }}">Volver</a>
                                 </div>
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-warning btn-lg btn-block" >Imprimir</button>
-                                </div>
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="submit" class="btn btn-success btn-lg btn-block" >Registrar</button>
+                                <div class=" col-md-6">
+                                    <a target="_blank" class="btn btn-warning btn-lg btn-block" href="{{ url('hojaruta/visualizar') }}/{{ $orden }}/{{ $paciente->id }}">Imprimir</a>
                                 </div>
                             </div>
                         </form>

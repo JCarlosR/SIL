@@ -28,7 +28,7 @@
                 <div id="noAsignados">
                     @foreach($noAsignados as $cargo)
                         <div data-cargo="{{ $cargo->id }}" >
-                            <input type="checkbox" name="origen" value="{{ $cargo->id }}"/><a href="{{ url('personal/requisitos') }}/{{ $cargo->id }}"> {{ $cargo->unidad }}</a>
+                            <input type="checkbox" name="origen" value="{{ $cargo->id }}"/><a href="{{ url('personal/requisitos') }}/{{ $cargo->id }}"> {{ $cargo->nombre }}</a>
                         </div>
                     @endforeach
                 </div>
@@ -48,7 +48,7 @@
                 <div id="asignados" >
                     @foreach($asignados as $cargo)
                         <div data-cargo="{{ $cargo->id }}">
-                            <input type="checkbox" name="destino" value="{{ $cargo->id }}"/><a href="{{ url('personal/requisitos') }}/{{ $cargo->id }}"> {{ $cargo->unidad }}</a>
+                            <input type="checkbox" name="destino" value="{{ $cargo->id }}"/><a href="{{ url('personal/requisitos') }}/{{ $cargo->id }}"> {{ $cargo->nombre }}</a>
                         </div>
                     @endforeach
                 </div>

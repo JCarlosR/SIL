@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Cargo;
 use App\ContratarRequisito;
+use App\Funcion;
 use App\Solicitado;
 use Illuminate\Http\Request;
 use Validator;
@@ -34,7 +35,7 @@ class PersonalController extends Controller
             else
                 $noAsignados[] = Cargo::find($solicitado->cargo_id);
         }
-        return view('personal.convocatoria')->with(compact(['asignados','noAsignados']));
+        return view('personal.convocatoria.convocatoria')->with(compact(['asignados','noAsignados']));
     }
 
     public function postCargosConvocatoria( Request $request )
@@ -52,7 +53,7 @@ class PersonalController extends Controller
     {
         $requisitos = ContratarRequisito::where('cargo_id',$id)->get();
         $cargo = Cargo::find($id);
-        return view('personal.requisitos')->with(compact(['cargo','requisitos']));
+        return view('personal.convocatoria.requisitos')->with(compact(['cargo','requisitos']));
     }
 
     public function postRegistrarRequisitos( $id,Request $request)
@@ -115,7 +116,23 @@ class PersonalController extends Controller
             if($solicitado->estado == 1)
                 $asignados[] = Cargo::find($solicitado->cargo_id);
         }
-        return view('personal.seleccion')->with(compact(['asignados']));
+
+        return view('personal.seleccion.seleccion')->with(compact(['asignados']));
     }
+
+    public function getSeleccionRequerimientos( $id )
+    {
+
+        $cargo = Cargo::find($id);
+        $funciones = Funcion::where('cargo_id',$id)->get();
+        $requisitos = ContratarRequisito::where('cargo_id',$id)->get();
+        return view('personal.seleccion.requerimientos')->with(compact(['cargo','funciones','requisitos']));
+    }
+
+    public function getSeleccionPostulante()
+    {
+        return view('personal.seleccion.postulante');
+    }
+
 
 }
