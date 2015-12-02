@@ -20,7 +20,7 @@
     <div class="panel panel-default col-md-offset-3 col-md-6">
         <div class="panel-heading">
             <div class="box-header with-border requisito-text">
-                <strong class="box-title">{{ $cargo->unidad }}</strong>
+                <strong class="box-title">{{ $cargo->nombre }}</strong>
             </div>
         </div>
         <div class="panel-body">

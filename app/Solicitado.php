@@ -8,8 +8,6 @@ class Solicitado extends Model
 {
     protected $table = 'solicitados';
 
-    public $timestamps = false;
-
     protected $fillable = ['cargo_id','estado'];
 
     public function cargo()
