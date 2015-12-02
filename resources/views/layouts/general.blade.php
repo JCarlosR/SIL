@@ -133,7 +133,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ url('protocolo/registrar') }} "><i class="fa fa-circle-o"></i> Registrar protocolo</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Verificar orden</a></li>
+                <li><a href="{{ url('orden/verificar') }}"><i class="fa fa-circle-o"></i> Verificar orden</a></li>
               </ul>
             </li>
             <li>
@@ -197,6 +197,7 @@
                 <li><a href="{{ url('MOF/cargos') }}"><i class="fa fa-circle-o"></i> Lista de cargos</a></li>
               </ul>
             </li>
+
             <li class="header">SALIR</li>
             <li>
               <a href="{{ url('salir') }}">

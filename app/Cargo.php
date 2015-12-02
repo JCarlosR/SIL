@@ -9,10 +9,13 @@ class Cargo extends Model
 
     protected $fillable = [ 'MOF_id', 'unidad', 'nombre', 'funcion' ];
 
+    // Ramos:
+
     public function MOF()
     {
         return $this->belongsTo('App\MOF');
     }
+
 
     // Un cargo tiene muchas:
 
@@ -47,10 +50,13 @@ class Cargo extends Model
     }
 
 
+    // Soles:
+
     public function postulaciones()
     {
         return $this->hasMany('App\UsuarioPostulacion','postulacion_id');
     }
+
     public function contrataciones()
     {
         return $this->hasMany('App\Contratar_Requisito','contratar_requisito_id');

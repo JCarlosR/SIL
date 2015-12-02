@@ -18,6 +18,7 @@ class CreateResultadoRadiologiaTable extends Migration
             $table->string('tipoRadiologia');
             $table->date('fechaRegistro');
             $table->string('estado');
+            $table->string('descripcion');
             $table->string('resultadoDescriptivo');
             $table->string('codFolder');
             $table->string('nombreImagen');

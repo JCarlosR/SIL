@@ -21,6 +21,7 @@
             </div>
         </div>
         <div class="box-body">
+
             <div class="row">
                 <div class="col-md-12 text-center">
                     <img class="image-responsive" src="{{ asset('images/banner-lezama.png') }}"/>

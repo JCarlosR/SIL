@@ -9,6 +9,7 @@ use App\Paciente;
 use App\PacienteExamen;
 use App\Protocolo;
 use App\User;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -89,5 +90,32 @@ class ProtocoloController extends Controller
 
         return ['exito'=>true];
 
+    }
+
+    public function getOrdenes(){
+        $empresas = Empresa::all();
+        $protocolos = Protocolo::all();
+        return view('protocolo.verificar')->with(compact(['empresas','protocolos']));
+    }
+
+    public function getOrdenesEmpresa(Request $request){
+        $protocolos = Protocolo::where('empresa_id',$request->get('id'))->get();
+        return response()->json($protocolos);
+    }
+
+    public function getOrdenesProtocolo($id){
+        $protocolo = Protocolo::find($id);
+        $ordenes = Orden::where('protocolo_id',$id)->get();
+        return view('protocolo.ordenes')->with(compact(['ordenes','id','protocolo']));
+    }
+
+    public function getPrevisualizar($id){
+        $protocolo = Protocolo::find($id);
+        $ordenes = Orden::where('protocolo_id',$id)->get();
+        $vista =  view('protocolo.pdf', compact('ordenes','id','protocolo'))->render();
+        $pdf = app('dompdf.wrapper');
+        $vista = preg_replace('/<tbody>|<\/tbody>/', '', $vista);
+        $pdf->loadHTML($vista);
+        return $pdf->stream();
     }
 }

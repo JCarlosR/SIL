@@ -12,5 +12,9 @@ class Paciente extends Model
      */
     protected $fillable = ['nombre','dni','pacienteperfil_id'];
 
+    public function perfil()
+    {
+        return $this->belongsTo('App\PacientePerfil', 'pacienteperfil_id');
+    }
 
 }

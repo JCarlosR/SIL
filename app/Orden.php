@@ -13,4 +13,13 @@ class Orden extends Model
      */
     protected $fillable = ['protocolo_id','paciente_id'];
 
+    public function paciente()
+    {
+        return $this->belongsTo('App\Paciente', 'paciente_id');
+    }
+
+    public function pacienteexamenes(){
+        return $this->hasMany('App\PacienteExamen', 'orden_id');
+    }
+
 }

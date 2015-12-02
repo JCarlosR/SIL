@@ -31,6 +31,10 @@ Route::post('empresa/registrar', 'EmpresaController@postRegister');
 Route::post('protocolo/registrar', 'ProtocoloController@postRegister');
 Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
 Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
+Route::get('orden/verificar', 'ProtocoloController@getOrdenes');
+Route::post('orden/verificar', 'ProtocoloController@getOrdenesEmpresa');
+Route::get('orden/verificar/{id}', 'ProtocoloController@getOrdenesProtocolo');
+Route::get('orden/ver/{id}', 'ProtocoloController@getPrevisualizar');
 
 
 // Relacionadas al perfil de trabajador
@@ -83,7 +87,6 @@ Route::get('historial/registrar/{triaje_id}', 'HistorialClinicoController@getHis
 
 // Relacionadas a psicología
 Route::get('psicologia', 'PsicologiaController@getIngreso');
-
 
 //Relacionadas con laboratorio
 Route::get('LaboratorioHDR', 'LaboratorioController@getIndex');
