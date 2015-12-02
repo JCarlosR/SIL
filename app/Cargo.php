@@ -52,4 +52,9 @@ class Cargo extends Model
         return $this->hasMany('App\Contratar_Requisito','contratar_requisito_id');
     }
 
+    public function solicitado()
+    {
+        return $this->belongsTo('App\Solicitado','solicitado_id');
+    }
+
 }

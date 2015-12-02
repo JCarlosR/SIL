@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContratarRequisitosTable extends Migration
+class CreateSolicitadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateContratarRequisitosTable extends Migration
      */
     public function up()
     {
-        Schema::create('contratar_requisitos', function (Blueprint $table) {
+        Schema::create('solicitados', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('cargo_id')->unsigned();
             $table->foreign('cargo_id')->references('id')->on('cargos');
-
-            $table->string('descripcion');
+            $table->tinyInteger('estado');
 
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class CreateContratarRequisitosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('contratar_requisitos');
+        Schema::drop('solicitados');
     }
 }

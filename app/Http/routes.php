@@ -94,3 +94,13 @@ Route::get('consultoriaHC', 'ConsultoriaController@getHCl');
 Route::get('radiologia', 'RadiologiaController@getIndex');
 Route::get('radiologiHC', 'RadiologiaController@getHR');
 
+//Relación a personal de personal
+Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');
+Route::post('personal/convocatoria', 'PersonalController@postCargosConvocatoria');
+
+Route::get('personal/requisitos/{id}', 'PersonalController@getRequisitos');
+Route::post('personal/registrar/requisitos/{id}', 'PersonalController@postRegistrarRequisitos');
+Route::post('personal/modificar/requisitos/{id}', 'PersonalController@postModificarRequisitos');
+Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postEliminarRequisitos');
+
+Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
