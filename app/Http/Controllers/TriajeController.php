@@ -31,11 +31,6 @@ class TriajeController extends Controller
 
     public function postRegistrar(Request $request)
     {
-//        paciente_id
-//        hojaruta_id
-//        protocolo_id
-//        orden_id
-//        historial_clinico_id
 
         $this->validate($request, [
             'paciente_id' => 'required',
