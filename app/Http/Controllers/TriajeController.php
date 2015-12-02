@@ -24,6 +24,7 @@ class TriajeController extends Controller
 
     public function getTriaje()
     {
+
         return view('triaje.registrarTriaje');
     }
 
@@ -70,6 +71,6 @@ class TriajeController extends Controller
             'orden_id' => $request->get('orden_id'),
             'historial_clinico_id' => $historial->id
         ]);
-        return redirect('historial/registrar/'.$triaje->id);
+        return redirect('historial/registrar/'.$request->get('paciente_id'));
     }
 }

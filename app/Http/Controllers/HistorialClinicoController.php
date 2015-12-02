@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Orden;
 use App\Paciente;
 use App\Protocolo;
 use App\Triaje;
@@ -20,17 +21,16 @@ class HistorialClinicoController extends Controller
         $this->middleware('auth');
     }
 
-    public function getHistorial($triaje_id)
+    public function getHistorial($paciente_id)
     {
-        $triaje = Triaje::find($triaje_id);
+        $orden = Orden::where('paciente_id', $paciente_id)->first();
+        $protocolo = $orden->protocolo;
+        //dd($protocolo);
+        $empresa = $protocolo->empresa;
+        $paciente = Paciente::find($paciente_id);
 
-        $protocolo = Protocolo::find($triaje->protocolo_id);
+        $ordenes = $paciente->ordenes;
 
-        $paciente = Paciente::find($triaje->paciente_id);
-
-        $empresa = Empresa::find($protocolo->empresa_id);
-        //dd($empresa->toArray());
-
-        return view('historial.registrarHistorial')->with(compact(['protocolo', 'paciente', 'empresa']));
+        return view('historial.registrarHistorial')->with(compact(['ordenes', 'protocolo', 'paciente', 'empresa']));
     }
 }
