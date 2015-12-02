@@ -126,5 +126,5 @@ Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postElimina
 Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
 
 Route::get('personal/seleccion/requerimientos/{id}', 'PersonalController@getSeleccionRequerimientos');
-Route::get('personal/seleccion/postulante', 'PersonalController@getSeleccionPostulante');
-Route::get('personal/registrar/postulante', 'PersonalController@getSeleccionRegistrarPostulante');
+Route::get('personal/seleccion/postulante/{id}', 'PersonalController@getSeleccionPostulante');
+Route::post('personal/registrar/postulante/{id}', 'PersonalController@postSeleccionRegistrarPostulante');

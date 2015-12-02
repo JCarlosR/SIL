@@ -6,8 +6,12 @@ namespace App\Http\Controllers;
 use App\Cargo;
 use App\ContratarRequisito;
 use App\Funcion;
+use App\Postulacion;
+use App\Postulante;
 use App\Solicitado;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -129,10 +133,58 @@ class PersonalController extends Controller
         return view('personal.seleccion.requerimientos')->with(compact(['cargo','funciones','requisitos']));
     }
 
-    public function getSeleccionPostulante()
-    {
-        return view('personal.seleccion.postulante');
+    public function getSeleccionPostulante($id)
+    { //Debo tener el id cargo ?
+        return view('personal.seleccion.postulante')->with(compact(['id']));;
     }
 
+    public function postSeleccionRegistrarPostulante($id,Request $request )
+    {
+        $validator = Validator::make($request->all(), [
+            'nombres' => 'required|min:3|max:50',
+            'dni' => 'required | max:8',
+            'email' => 'required|min:3|max:50',
+            'telefono' => 'required|max:9',
+            'direccion' => 'required|min:3|max:50'
+        ]);
 
+        if ($validator->fails()) {
+            $data['errors'] = $validator->errors();
+            return redirect('personal/seleccion/postulante')
+                ->withInput($request->all())
+                ->with($data);
+        }
+        $postulante = Postulante::create([
+            'full_name' => $request->get('nombres'),
+            'dni' =>$request->get('dni'),
+            'email' =>$request->get('email'),
+            'phone' =>$request->get('telefono'),
+            'address' =>$request->get('direccion')
+        ]);
+        $dni = $request->get('dni');
+        if($request->hasFile('cv') )
+        {
+            $file = $request->file('cv');
+
+            // Ruta donde queremos guardar las imágenes para los proveedores
+            $path = public_path().'/curriculums';
+
+            // Guardar
+            $sinEspacios = str_replace(' ', '', $postulante->dni.".".$file->getClientOriginalExtension());
+            $simpleName = strtolower($sinEspacios);
+            $fileName = $simpleName;
+            $file->move($path , $fileName);
+
+            $postulante->cVitae = $simpleName;
+        }
+        $postulante->save();
+
+        $postulacion=Postulacion::create([
+            'postulante_id'=>$postulante->id,
+            'cargo_id' =>$id
+        ]);
+        $postulacion->save();
+
+        return redirect('personal/registrar/postulante/.$id');
+    }
 }

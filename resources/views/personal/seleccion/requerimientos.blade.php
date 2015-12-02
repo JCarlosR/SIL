@@ -40,6 +40,6 @@
                 @endforeach
             </div>
         </div>
-            <button type="button" onclick="location.href='{{ url('personal/seleccion/postulante')}}'" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Continuar</button>
+            <button type="button" onclick="location.href='{{ url('personal/seleccion/postulante/'.$cargo->id)}}'" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Continuar</button>
     </div>
 @endsection
