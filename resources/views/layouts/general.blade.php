@@ -197,6 +197,12 @@
                 <li><a href="{{ url('MOF/cargos') }}"><i class="fa fa-circle-o"></i> Lista de cargos</a></li>
               </ul>
             </li>
+            <li>
+              <a href="{{ url('rit/index') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Elaboración del RIT</span>
+              </a>
+            </li>
 
             <li class="header">SALIR</li>
             <li>

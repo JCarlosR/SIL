@@ -43,5 +43,10 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make('123456')
         ]);
 
+        User::create([
+            'full_name' => 'Villarroel Cruzado, José',
+            'username' => 'jowil',
+            'password' => Hash::make('123456')
+        ]);
     }
 }

@@ -24,6 +24,13 @@ class DatabaseSeeder extends Seeder
         $this->call(MOFTableSeeder::class);
         $this->call(CargosTableSeeder::class);
 
+        // Villarroel
+        $this->call(RitsTableSeeder::class);
+        $this->call(TitulosTableSeeder::class);
+        $this->call(CapitulosTableSeeder::class);
+        $this->call(ArticulosTableSeeder::class);
+        $this->call(ItemsTableSeeder::class);
+
         Model::reguard();
     }
 }
