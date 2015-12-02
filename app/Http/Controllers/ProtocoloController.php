@@ -47,7 +47,11 @@ class ProtocoloController extends Controller
             $insert = Paciente::create([
                 'nombre'=>$fila[1],
                 'dni'=>$fila[2],
-                'pacienteperfil_id'=>$fila[3]
+                'pacienteperfil_id'=>$fila[3],
+                'numhijos'=>$fila[4],
+                'estudios'=>$fila[5],
+                'sexo'=>$fila[6],
+                'gruposangre'=>$fila[7]
             ]);
             $ultimo = Paciente::all()->max('id');
             $insert2 = Orden::create([

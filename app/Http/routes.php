@@ -69,7 +69,7 @@ Route::post('cargos/requisitos/eliminar', 'RequisitoController@destroy');
 
 
 // Relacionadas a la hoja de ruta
-Route::get('hojaruta/registrar', 'HojaRutaController@getHojaRuta');
+Route::get('hojaruta/registrar/{orden_id}/{paciente_id}', 'HojaRutaController@getHojaRuta');
 
 // Relacionadas al triaje
 Route::get('triaje/registrar', 'TriajeController@getTriaje');

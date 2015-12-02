@@ -11,8 +11,12 @@ function agregarFila() {
     var nombre = $('#txtNombre').val();
     var dni = $('#txtDNI').val();
     var perfil = $('#cboPerfil').val();
+    var hijos = $('#txtNumhijos').val();
+    var nivel = $('#txtNivel').val();
+    var sexo = $('#cboSexo').val();
+    var grupo = $('#txtGrupo').val();
 
-    $('tbody').append('<tr><td data-i></td><td>'+nombre+'</td><td>'+dni+'</td><td>'+perfil+'</td></tr>');
+    $('tbody').append('<tr><td data-i></td><td>'+nombre+'</td><td>'+dni+'</td><td>'+perfil+'</td><td>'+hijos+'</td><td>'+nivel+'</td><td>'+sexo+'</td><td>'+grupo+'</td></tr>');
     actualizarEnumeracion();
 }
 
@@ -29,7 +33,7 @@ function guardarProtocolo() {
     var entro = false;
 
     $('.table tbody tr').each(function() {
-        var campo1, campo2, campo3, campo4;
+        var campo1, campo2, campo3, campo4,campo5, campo6, campo7, campo8;
         $(this).find('td').each(function(index2) {
             switch (index2) {
                 case 0:
@@ -48,10 +52,26 @@ function guardarProtocolo() {
                     campo4 = $(this).text();
                     entro = true;
                     break;
+                case 4:
+                    campo5 = $(this).text();
+                    entro = true;
+                    break;
+                case 5:
+                    campo6 = $(this).text();
+                    entro = true;
+                    break;
+                case 6:
+                    campo7 = $(this).text();
+                    entro = true;
+                    break;
+                case 7:
+                    campo8 = $(this).text();
+                    entro = true;
+                    break;
             }
         });
         if(entro) {
-            filas[n] = [campo1, campo2, campo3, campo4];
+            filas[n] = [campo1, campo2, campo3, campo4,campo5, campo6, campo7, campo8];
             n++;
             entro = false;
         }

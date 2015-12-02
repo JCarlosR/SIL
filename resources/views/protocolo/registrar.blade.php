@@ -44,6 +44,25 @@
                                 <input type="text" class="form-control" id="txtNombre" placeholder="Nombre" required>
                             </div>
                             <div class="form-group">
+                                <label for="txtNumhijos">Número de hijos</label>
+                                <input type="number" step="1" min="0" class="form-control" id="txtNumhijos" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtNivel">Nivel de instrucción</label>
+                                <input type="text" class="form-control" id="txtNivel" placeholder="Nivel de instrucción" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cboSexo">Sexo</label>
+                                <select id="cboSexo" class="form-control" required>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtGrupo">Grupo de sangre</label>
+                                <input type="text" class="form-control" id="txtGrupo" placeholder="Grupo de sangre" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="txtPerfil">Perfil</label>
                                 <select id="cboPerfil" class="form-control" required>
                                     <option value="1">Trabajador en oficina</option>
@@ -62,12 +81,17 @@
                                     <th>Trabajador</th>
                                     <th>DNI</th>
                                     <th>Perfil</th>
+                                    <th>Numero de hijos</th>
+                                    <th>Nivel de instrucción</th>
+                                    <th>Sexo</th>
+                                    <th>Grupo de sangre</th>
                                 </tr>
                             </thead>
                             <tbody>
                             </tbody>
                         </table>
                         <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block">Continuar registro</button>
+                    </div>
                 </div>
             </div>
         </div><!-- /.box-body -->
