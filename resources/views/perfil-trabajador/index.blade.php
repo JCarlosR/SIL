@@ -104,9 +104,13 @@
                     </div>
                 </div>
 
-                <a href="{{ url('perfil-trabajador/ver') }}" class="btn btn-block bg-orange margin">
+                <a href="{{ url('perfil-trabajador/ver/pdf') }}" target="_blank" class="btn btn-block bg-orange">
                     <span class="glyphicon glyphicon-new-window pull-left"></span>
                     Generar perfil del trabajador en PDF
+                </a>
+                <a href="{{ url('perfil-trabajador/ver/html') }}" target="_blank" class="btn btn-block bg-purple">
+                    <span class="glyphicon glyphicon-new-window pull-left"></span>
+                    Visualizar perfil del trabajador en HTML
                 </a>
             </div><!-- /.box-body -->
         </div>

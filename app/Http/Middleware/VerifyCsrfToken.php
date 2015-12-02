@@ -20,6 +20,7 @@ class VerifyCsrfToken extends BaseVerifier
         'modificar/titulo*',
         'modificar/capitulo*',
         'modificar/articulo*',
-        'modificar/item*'
+        'modificar/item*',
+        'personal*'
     ];
 }

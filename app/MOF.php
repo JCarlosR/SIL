@@ -15,4 +15,21 @@ class MOF extends Model
         return $this->hasMany('App\Cargo');
     }
 
+    public function getOrganigramaEsImagenAttribute()
+    {
+        if ($this->organigrama) {
+            $supported_image = [
+                'gif',
+                'jpg',
+                'jpeg',
+                'png'
+            ];
+
+            $ext = strtolower(pathinfo($this->organigrama, PATHINFO_EXTENSION));
+            if (in_array($ext, $supported_image))
+                return true;
+        }
+        return false;
+    }
+
 }

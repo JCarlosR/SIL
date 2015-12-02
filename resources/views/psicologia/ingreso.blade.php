@@ -59,16 +59,22 @@
                 <form action="">
                     <div class="form-group">
                         <label for="empresa">Empresa</label>
-                        <select name="empresa" class="form-control" required>
-                            <option value=""></option>
-                            <option value="1">CHIMU AGROPECUARIA S.A.C.</option>
-                        </select>
+                        <?php
+                            $connection =mysqli_connect("localhost","root","","lezama");
+                            $res=mysqli_query($connection,"select distinct id,nombre_comercial from empresas");
+                            echo '<select  id="empresa" name="empresa"  class="form-control">';
+                            echo "<option value=''></option>";
+                                    while(@$lista=mysqli_fetch_row($res))
+                                    {
+                                      echo "<option value='".$lista[0]."'>".$lista[1]."</option>";
+                                    }
+                            echo "</select>";
+                        ?>
                     </div>
-                    <div class="form-group">
-                        <label for="protocolo">Protocolo</label>
-                        <select name="protocolo" class="form-control" required>
+                    <div id="protocol" class="form-group">
+                        <label for="protoc">Protocolo</label>
+                        <select id="pro" disabled class="form-control">
                             <option value=""></option>
-                            <option value="1">Procolo CHIMUAGRO 001</option>
                         </select>
                     </div>
                 </form>
@@ -83,33 +89,13 @@
                             <th>Resultados</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="pacientes">
                     <tr>
-                        <td>1</td>
-                        <td>Marcos Botton</td>
-                        <td>HC00321</td>
-                        <td>HR002</td>
-                        <td>
-                            <a href="#" class="btn btn-success">Ingresar resultados</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jose Garrido</td>
-                        <td>HC00322</td>
-                        <td>HR001</td>
-                        <td>
-                            <a href="#" class="btn btn-success">Ingresar resultados</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Eduardo Rivera</td>
-                        <td>HC00249</td>
-                        <td>HR001</td>
-                        <td>
-                            <a href="#" class="btn btn-success">Ingresar resultados</a>
-                        </td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
                     </tr>
                     </tbody>
                 </table>
@@ -123,8 +109,55 @@
             </div><!-- /.box-body -->
         </div>
     </div>
+
+<div class="modal fade" id="registrarResul" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 align="center" style="Color:#2AB7E5;"><b>FICHA DE RESULTADOS</b></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4 col-md-offset-4">
+                                  <div >Fecha de Aplicación:
+                                        <div class='input-group date' id='divMiCalendario' >
+                                            <input type='text'  id="txtFecha" class="form-control"  readonly/>
+                                            <span class="input-group-addon" onclick="pick();"><span class="glyphicon glyphicon-calendar" ></span>
+                                            </span>
+                                        </div>
+                                  </div>
+                  </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-xs-8 col-sm-6">
+                    <fieldset><legend>Inteligencia</legend>
+                        Espacial
+                        <input type="text" name="Espacial" class="form-control"/>
+                    </fieldset>
+                  </div>
+                  <div class="col-xs-4 col-sm-6">
+                    <fieldset><legend>Posibilidades de Exito</legend>
+                    </fieldset>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div align="center">
+                    <button class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('scripts')
     <script src="{{ asset('worker-profile/js/index.js') }}"></script>
+    <script src="{{ asset('scripts/psicologia/js.js') }}"></script>
+    <script src="{{ asset('scripts/psicologia/bootstrap-datetimepicker.es.js') }}"></script>
+    <script src="{{ asset('scripts/psicologia/moment.min.js') }}"></script>
+    <script src="{{ asset('scripts/psicologia/bootstrap-datetimepicker.min.js') }}"></script>
 @endsection

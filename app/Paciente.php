@@ -10,7 +10,7 @@ class Paciente extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = ['nombre','dni','pacienteperfil_id'];
+    protected $fillable = ['nombre','dni','pacienteperfil_id', 'numhijos', 'estudios', 'sexo', 'gruposangre'];
 
     public function perfil()
     {

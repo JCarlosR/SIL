@@ -39,7 +39,8 @@ Route::get('orden/ver/{id}', 'ProtocoloController@getPrevisualizar');
 
 // Relacionadas al perfil de trabajador
 Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
-Route::get('perfil-trabajador/ver', 'WorkerProfileController@getPrevisualizar');
+Route::get('perfil-trabajador/ver/pdf', 'WorkerProfileController@getPDF');
+Route::get('perfil-trabajador/ver/html', 'WorkerProfileController@getHTML');
 Route::post('registrar/skill', 'WorkerProfileController@postSkill');
 Route::put('modificar/skill', 'WorkerProfileController@putSkill');
 Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
@@ -48,6 +49,11 @@ Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
 Route::get('MOF', 'MOFController@getMOF');
 Route::post('MOF', 'MOFController@postMOF');
 Route::get('organigrama', 'MOFController@getOrganigrama');
+Route::get('MOF/ver/pdf', 'MOFController@getPDF');
+Route::get('MOF/ver/html', 'MOFController@getHTML');
+Route::get('MOF/ver/imagen/{imagen}', 'MOFController@getImagen');
+
+// Relacionadas a los cargos del MOF
 Route::get('MOF/cargos', 'MOFController@getCargos');
 Route::post('MOF/cargo/registrar', 'MOFController@postCargo');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');
@@ -69,7 +75,7 @@ Route::post('cargos/requisitos/eliminar', 'RequisitoController@destroy');
 
 
 // Relacionadas a la hoja de ruta
-Route::get('hojaruta/registrar', 'HojaRutaController@getHojaRuta');
+Route::get('hojaruta/registrar/{orden_id}/{paciente_id}', 'HojaRutaController@getHojaRuta');
 
 // Relacionadas al triaje
 Route::get('triaje/registrar', 'TriajeController@getTriaje');
@@ -94,6 +100,7 @@ Route::get('consultoriaHC', 'ConsultoriaController@getHCl');
 Route::get('radiologia', 'RadiologiaController@getIndex');
 Route::get('radiologiHC', 'RadiologiaController@getHR');
 
+
 //Relacionadas con RIT
 Route::get('rit/index', 'RitController@getIndex');
 Route::put('modificar/rit', 'RitController@putRit');
@@ -105,3 +112,15 @@ Route::put('modificar/titulo', 'RitController@putTitulo');
 Route::put('modificar/capitulo', 'RitController@putCapitulo');
 Route::put('modificar/articulo', 'RitController@putArticulo');
 Route::put('modificar/item', 'RitController@putItem');
+
+//Relación a personal de personal
+Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');
+Route::post('personal/convocatoria', 'PersonalController@postCargosConvocatoria');
+
+Route::get('personal/requisitos/{id}', 'PersonalController@getRequisitos');
+Route::post('personal/registrar/requisitos/{id}', 'PersonalController@postRegistrarRequisitos');
+Route::post('personal/modificar/requisitos/{id}', 'PersonalController@postModificarRequisitos');
+Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postEliminarRequisitos');
+
+Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
+
