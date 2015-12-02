@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use App\Examen;
+use App\HojaRuta;
 use App\Orden;
 use App\Paciente;
 use App\PacienteExamen;
@@ -44,16 +45,27 @@ class ProtocoloController extends Controller
         ]);
 
         foreach($filas as $fila){
-            $insert = Paciente::create([
+            $paciente = Paciente::create([
                 'nombre'=>$fila[1],
                 'dni'=>$fila[2],
-                'pacienteperfil_id'=>$fila[3]
+                'pacienteperfil_id'=>$fila[3],
+                'numhijos'=>$fila[4],
+                'estudios'=>$fila[5],
+                'sexo'=>$fila[6],
+                'gruposangre'=>$fila[7]
             ]);
-            $ultimo = Paciente::all()->max('id');
-            $insert2 = Orden::create([
-                'paciente_id' => $ultimo,
+
+            $orden = Orden::create([
+                'paciente_id' => $paciente->id,
                 'protocolo_id' => $request->get('id')
             ]);
+            HojaRuta::create([
+                'protocolo_id' => $request->get('id'),
+                'orden_id' => $orden->id
+            ]);
+            //inserts en las tablas que usan la hoja ruta
+
+
         }
 
         if ($insert1)

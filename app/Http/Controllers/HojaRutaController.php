@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Empresa;
+use App\Orden;
+use App\Paciente;
+use App\PacienteExamen;
+use App\Protocolo;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -16,8 +21,30 @@ class HojaRutaController extends Controller
         $this->middleware('auth');
     }
 
-    public function getHojaRuta()
+    public function getHojaRuta($orden_id, $paciente_id)
     {
-        return view('hojaruta.registrarHojaRuta');
+        $examenes = PacienteExamen::where('orden_id', $orden_id)->get();
+        $paciente = Paciente::find($paciente_id);
+        $orden = Orden::find($orden_id);
+        $protocolo = Protocolo::find($orden->protocolo_id);
+        $empresa = Empresa::find($protocolo->empresa_id);
+        $orden = $orden_id;
+        //dd($empresa);
+        return view('hojaruta.registrarHojaRuta')->with(compact(['protocolo','examenes','paciente','empresa', 'orden']));
+    }
+
+    public function getVisualizar($orden_id, $paciente_id)
+    {
+        $examenes = PacienteExamen::where('orden_id', $orden_id)->get();
+        $paciente = Paciente::find($paciente_id);
+        $orden = Orden::find($orden_id);
+        $protocolo = Protocolo::find($orden->protocolo_id);
+        $empresa = Empresa::find($protocolo->empresa_id);
+        //dd($empresa);
+
+        $vista = view('hojaruta.pdfRuta')->with(compact(['examenes','paciente','empresa']))->render();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+        return $pdf->stream();
     }
 }

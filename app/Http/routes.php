@@ -75,7 +75,8 @@ Route::post('cargos/requisitos/eliminar', 'RequisitoController@destroy');
 
 
 // Relacionadas a la hoja de ruta
-Route::get('hojaruta/registrar', 'HojaRutaController@getHojaRuta');
+Route::get('hojaruta/registrar/{orden_id}/{paciente_id}', 'HojaRutaController@getHojaRuta');
+Route::get('hojaruta/visualizar/{orden_id}/{paciente_id}', 'HojaRutaController@getVisualizar');
 
 // Relacionadas al triaje
 Route::get('triaje/registrar', 'TriajeController@getTriaje');
@@ -100,6 +101,19 @@ Route::get('consultoriaHC', 'ConsultoriaController@getHCl');
 Route::get('radiologia', 'RadiologiaController@getIndex');
 Route::get('radiologiHC', 'RadiologiaController@getHR');
 
+
+//Relacionadas con RIT
+Route::get('rit/index', 'RitController@getIndex');
+Route::put('modificar/rit', 'RitController@putRit');
+Route::get('rit/titulos', 'RitController@getTitulos');
+Route::get('rit/capitulos/{id}', 'RitController@getCapitulos');
+Route::get('rit/articulos/{id}', 'RitController@getArticulos');
+Route::get('rit/items/{id}', 'RitController@getItems');
+Route::put('modificar/titulo', 'RitController@putTitulo');
+Route::put('modificar/capitulo', 'RitController@putCapitulo');
+Route::put('modificar/articulo', 'RitController@putArticulo');
+Route::put('modificar/item', 'RitController@putItem');
+
 //Relación a personal de personal
 Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');
 Route::post('personal/convocatoria', 'PersonalController@postCargosConvocatoria');
@@ -110,6 +124,7 @@ Route::post('personal/modificar/requisitos/{id}', 'PersonalController@postModifi
 Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postEliminarRequisitos');
 
 Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
+
 Route::get('personal/seleccion/requerimientos/{id}', 'PersonalController@getSeleccionRequerimientos');
 Route::get('personal/seleccion/postulante', 'PersonalController@getSeleccionPostulante');
 Route::get('personal/registrar/postulante', 'PersonalController@getSeleccionRegistrarPostulante');

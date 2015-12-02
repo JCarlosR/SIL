@@ -16,6 +16,11 @@ class VerifyCsrfToken extends BaseVerifier
         'asignar/examenes/paciente*',
         'orden/verificar*',
         'orden/empresa*',
+        'modificar/rit*',
+        'modificar/titulo*',
+        'modificar/capitulo*',
+        'modificar/articulo*',
+        'modificar/item*',
         'personal*'
     ];
 }

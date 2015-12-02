@@ -33,7 +33,7 @@ class CreateResultadosLaboratorioTable extends Migration
             $table->foreign('hojaruta_id')->references('id')->on('hoja_rutas');
             $table->foreign('protocolo_id')->references('id')->on('protocolos');
             $table->foreign('detalleorden_id')->references('id')->on('ordenes');
-            $table->timestamps();
+
         });
     }
 
