@@ -3,6 +3,14 @@
 @section('title', 'MOF')
 @section('sub-title', 'Edición del manual de organización y funciones')
 
+@section('styles')
+    <style>
+    .cursiva {
+        font-style: italic;
+    }
+    </style>
+@endsection
+
 @section('items')
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#">MOF</a></li>
@@ -42,15 +50,15 @@
                         <textarea name="alcance" class="form-control" rows="2">{{ old('alcance') ?: $mof->alcance }}</textarea>
                     </div>
                     <div class="form-group">
+                        <label for="organigrama">Organigrama</label>
                         @if ($mof->organigrama)
                             <p><a href="{{ url('organigrama') }}" target="_blank">Click para ver el organigrama actual.</a></p>
                             <p>Suba un nuevo archivo solo si desea modificar el actual.</p>
                         @else
                             <p>Usted aún no ha subido ningún archivo.</p>
                         @endif
-
-                        <label for="organigrama">Organigrama</label>
                         <input type="file" name="organigrama" class="form-control"/>
+                        <p class="cursiva">* El organigrama se incluirá en el MOF generado solo si es una imagen.</p>
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Guardar cambios</button>
                 </form>
@@ -68,9 +76,17 @@
         </div>
         <div class="box-body">
             <p>Desde el siguiente enlace usted puede consultar los cargos registrados en el MOF.</p>
-            <a href="{{ url('MOF/cargos') }}" class="btn btn-success pull-right">
-                <span class="glyphicon glyphicon-link"></span>
-                Listado de cargos
+            <a href="{{ url('MOF/cargos') }}" class="btn btn-block btn-success">
+                <span class="glyphicon glyphicon-link pull-left"></span>
+                Gestionar listado de cargos
+            </a>
+            <a href="{{ url('MOF/ver/pdf') }}" target="_blank" class="btn btn-block bg-orange">
+                <span class="glyphicon glyphicon-new-window pull-left"></span>
+                Generar MOF en PDF
+            </a>
+            <a href="{{ url('MOF/ver/html') }}" target="_blank" class="btn btn-block bg-purple">
+                <span class="glyphicon glyphicon-new-window pull-left"></span>
+                Visualizar MOF en HTML
             </a>
         </div><!-- /.box-body -->
     </div>

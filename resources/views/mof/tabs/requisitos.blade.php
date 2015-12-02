@@ -15,7 +15,7 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Tipo de requisito</th>
+            <th>Nombre</th>
             <th>Descripción</th>
             <th>Opciones</th>
         </tr>

@@ -21,6 +21,16 @@ class Cargo extends Model
         return $this->hasMany('App\Relacion');
     }
 
+    public function getRelacionesInternasAttribute()
+    {
+        return $this->relaciones->where('tipo', 'interna');
+    }
+
+    public function getRelacionesExternasAttribute()
+    {
+        return $this->relaciones->where('tipo', 'externa');
+    }
+
     public function atribuciones()
     {
         return $this->hasMany('App\Atribucion');
