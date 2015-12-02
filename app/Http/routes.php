@@ -101,6 +101,19 @@ Route::get('consultoriaHC', 'ConsultoriaController@getHCl');
 Route::get('radiologia', 'RadiologiaController@getIndex');
 Route::get('radiologiHC', 'RadiologiaController@getHR');
 
+
+//Relacionadas con RIT
+Route::get('rit/index', 'RitController@getIndex');
+Route::put('modificar/rit', 'RitController@putRit');
+Route::get('rit/titulos', 'RitController@getTitulos');
+Route::get('rit/capitulos/{id}', 'RitController@getCapitulos');
+Route::get('rit/articulos/{id}', 'RitController@getArticulos');
+Route::get('rit/items/{id}', 'RitController@getItems');
+Route::put('modificar/titulo', 'RitController@putTitulo');
+Route::put('modificar/capitulo', 'RitController@putCapitulo');
+Route::put('modificar/articulo', 'RitController@putArticulo');
+Route::put('modificar/item', 'RitController@putItem');
+
 //Relación a personal de personal
 Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');
 Route::post('personal/convocatoria', 'PersonalController@postCargosConvocatoria');
@@ -111,3 +124,4 @@ Route::post('personal/modificar/requisitos/{id}', 'PersonalController@postModifi
 Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postEliminarRequisitos');
 
 Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
+
