@@ -15,6 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         'protocolo/registrar',
         'asignar/examenes/paciente*',
         'orden/verificar*',
-        'orden/empresa*'
+        'orden/empresa*',
+        'personal*'
     ];
 }
