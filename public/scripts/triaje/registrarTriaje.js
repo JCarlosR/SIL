@@ -34,9 +34,8 @@ function traerDatos(){
         for (i = 0; i < datos.length; i++) {
 
             var id = datos[i].id;
-            var hoja = datos[i].dni;
+            var hoja = 'HDR-00'+id;
             var nombre = datos[i].nombre;
-            //Cambiar urgente hoja por dni
 
             agregarFila(id, hoja, nombre);
         }

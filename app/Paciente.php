@@ -17,4 +17,9 @@ class Paciente extends Model
         return $this->belongsTo('App\PacientePerfil', 'pacienteperfil_id');
     }
 
+    public function ordenes()
+    {
+        return $this->hasMany('App\Orden', 'paciente_id');
+    }
+
 }

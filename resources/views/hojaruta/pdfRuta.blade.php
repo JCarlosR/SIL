@@ -31,6 +31,11 @@
             margin-bottom: 0.8em;
             text-align: justify;
         }
+        table, th, td {
+            text-align: center;
+            border: 1px solid black;
+
+        }
     </style>
 </head>
 <body>
@@ -93,19 +98,19 @@
             </ol>
         </div>
         <div class="row">
-            <table align="center">
+            <table align="center" cellspacing="0" cellpadding="5">
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Trabajador</th>
-                    <th>Espi.</th>
-                    <th>Psic.</th>
-                    <th>R.X</th>
-                    <th>M.E.</th>
-                    <th>Psi.en.</th>
-                    <th>E.A.</th>
-                    <th>Lab.</th>
-                    <th>Oft.</th>
+                    <th width="10%">#</th>
+                    <th width="10%">Trabajador</th>
+                    <th width="10%">Espi.</th>
+                    <th width="10%">Psic.</th>
+                    <th width="10%">R.X</th>
+                    <th width="10%">M.E.</th>
+                    <th width="10%">Psi.en.</th>
+                    <th width="10%">E.A.</th>
+                    <th width="10%">Lab.</th>
+                    <th width="10%">Oft.</th>
                 </tr>
                 </thead>
                 <tbody>

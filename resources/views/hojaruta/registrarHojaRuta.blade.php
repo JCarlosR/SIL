@@ -116,14 +116,11 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Volver</button>
+                                <div class=" col-md-6">
+                                    <a class="btn btn-primary btn-lg btn-block" href="{{ url('orden/verificar') }}/{{ $protocolo->id }}">Volver</a>
                                 </div>
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-warning btn-lg btn-block" onclick="location.href='{{ url('hojaruta/visualizar') }}/{{ $orden }}/{{ $paciente->id }}'">Imprimir</button>
-                                </div>
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="submit" class="btn btn-success btn-lg btn-block" >Registrar</button>
+                                <div class=" col-md-6">
+                                    <a target="_blank" class="btn btn-warning btn-lg btn-block" href="{{ url('hojaruta/visualizar') }}/{{ $orden }}/{{ $paciente->id }}">Imprimir</a>
                                 </div>
                             </div>
                         </form>

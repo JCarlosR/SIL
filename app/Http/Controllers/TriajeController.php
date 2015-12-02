@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\HistorialClinico;
+use App\Orden;
 use App\Paciente;
 use App\Protocolo;
 use App\Triaje;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 
@@ -26,7 +30,17 @@ class TriajeController extends Controller
     public function getPacientes(Request $request)
     {
         $pacientes = Paciente::where('nombre', 'like', $request->get('inicio').'%')->get();
-        return response()->json($pacientes);
+//        $ordenes = collect([]);
+//        foreach($pacientes as $paciente){
+//            $ordenes = $ordenes->merge(Orden::where('paciente_id', $paciente->id)->get());
+//        }
+        $ordenes = DB::table('pacientes')
+        ->join('ordenes', 'pacientes.id','=', 'ordenes.paciente_id')
+        ->select('ordenes.*','pacientes.nombre')
+        ->get();
+
+        //dd($ordenes);
+        return response()->json($ordenes);
     }
 
     public function postRegistrar(Request $request)
@@ -39,7 +53,12 @@ class TriajeController extends Controller
             'presion_arterial' => 'required',
             'frecuencia_cardiaca' => 'required'
         ]);
+        $fecha = Carbon::now('America/Lima');
 
+        $historial = HistorialClinico::create([
+            'fecha_creacion' => $fecha,
+            'fecha_modificacion' => $fecha
+        ]);
         $triaje = Triaje::create([
             'peso' => $request->get('peso'),
             'talla' => $request->get('talla'),
@@ -49,10 +68,8 @@ class TriajeController extends Controller
             'hojaruta_id' => $request->get('hojaruta_id'),
             'protocolo_id' => $request->get('protocolo_id'),
             'orden_id' => $request->get('orden_id'),
-            'historial_clinico_id' => $request->get('historial_clinico_id')
+            'historial_clinico_id' => $historial->id
         ]);
-
-        
         return redirect('historial/registrar/'.$triaje->id);
     }
 }

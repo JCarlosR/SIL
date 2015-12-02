@@ -30,7 +30,7 @@ class HojaRutaController extends Controller
         $empresa = Empresa::find($protocolo->empresa_id);
         $orden = $orden_id;
         //dd($empresa);
-        return view('hojaruta.registrarHojaRuta')->with(compact(['examenes','paciente','empresa', 'orden']));
+        return view('hojaruta.registrarHojaRuta')->with(compact(['protocolo','examenes','paciente','empresa', 'orden']));
     }
 
     public function getVisualizar($orden_id, $paciente_id)
@@ -41,6 +41,10 @@ class HojaRutaController extends Controller
         $protocolo = Protocolo::find($orden->protocolo_id);
         $empresa = Empresa::find($protocolo->empresa_id);
         //dd($empresa);
-        return view('hojaruta.pdfRuta')->with(compact(['examenes','paciente','empresa']));
+
+        $vista = view('hojaruta.pdfRuta')->with(compact(['examenes','paciente','empresa']))->render();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+        return $pdf->stream();
     }
 }

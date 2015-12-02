@@ -35,7 +35,6 @@ class CreateResultadoRadiologiaTable extends Migration
             $table->foreign('protocolo_id')->references('id')->on('protocolos');
             $table->foreign('detalleorden_id')->references('id')->on('ordenes');
 
-            $table->timestamps();
         });
     }
 

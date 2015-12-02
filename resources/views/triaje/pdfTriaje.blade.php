@@ -96,24 +96,24 @@
             <table align="center">
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Trabajador</th>
-                    <th>Espi.</th>
-                    <th>Psic.</th>
-                    <th>R.X</th>
-                    <th>M.E.</th>
-                    <th>Psi.en.</th>
-                    <th>E.A.</th>
-                    <th>Lab.</th>
-                    <th>Oft.</th>
+                    <th width="10%">#</th>
+                    <th width="10%">Trabajador</th>
+                    <th width="10%">Espi.</th>
+                    <th width="10%">Psic.</th>
+                    <th width="10%">R.X</th>
+                    <th width="10%">M.E.</th>
+                    <th width="10%">Psi.en.</th>
+                    <th width="10%">E.A.</th>
+                    <th width="10%">Lab.</th>
+                    <th width="10%">Oft.</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $i = 0; ?>
                 <?php $i=$i+1; $esp = 'no'; $psi = 'no'; $rx = 'no'; $me = 'no'; $psien='no'; $ea = 'no'; $lab= 'no'; $oft= 'no'; ?>
                 <tr>
-                    <td>{{ $i }}</td>
-                    <td>{{$paciente->nombre}}</td>
+                    <td width="10%">{{ $i }}</td>
+                    <td width="10%">{{$paciente->nombre}}</td>
                     @foreach($examenes as $pexamen)
                         @if($pexamen->examen_id == 1)
                             <?php $esp = 'si'; ?>
@@ -140,14 +140,14 @@
                             <?php $oft = 'si' ?>
                         @endif
                     @endforeach
-                    <td>{{ $esp }}</td>
-                    <td>{{ $psi }}</td>
-                    <td>{{ $rx }}</td>
-                    <td>{{ $me }}</td>
-                    <td>{{ $psien }}</td>
-                    <td>{{ $ea }}</td>
-                    <td>{{ $lab }}</td>
-                    <td>{{ $oft }}</td>
+                    <td width="10%">{{ $esp }}</td>
+                    <td width="10%">{{ $psi }}</td>
+                    <td width="10%">{{ $rx }}</td>
+                    <td width="10%">{{ $me }}</td>
+                    <td width="10%">{{ $psien }}</td>
+                    <td width="10%">{{ $ea }}</td>
+                    <td width="10%">{{ $lab }}</td>
+                    <td width="10%">{{ $oft }}</td>
                 </tr>
                 </tbody>
             </table>
