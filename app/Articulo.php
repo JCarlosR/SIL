@@ -19,7 +19,7 @@ class Articulo extends Model
 
     public function items()
     {
-        return $this->hasMany('App\Articulo', 'articulo_id');
+        return $this->hasMany('App\Item', 'articulo_id');
     }
 
 }

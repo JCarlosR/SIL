@@ -52,7 +52,10 @@
                             </div>
                             <br>
                             <br>
-                            <button type="button" id="guardar" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
+                        <a href="{{ url('rit/ver') }}" target="_blank" class="btn btn-block bg-orange margin">
+                            <span class="glyphicon glyphicon-new-window pull-left"></span>
+                            Generar RIT en PDF
+                        </a>
 
                     </div>
                 </div>

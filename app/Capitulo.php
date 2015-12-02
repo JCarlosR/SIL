@@ -10,7 +10,7 @@ class Capitulo extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = ['titulo_id','descripcion'];
+    protected $fillable = ['titulo_id','romano','descripcion'];
 
     public function titulo()
     {

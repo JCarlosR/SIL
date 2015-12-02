@@ -33,9 +33,11 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php $i = 0; ?>
                             @foreach($articulos as $articulo)
+                                <?php $i = $i + 1; ?>
                                 <tr>
-                                    <td class="col-md-1" data-i>{{ $articulo->id }}</td>
+                                    <td class="col-md-1" data-i>{{ $i }}</td>
                                     <td class="col-md-3" data-descripcion>{{ $articulo->descripcion }}</td>
                                     <td class="col-md-3">
                                         <button class="btn btn-success" data-editar="{{ $articulo->id }}">Editar</button>
@@ -45,10 +47,24 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <br>
+                        <form action="#" method="POST">
+                            <p>Registrar un nuevo Artítulo</p>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            <input type="hidden" name="tipo" value="Valor"/>
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="{{ $id }}" />
+                                <label for="descripcion">Descripcion</label>
+                                <input type="text" name="descripcion" class="form-control"/>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary pull-right">Registrar nuevo</button>
+                        </form>
                             <br>
                             <br>
-                            <button type="button" id="guardar" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
+                        <a href="{{ url('rit/ver') }}" target="_blank" class="btn btn-block bg-orange margin">
+                            <span class="glyphicon glyphicon-new-window pull-left"></span>
+                            Generar RIT en PDF
+                        </a>
 
                     </div>
                 </div>

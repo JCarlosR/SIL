@@ -120,4 +120,81 @@ class RitController extends Controller
         return response()->json($item);
     }
 
+    public function postTitulo(Request $request)
+    {
+        $this->validate($request, [
+            'nombre' => 'required|min:2'
+        ]);
+
+        // Luego hacer más complejo con ctrl de versiones para el perfil de trab
+
+        $titulo = Titulo::create([
+            'rit_id' => 1,
+            'nombre' => $request->get('nombre')
+        ]);
+
+        return response()->json($titulo);
+    }
+
+    public function postCapitulo(Request $request)
+    {
+        $this->validate($request, [
+            'romano' => 'required|max:4',
+            'descripcion' => 'required|min:2'
+        ]);
+
+
+        $capitulo = Capitulo::create([
+            'titulo_id' => $request->get('id'),
+            'romano' => $request->get('romano'),
+            'descripcion' => $request->get('descripcion')
+        ]);
+
+        return response()->json($capitulo);
+    }
+
+    public function postArticulo(Request $request)
+    {
+        $this->validate($request, [
+            'descripcion' => 'required|min:3'
+        ]);
+
+
+        $articulo = Articulo::create([
+            'capitulo_id' => $request->get('id'),
+            'descripcion' => $request->get('descripcion')
+        ]);
+
+        return response()->json($articulo);
+    }
+
+    public function postItem(Request $request)
+    {
+        $this->validate($request, [
+            'romano' => 'required|max:4',
+            'descripcion' => 'required|min:3'
+        ]);
+
+
+        $item = Item::create([
+            'articulo_id' => $request->get('id'),
+            'romano' => $request->get('romano'),
+            'descripcion' => $request->get('descripcion')
+        ]);
+
+        return response()->json($item);
+    }
+
+    public function getPrevisualizar(){
+        $rit = Rit::find(1);
+        $titulos = Titulo::All();
+        $capitulos = Capitulo::All();
+        $articulos = Articulo::All();
+        $items = Item::All();
+        $vista =  view('rit.pdf', compact('rit','titulos','capitulos','articulos','items'))->render();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+        return $pdf->stream();
+    }
+
 }

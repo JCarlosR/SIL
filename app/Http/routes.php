@@ -112,6 +112,11 @@ Route::put('modificar/titulo', 'RitController@putTitulo');
 Route::put('modificar/capitulo', 'RitController@putCapitulo');
 Route::put('modificar/articulo', 'RitController@putArticulo');
 Route::put('modificar/item', 'RitController@putItem');
+Route::get('rit/ver', 'RitController@getPrevisualizar');
+Route::post('registrar/titulo', 'RitController@postTitulo');
+Route::post('registrar/capitulo', 'RitController@postCapitulo');
+Route::post('registrar/articulo', 'RitController@postArticulo');
+Route::post('registrar/item', 'RitController@postItem');
 
 //Relación a personal de personal
 Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');

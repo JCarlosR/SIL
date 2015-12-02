@@ -6,6 +6,11 @@ $(document).on('ready', function() {
     $modalEditar = $('#modalEditar');
     $formEditar = $('#formEditar');
 
+    _token = $('[name="_token"]').val();
+
+    // Evento de envío de formularios (registro)
+    $('form').on('submit', registrarCapitulo);
+
     // Evento para mostrar el modal de edición
     $(document).on('click', '[data-editar]', mostrarModal);
 
@@ -16,6 +21,28 @@ $(document).on('ready', function() {
 
 
 var $filaEditar;
+
+function registrarCapitulo() {
+    event.preventDefault();
+
+    $form = $(this);
+
+    $.ajax({
+        url: '../../registrar/capitulo',
+        type: 'POST',
+        data: $form.serialize(),
+        success: function (data) {
+            location.reload();
+        },
+        error: function (data) {
+            var errors = data.responseJSON;
+
+            $.each(errors, function (i, value) {
+                renderTemplateAlerta($form, value);
+            });
+        }
+    });
+}
 
 function mostrarModal() {
     // Cargar los datos al modal
