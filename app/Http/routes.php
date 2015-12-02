@@ -39,7 +39,8 @@ Route::get('orden/ver/{id}', 'ProtocoloController@getPrevisualizar');
 
 // Relacionadas al perfil de trabajador
 Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
-Route::get('perfil-trabajador/ver', 'WorkerProfileController@getPrevisualizar');
+Route::get('perfil-trabajador/ver/pdf', 'WorkerProfileController@getPDF');
+Route::get('perfil-trabajador/ver/html', 'WorkerProfileController@getHTML');
 Route::post('registrar/skill', 'WorkerProfileController@postSkill');
 Route::put('modificar/skill', 'WorkerProfileController@putSkill');
 Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
@@ -48,6 +49,11 @@ Route::post('eliminar/skill', 'WorkerProfileController@deleteSkill');
 Route::get('MOF', 'MOFController@getMOF');
 Route::post('MOF', 'MOFController@postMOF');
 Route::get('organigrama', 'MOFController@getOrganigrama');
+Route::get('MOF/ver/pdf', 'MOFController@getPDF');
+Route::get('MOF/ver/html', 'MOFController@getHTML');
+Route::get('MOF/ver/imagen/{imagen}', 'MOFController@getImagen');
+
+// Relacionadas a los cargos del MOF
 Route::get('MOF/cargos', 'MOFController@getCargos');
 Route::post('MOF/cargo/registrar', 'MOFController@postCargo');
 Route::get('MOF/cargos/{id}', 'MOFController@getEditarCargo');

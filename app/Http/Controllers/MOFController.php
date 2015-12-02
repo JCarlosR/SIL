@@ -8,15 +8,10 @@ use App\Funcion;
 use App\MOF;
 use App\Relacion;
 use App\Requisito;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Validator;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class MOFController extends Controller
 {
@@ -46,7 +41,8 @@ class MOFController extends Controller
 
         $MOF->finalidad = $request->get('finalidad');
         $MOF->alcance = $request->get('alcance');
-
+        /*
+        Usando Storage
         if ($request->hasFile('organigrama'))
         {
             // Si ya tenía un archivo asociado, lo eliminamos
@@ -59,6 +55,19 @@ class MOFController extends Controller
             Storage::put($nombre,  File::get($archivo));
             $MOF->organigrama = $nombre;
         }
+        */
+        if ($request->hasFile('organigrama'))
+        {
+            // Eliminar el organigrama anterior
+            if ($MOF->organigrama)
+                File::delete(public_path() . '/images/' . $MOF->organigrama);
+
+            $archivo = $request->file('organigrama');
+            $nombre = $archivo->getClientOriginalName();
+
+            $archivo->move(public_path() . '/images/', $nombre);
+            $MOF->organigrama = $nombre;
+        }
 
         $MOF->save();
         return redirect('MOF');
@@ -69,8 +78,8 @@ class MOFController extends Controller
         $mof = MOF::first();
         if ($mof)
         {
-            $contenido = Storage::get($mof->organigrama);
-            $tipo_contenido = Storage::mimeType($mof->organigrama);
+            $contenido = File::get(public_path() . '/images/' . $mof->organigrama);
+            $tipo_contenido = File::mimeType(public_path() . '/images/' . $mof->organigrama);
 
             $respuesta = response($contenido, 200);
             $respuesta->header('Content-Type', $tipo_contenido);
@@ -80,6 +89,31 @@ class MOFController extends Controller
 
         // En realidad nunca debería de ocurrir, pero por si acaso
         return redirect('MOF');
+    }
+
+    public function getHTML()
+    {
+        $mof = MOF::find(1);
+
+        // Si el organigrama es img, se incluye en el PDF
+        $organigrama = $mof->organigrama_es_imagen;
+
+        $c = 0;
+        $cargos = Cargo::all();
+        return view('mof.pdf', compact('c', 'cargos', 'mof', 'organigrama'));
+    }
+
+    public function getPDF()
+    {
+        $mof = MOF::find(1);
+        $organigrama = $mof->organigrama_es_imagen;
+        $c = 0;
+        $cargos = Cargo::all();
+
+        $vista =  view('mof.pdf', compact('c', 'cargos', 'mof', 'organigrama'))->render();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+        return $pdf->stream();
     }
 
     public function getCargos()

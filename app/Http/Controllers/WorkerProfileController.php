@@ -29,13 +29,20 @@ class WorkerProfileController extends Controller
         return view('perfil-trabajador.index')->with(compact(['valores', 'v', 'habilidades', 'h', 'conocimientos', 'c']));
     }
 
-    public function getPrevisualizar()
+    public function getHTML()
     {
         $valores = Skill::where('type', 'Valor')->get();
         $habilidades = Skill::where('type', 'Habilidad')->get();
         $conocimientos = Skill::where('type', 'Conocimiento')->get();
 
-        // return view('perfil-trabajador.pdf', compact('valores', 'habilidades', 'conocimientos'));
+        return view('perfil-trabajador.pdf', compact('valores', 'habilidades', 'conocimientos'));
+    }
+
+    public function getPDF()
+    {
+        $valores = Skill::where('type', 'Valor')->get();
+        $habilidades = Skill::where('type', 'Habilidad')->get();
+        $conocimientos = Skill::where('type', 'Conocimiento')->get();
 
         $vista =  view('perfil-trabajador.pdf', compact('valores', 'habilidades', 'conocimientos'))->render();
         $pdf = app('dompdf.wrapper');
