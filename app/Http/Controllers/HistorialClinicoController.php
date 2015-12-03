@@ -33,4 +33,21 @@ class HistorialClinicoController extends Controller
 
         return view('historial.registrarHistorial')->with(compact(['ordenes', 'protocolo', 'paciente', 'empresa']));
     }
+
+    public function getVisualizar($paciente_id)
+    {
+        $orden = Orden::where('paciente_id', $paciente_id)->first();
+        $protocolo = $orden->protocolo;
+        //dd($protocolo);
+        $empresa = $protocolo->empresa;
+        $paciente = Paciente::find($paciente_id);
+
+        $ordenes = $paciente->ordenes;
+
+        $vista = view('historial.pdfHistorial')->with(compact(['ordenes','protocolo','paciente','empresa']))->render();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+        return $pdf->stream();
+
+    }
 }

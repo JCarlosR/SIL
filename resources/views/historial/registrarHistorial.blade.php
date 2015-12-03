@@ -36,16 +36,16 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <label for="txtpaciente">Número de hijos</label>
-                                    <input type="text" class="form-control" id="txtpaciente" value="2" readonly>
+                                    <label for="txtNumHijo">Número de hijos</label>
+                                    <input type="text" class="form-control" id="txtNumHijo" value="{{ $paciente->numhijos }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtNumHijo">Sexo</label>
-                                    <input type="text" class="form-control" id="txtNumHijo" value="Masculino" readonly>
+                                    <label for="txtSexo">Sexo</label>
+                                    <input type="text" class="form-control" id="txtSexo" value="{{ $paciente->sexo }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtNivelEstudio">Grupo de sangre</label>
-                                    <input type="text" class="form-control" id="txtNivelEstudio" value="B-" readonly>
+                                    <label for="txtgrupo">Grupo de sangre</label>
+                                    <input type="text" class="form-control" id="txtgrupo" value="{{ $paciente->gruposangre }}" readonly>
                                 </div>
                             </div>
                             <br>
@@ -76,10 +76,10 @@
                             <br>
                             <div class="col-md-12">
                                 <div class=" col-md-6">
-                                    <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Volver</button>
+                                    <a class="btn btn-primary btn-lg btn-block" href="{{ url('triaje/registrar') }}">Volver</a>
                                 </div>
                                 <div class=" col-md-6">
-                                    <button id="btnRegistrar" type="button" class="btn btn-warning btn-lg btn-block" >Imprimir</button>
+                                    <a target="_blank" class="btn btn-warning btn-lg btn-block" href="{{ url('historial/visualizar') }}/{{ $paciente->id }}">Imprimir</a>
                                 </div>
                             </div>
                         </form>
