@@ -141,3 +141,8 @@ Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
 Route::get('personal/seleccion/listaPostulantes/{id}', 'PersonalController@getListaPostulantes');
 Route::get('personal/seleccion/estado/{id}', 'PersonalController@getEstadoPostulante');
 Route::get('personal/seleccion/cv/{id}', 'PersonalController@getCvPostulante');
+
+Route::get('personal/seleccionados', 'PersonalController@getSeleccionResultados');
+Route::get('personal/contratacion', 'PersonalController@getPersonalContratado');
+Route::get('personal/datos/personal/{id}', 'PersonalController@getCargarDatos');
+Route::post('personal/registrar/personal', 'PersonalController@postRegistrarPersonal');

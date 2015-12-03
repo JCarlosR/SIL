@@ -27,7 +27,7 @@
             <div class=" col-md-offset-1 panel-body">
                 @foreach($asignados as $cargo)
                     <div class="checkbox">
-                        <h4><span class="glyphicon glyphicon-education"></span><a href="{{ url('personal/seleccion/listaPostulantes/') }}/{{ $cargo->id }}"> {{ $cargo->nombre }}</a></h4>
+                        <h4><span class="glyphicon glyphicon-grain"></span><a href="{{ url('personal/seleccion/listaPostulantes/') }}/{{ $cargo->id }}"> {{ $cargo->nombre }}</a></h4>
                     </div>
                 @endforeach
             </div>

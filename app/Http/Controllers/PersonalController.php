@@ -6,11 +6,14 @@ namespace App\Http\Controllers;
 use App\Cargo;
 use App\ContratarRequisito;
 use App\Funcion;
+use App\Personal;
 use App\Postulacion;
 use App\Postulante;
 use App\Solicitado;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -221,8 +224,8 @@ class PersonalController extends Controller
 
     public function getEstadoPostulante( $id )
     {
-        $postulacion = Postulacion::where('postulante_id',$id);
-        $cargo = find($postulacion->cargo_id);
+        $postulacion = Postulacion::where('postulante_id',$id)->first();
+        $cargo = Cargo::find($postulacion->cargo_id);
         $postulante=Postulante::find($id);
         $postulante->estado = 1;
         $postulante->save();
@@ -240,5 +243,50 @@ class PersonalController extends Controller
         $respuesta->header('Content-Type', $tipo_contenido);
 
         return $respuesta;
+    }
+
+    public function getSeleccionResultados()
+    {
+        $postulantes = Postulante::where('estado',1)->get();
+
+        return view('personal.seleccion.seleccionados')->with(compact(['postulantes']));
+    }
+
+    public function getPersonalContratado()
+    {
+        $postulantes = Postulante::where('estado',1)->get();
+        $personal = [];
+        return view('personal.contratacion.contratacion')->with(compact(['postulantes','personal']));;
+    }
+
+    public function getCargarDatos($id)
+    {
+        $postulantes = Postulante::where('estado',1)->get();
+        $personal = Postulante::find($id);
+
+        return view('personal.contratacion.contratacion')->with(compact(['postulantes','personal']));;
+    }
+
+    public function postRegistrarPersonal( Request $request )
+    {
+        $personal = Personal::create([
+            'user_id'=> 4,
+            'full_name'=>$request->get('nombres'),
+            'dni'=>$request->get('dni'),
+            'email'=>$request->get('email'),
+            'phone'=>$request->get('telefono'),
+            'address'=>$request->get('direccion')
+        ]);
+
+        $usuario = User::create([
+            'full_name' => $request->get('nombres'),
+            'username' => $request->get('usuario'),
+            'password' =>  Hash::make($request->get('clave'))
+        ]);
+
+        $personal->save();
+        $usuario->save();
+
+        return redirect('personal/contratacion');
     }
 }

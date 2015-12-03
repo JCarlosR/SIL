@@ -13,29 +13,25 @@
 
 @section('items')
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{url('personal/seleccion')}}">Selección</a></li>
 @endsection
 
 @section('content')
     <div class="col-md-offset-1 col-md-10">
-        <h3>{{ $cargo->nombre }}</h3>
         @if (count($postulantes) > 0)
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Listado de Postulantes
+                    Resultados de convocatoria
                 </div>
 
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <thead>
-                        <th>Nombres</th>
-                        <th>DNI</th>
-                        <th>Correo electrónico</th>
-                        <th>Teléfono</th>
-                        <th>Dirección</th>
-                        <th>Curriculum Vitae</th>
-                        <th>Estado</th>
-                        <th>Opción</th>
+                            <th>Nombres</th>
+                            <th>DNI</th>
+                            <th>Correo electrónico</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Estado</th>
                         </thead>
                         <tbody>
                         @foreach ($postulantes as $postulante)
@@ -45,17 +41,7 @@
                                 <td class="table-text"><div>{{ $postulante->email  }}</div></td>
                                 <td class="table-text"><div>{{ $postulante->phone  }}</div></td>
                                 <td class="table-text"><div>{{ $postulante->address  }}</div></td>
-                                <td class="table-text"><div>
-                                    <button type="submit" onclick="location.href='{{ url('personal/seleccion/cv/'.$postulante->id)}}'"  class="btn btn-primary">
-                                        <i class="glyphicon glyphicon-download-alt"></i>{{ $postulante->cVitae  }}
-                                    </button></div>
-                                </td>
                                 <td class="table-text"><div> @if($postulante->estado==0 )No aprobado @else Aprobado @endif</div></td>
-                                <td><div>
-                                    <button type="submit" onclick="location.href='{{ url('personal/seleccion/estado/'.$postulante->id)}}'" class="btn btn-primary">
-                                        <i class="fa fa-ok"></i>Aprobar
-                                    </button></div>
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
