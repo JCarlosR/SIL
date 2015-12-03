@@ -88,6 +88,8 @@ Route::get('historial/registrar/{triaje_id}', 'HistorialClinicoController@getHis
 
 // Relacionadas a psicología
 Route::get('psicologia', 'PsicologiaController@getIngreso');
+// Relacionadas a examenes especiales
+Route::get('examenesEspeciales', 'examenesEspecialesController@getIngreso');
 
 //Relacionadas con laboratorio
 Route::get('LaboratorioHDR', 'LaboratorioController@getIndex');

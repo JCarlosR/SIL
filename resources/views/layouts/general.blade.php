@@ -142,10 +142,14 @@
                 <span>Triaje</span>
               </a>
             </li>
-            <li>
-              <a href="{{ url('psicologia') }}">
+            <li><a href="{{ url('psicologia') }}">
                 <i class="glyphicon glyphicon-tint"></i>
                 <span>Psicología</span>
+              </a>
+            </li>
+            <li><a href="{{ url('examenesEspeciales') }}">
+                <i class="glyphicon glyphicon-book"></i>
+                <span>Examenes Especiales</span>
               </a>
             </li>
             <li class="treeview">

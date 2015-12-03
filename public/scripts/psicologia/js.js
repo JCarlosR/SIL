@@ -45,3 +45,21 @@ $('#divMiCalendario').datetimepicker({
       });
 $('#divMiCalendario').data("DateTimePicker").show();
 }
+
+
+function cargarID(obj){
+    document.getElementById('carID').innerHTML='';
+    document.getElementById('carID').innerHTML = '<label for="">ID</label><input type="text" name="ID" class="form-control" readonly value="'+obj.toString()+'">';
+}
+
+function guardarTest(){
+                $.ajax({
+                    type: "POST",
+                    url: "scripts/psicologia/php/grabar.php",
+                    data: $("#formulario").serialize(),
+                    success: function(data) {
+                        $('#C').fadeIn(1000).html(data);
+                    }
+                });
+
+}
