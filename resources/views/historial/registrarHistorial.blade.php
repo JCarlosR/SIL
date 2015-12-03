@@ -29,27 +29,23 @@
                                     <input type="text" class="form-control" id="txtRUC" value="{{ $empresa->nombre_comercial }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtDireccion">DNI</label>
-                                    <input type="text" class="form-control" id="txtDireccion" value="{{ $paciente->dni }}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtDireccion">Estado Civil</label>
-                                    <input type="text" class="form-control" id="txtDireccion" value="Aoltero(a)" readonly>
+                                    <label for="txtDNI">DNI</label>
+                                    <input type="text" class="form-control" id="txtDNI" value="{{ $paciente->dni }}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <label for="txtpaciente">Número de hijos</label>
-                                    <input type="text" class="form-control" id="txtpaciente" value="2" readonly>
+                                    <label for="txtNumHijo">Número de hijos</label>
+                                    <input type="text" class="form-control" id="txtNumHijo" value="{{ $paciente->numhijos }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtNumHijo">Sexo</label>
-                                    <input type="text" class="form-control" id="txtNumHijo" value="Masculino" readonly>
+                                    <label for="txtSexo">Sexo</label>
+                                    <input type="text" class="form-control" id="txtSexo" value="{{ $paciente->sexo }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtNivelEstudio">Grupo de sangre</label>
-                                    <input type="text" class="form-control" id="txtNivelEstudio" value="B-" readonly>
+                                    <label for="txtgrupo">Grupo de sangre</label>
+                                    <input type="text" class="form-control" id="txtgrupo" value="{{ $paciente->gruposangre }}" readonly>
                                 </div>
                             </div>
                             <br>
@@ -62,16 +58,12 @@
                                         <td>Fecha</td>
                                     </tr>
 
-                                    <tr>
-                                        <td><a href="">HDR-001</a></td>
-                                        <td>15/11/2015</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="">HDR-002</a></td>
-                                        <td>10/11/2014</td>
-                                        <td></td>
-                                    </tr>
+                                    @foreach($ordenes as $orden)
+                                        <tr>
+                                            <td>HDR-00{{ $orden->id }}</td>
+                                            <td>{{ $orden->created_at }}</td>
+                                        </tr>
+                                    @endforeach
                                 </table>
                             </div>
                             <br>
@@ -83,14 +75,11 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Volver</button>
+                                <div class=" col-md-6">
+                                    <a class="btn btn-primary btn-lg btn-block" href="{{ url('triaje/registrar') }}">Volver</a>
                                 </div>
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-warning btn-lg btn-block" >Imprimir</button>
-                                </div>
-                                <div class=" col-md-4">
-                                    <a href="{{ url('panel') }}" class="btn btn-success btn-lg btn-block" >Registrar</a>
+                                <div class=" col-md-6">
+                                    <a target="_blank" class="btn btn-warning btn-lg btn-block" href="{{ url('historial/visualizar') }}/{{ $paciente->id }}">Imprimir</a>
                                 </div>
                             </div>
                         </form>

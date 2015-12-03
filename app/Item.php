@@ -10,7 +10,7 @@ class Item extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = ['articulo_id','descripcion'];
+    protected $fillable = ['articulo_id','romano','descripcion'];
 
     public function capitulo()
     {

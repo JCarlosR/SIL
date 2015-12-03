@@ -45,10 +45,26 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <form action="#" method="POST">
+                            <p>Registrar un nuevo Capítulo</p>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            <input type="hidden" name="tipo" value="Valor"/>
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="{{ $id }}" />
+                                <label for="romano">Nro Capitulo</label>
+                                <input type="text" name="romano" class="form-control"/>
+                                <label for="descripcion">Descripcion</label>
+                                <input type="text" name="descripcion" class="form-control"/>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary pull-right">Registrar nuevo</button>
+                        </form>
                         <br>
                             <br>
-                            <br>
-                            <button type="button" id="guardar" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
+                        <a href="{{ url('rit/ver') }}" target="_blank" class="btn btn-block bg-orange margin">
+                            <span class="glyphicon glyphicon-new-window pull-left"></span>
+                            Generar RIT en PDF
+                        </a>
 
                     </div>
                 </div>

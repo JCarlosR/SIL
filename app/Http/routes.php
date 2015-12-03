@@ -85,9 +85,12 @@ Route::get('pacientes/listar', 'TriajeController@getPacientes');
 
 // Relacionadas al historial
 Route::get('historial/registrar/{triaje_id}', 'HistorialClinicoController@getHistorial');
+Route::get('historial/visualizar/{paciente_id}', 'HistorialClinicoController@getVisualizar');
 
 // Relacionadas a psicología
 Route::get('psicologia', 'PsicologiaController@getIngreso');
+// Relacionadas a examenes especiales
+Route::get('examenesEspeciales', 'examenesEspecialesController@getIngreso');
 
 //Relacionadas con laboratorio
 Route::get('LaboratorioHDR', 'LaboratorioController@getIndex');
@@ -113,6 +116,11 @@ Route::put('modificar/titulo', 'RitController@putTitulo');
 Route::put('modificar/capitulo', 'RitController@putCapitulo');
 Route::put('modificar/articulo', 'RitController@putArticulo');
 Route::put('modificar/item', 'RitController@putItem');
+Route::get('rit/ver', 'RitController@getPrevisualizar');
+Route::post('registrar/titulo', 'RitController@postTitulo');
+Route::post('registrar/capitulo', 'RitController@postCapitulo');
+Route::post('registrar/articulo', 'RitController@postArticulo');
+Route::post('registrar/item', 'RitController@postItem');
 
 //Relación a personal de personal
 Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');

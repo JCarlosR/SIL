@@ -99,18 +99,12 @@
                     </tr>
                     </tbody>
                 </table>
-
-                <form action="">
-                    <a href="{{ url('perfil-trabajador/ver') }}" class="btn btn-block btn-primary">
-                        <span class="glyphicon glyphicon-print pull-left"></span>
-                        Realizar una impresion de los resultados
-                    </a>
-                </form>
             </div><!-- /.box-body -->
         </div>
     </div>
 
 <div class="modal fade" id="registrarResul" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<form id="formulario">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -119,11 +113,13 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                  <div class="col-md-4"></div>
+                  <div class="col-md-4" id="carID">
+                        
+                  </div>
                   <div class="col-md-4 col-md-offset-4">
                                   <div >Fecha de Aplicación:
                                         <div class='input-group date' id='divMiCalendario' >
-                                            <input type='text'  id="txtFecha" class="form-control"  readonly/>
+                                            <input type='text' name="txtFecha" id="txtFecha" class="form-control"  readonly/>
                                             <span class="input-group-addon" onclick="pick();"><span class="glyphicon glyphicon-calendar" ></span>
                                             </span>
                                         </div>
@@ -133,24 +129,113 @@
                 <div class="row">
                   <div class="col-xs-8 col-sm-6">
                     <fieldset><legend>Inteligencia</legend>
-                        Espacial
-                        <input type="text" name="Espacial" class="form-control"/>
+                        <div class="row">
+                         <div class="col-xs-6">
+                            <label for="Esp">Espacial</label>
+                          </div>
+                          <div class="col-xs-5">
+                            <input type="text" name="espacial" class="form-control" placeholder="Puntos"><br>
+                         </div>
+                        </div>
+                        <div class="row">
+                         <div class="col-xs-6">
+                            <label for="Intrape">Intrapersonal</label>
+                          </div>
+                          <div class="col-xs-5">
+                            <input type="text" name="intrapersonal" class="form-control" placeholder="Puntos"><br>
+                         </div>
+                        </div>
+                        <div class="row">
+                         <div class="col-xs-6">
+                            <label for="Intrape">Interpersonal</label>
+                          </div>
+                          <div class="col-xs-5">
+                            <input type="text" name="interpersonal" class="form-control" placeholder="Puntos"><br>
+                         </div>
+                        </div>
+                        <div class="row">
+                         <div class="col-xs-6">
+                            <label for="Intrape">Verbal</label>
+                          </div>
+                          <div class="col-xs-5">
+                            <input type="text" name="verbal" class="form-control" placeholder="Puntos"><br>
+                         </div>
+                        </div>
+                        <div class="row">
+                         <div class="col-xs-6">
+                            <label for="Intrape">Lógico-Matemática</label>
+                          </div>
+                          <div class="col-xs-5">
+                            <input type="text" name="logicoMatematica" class="form-control" placeholder="Puntos"><br>
+                         </div>
+                        </div>
+                        <div class="row">
+                         <div class="col-xs-6">
+                            <label for="Intrape">Kinestésica</label>
+                          </div>
+                          <div class="col-xs-5">
+                            <input type="text" name="kinestesica" class="form-control" placeholder="Puntos"><br>
+                         </div>
+                        </div>
                     </fieldset>
                   </div>
                   <div class="col-xs-4 col-sm-6">
-                    <fieldset><legend>Posibilidades de Exito</legend>
+                    <fieldset>
+                        <legend>Posibilidades de Exito</legend>
+                            <div class="form-group">
+                                  <label for="comment">Fortaleza:</label>
+                                  <textarea class="form-control" name="fortaleza" rows="5" style="resize: none;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                  <label for="comment">Debilidade:</label>
+                                  <textarea class="form-control" name="debilidad" rows="5" style="resize: none;"></textarea>
+                            </div>
                     </fieldset>
                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-8 col-sm-6">
+                        <div class="form-group">
+                                  <label for="comment">Motivación:</label>
+                                  <textarea class="form-control" name="motivacion" rows="5" style="resize: none;"></textarea>
+                        </div>
+                  </div>
+                  <div class="col-xs-4 col-sm-6">
+                            <div class="form-group">
+                                  <label for="comment">Personalidad:</label>
+                                  <textarea class="form-control" name="personalidad" rows="5" style="resize: none;"></textarea>
+                            </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <fieldset>
+                      <legend>&nbsp;&nbsp;Observaciones</legend>
+                          <div class="col-xs-8 col-sm-6">
+                                <div class="form-group">
+                                          <label for="comment">Recomendaciones:</label>
+                                          <textarea class="form-control" name="recomendaciones" rows="5" style="resize: none;"></textarea>
+                                </div>
+                          </div>
+                          <div class="col-xs-4 col-sm-6">
+                                    <div class="form-group">
+                                          <label for="comment">Conclusiones:</label>
+                                          <textarea class="form-control" name="conclusiones" rows="5" style="resize: none;"></textarea>
+                                    </div>
+                          </div>
+                    </fieldset>
                 </div>
             </div>
             <div class="modal-footer">
                 <div align="center">
-                    <button class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                    <button class="btn btn-primary" onclick="guardarTest();" data-dismiss="modal">Guardar</button>
                     <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+                <div id="C">
                 </div>
             </div>
         </div>
     </div>
+</form>
 </div>
 @endsection
 

@@ -25,23 +25,23 @@ class CapitulosTableSeeder extends Seeder
 
         Capitulo::create([
             'titulo_id' => 2,
-            'romano' => 'III',
+            'romano' => 'I',
             'descripcion' => 'PROHIBICIONES DE LOS TRABAJADORES'
         ]);
         Capitulo::create([
             'titulo_id' => 2,
-            'romano' => 'IV',
+            'romano' => 'II',
             'descripcion' => 'JORNADAS DE TRABAJO Y CONTROL DE ASISTENCIA'
         ]);
 
         Capitulo::create([
             'titulo_id' => 3,
-            'romano' => 'V',
+            'romano' => 'I',
             'descripcion' => 'MODALIDAD DE LOS DESCANSOS, VACACIONES Y PERMISOS'
         ]);
         Capitulo::create([
             'titulo_id' => 3,
-            'romano' => 'VI',
+            'romano' => 'II',
             'descripcion' => 'SALARIOS Y DE LAS PRESTACIONES ECONÓMICAS, SOCIALES Y CULTURALES'
         ]);
 
