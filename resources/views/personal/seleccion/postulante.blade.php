@@ -13,7 +13,7 @@
 
 @section('items')
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{url('personal/seleccion')}}">Selección</a></li>
+    <li><a href="{{url('personal/personal')}}">Postulación</a></li>
 @endsection
 
 @section('content')

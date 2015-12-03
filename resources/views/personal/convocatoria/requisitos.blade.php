@@ -45,8 +45,8 @@
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <thead>
-                            <th>Cargo</th>
                             <th>Requisito</th>
+                            <th>Opción</th>
                         </thead>
                         <tbody>
                         @foreach ($requisitos as $requisito)

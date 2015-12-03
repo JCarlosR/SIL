@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(MOFTableSeeder::class);
         $this->call(CargosTableSeeder::class);
 
+        //SoleS
+        $this->call(SolicitadosTableSeeder::class);
+
         // Villarroel
         $this->call(RitsTableSeeder::class);
         $this->call(TitulosTableSeeder::class);

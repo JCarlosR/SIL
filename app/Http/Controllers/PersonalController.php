@@ -10,7 +10,7 @@ use App\Postulacion;
 use App\Postulante;
 use App\Solicitado;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\File\File;
+use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -110,7 +110,7 @@ class PersonalController extends Controller
         return redirect('personal/requisitos/'.$id);
     }
 
-    public function getCargosSeleccion()
+    public function getCargosPreSeleccion()
     {
         $solicitados = Solicitado::all();
         $asignados = [];
@@ -121,7 +121,7 @@ class PersonalController extends Controller
                 $asignados[] = Cargo::find($solicitado->cargo_id);
         }
 
-        return view('personal.seleccion.seleccion')->with(compact(['asignados']));
+        return view('personal.seleccion.preSeleccion')->with(compact(['asignados']));
     }
 
     public function getSeleccionRequerimientos( $id )
@@ -185,6 +185,60 @@ class PersonalController extends Controller
         ]);
         $postulacion->save();
 
-        return redirect('personal/registrar/postulante/.$id');
+        return redirect('personal/personal');
+    }
+
+    public function getCargosSeleccion()
+    {
+        $solicitados = Solicitado::all();
+        $asignados = [];
+
+        foreach($solicitados as $solicitado)
+        {
+            if($solicitado->estado == 1)
+                $asignados[] = Cargo::find($solicitado->cargo_id);
+        }
+
+        return view('personal.seleccion.seleccion')->with(compact(['asignados']));
+    }
+    public function getListaPostulantes($id)
+    {
+        $postulaciones = Postulacion::where('cargo_id',$id)->get();
+        $postulaCargos = Postulante::all();
+        $cargo = Cargo::find($id);
+        $postulantes = [];
+        foreach($postulaciones as $postulacion)
+        {
+            foreach($postulaCargos as $postulaCargo)
+            {
+                if($postulacion->postulante_id == $postulaCargo->id)
+                    $postulantes[] = $postulaCargo;
+            }
+        }
+
+        return view('personal.seleccion.listaPostulantes')->with(compact(['cargo','postulantes']));
+    }
+
+    public function getEstadoPostulante( $id )
+    {
+        $postulacion = Postulacion::where('postulante_id',$id);
+        $cargo = find($postulacion->cargo_id);
+        $postulante=Postulante::find($id);
+        $postulante->estado = 1;
+        $postulante->save();
+
+        return redirect('personal/seleccion/listaPostulantes/'.$cargo->id);
+    }
+
+    public function getCvPostulante( $id )
+    {
+        $postulante = Postulante::find($id);
+        $contenido = File::get(public_path() . '/curriculums/' . $postulante->cVitae);
+        $tipo_contenido = File::mimeType(public_path() . '/curriculums/' . $postulante->cVitae);
+
+        $respuesta = response($contenido, 200);
+        $respuesta->header('Content-Type', $tipo_contenido);
+
+        return $respuesta;
     }
 }

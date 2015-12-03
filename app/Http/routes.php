@@ -123,8 +123,13 @@ Route::post('personal/registrar/requisitos/{id}', 'PersonalController@postRegist
 Route::post('personal/modificar/requisitos/{id}', 'PersonalController@postModificarRequisitos');
 Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postEliminarRequisitos');
 
-Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
+Route::get('personal/personal', 'PersonalController@getCargosPreSeleccion');
 
 Route::get('personal/seleccion/requerimientos/{id}', 'PersonalController@getSeleccionRequerimientos');
 Route::get('personal/seleccion/postulante/{id}', 'PersonalController@getSeleccionPostulante');
 Route::post('personal/registrar/postulante/{id}', 'PersonalController@postSeleccionRegistrarPostulante');
+
+Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
+Route::get('personal/seleccion/listaPostulantes/{id}', 'PersonalController@getListaPostulantes');
+Route::get('personal/seleccion/estado/{id}', 'PersonalController@getEstadoPostulante');
+Route::get('personal/seleccion/cv/{id}', 'PersonalController@getCvPostulante');
