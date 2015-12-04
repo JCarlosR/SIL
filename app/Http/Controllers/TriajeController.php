@@ -84,7 +84,7 @@ class TriajeController extends Controller
         foreach($examenes as $examen){
             if($examen->examen_id == 7){
                 ResultadoLaboratorio::create([
-                    'tipoAnalisis' => 'Análisis de Sangre',
+                    'tipoAnalisis' => 'Analisis de Sangre',
                     'estado' => 'pendiente',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
@@ -92,7 +92,7 @@ class TriajeController extends Controller
                     'historialClinico_id' => $historial->id
                 ]);
                 ResultadoLaboratorio::create([
-                    'tipoAnalisis' => 'Análisis de Orina',
+                    'tipoAnalisis' => 'Analisis de Orina',
                     'estado' => 'pendiente',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
@@ -100,7 +100,7 @@ class TriajeController extends Controller
                     'historialClinico_id' => $historial->id
                 ]);
                 ResultadoLaboratorio::create([
-                    'tipoAnalisis' => 'Análisis de Triglicéridos',
+                    'tipoAnalisis' => 'Analisis de Trigliceridos',
                     'estado' => 'pendiente',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
@@ -120,7 +120,7 @@ class TriajeController extends Controller
             if($examen->examen_id == 3){
                 ResultadoRadiologia::create([
                     'estado' => 'pendiente',
-                    'tipoRadiologia' => 'Resonancia Magnética',
+                    'tipoRadiologia' => 'Resonancia Magnetica',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
                     'hojaruta_id' => $request->get('hojaruta_id'),
@@ -128,7 +128,7 @@ class TriajeController extends Controller
                 ]);
                 ResultadoRadiologia::create([
                     'estado' => 'pendiente',
-                    'tipoRadiologia' => 'Tomografía Axial',
+                    'tipoRadiologia' => 'Tomografia Axial',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
                     'hojaruta_id' => $request->get('hojaruta_id'),
@@ -139,7 +139,7 @@ class TriajeController extends Controller
             if($examen->examen_id == 1){
                 ExamenEspecial::create([
                     'estado' => 'pendiente',
-                    'tipoExamen' => 'Espirometría',
+                    'tipoExamen' => 'Espirometria',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
                     'hojaruta_id' => $request->get('hojaruta_id'),
@@ -149,7 +149,7 @@ class TriajeController extends Controller
             if($examen->examen_id == 4){
                 ExamenEspecial::create([
                     'estado' => 'pendiente',
-                    'tipoExamen' => 'Musculoesquelético',
+                    'tipoExamen' => 'Musculoesqueletico',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
                     'hojaruta_id' => $request->get('hojaruta_id'),
@@ -159,7 +159,7 @@ class TriajeController extends Controller
             if($examen->examen_id == 5){
                 ExamenEspecial::create([
                     'estado' => 'pendiente',
-                    'tipoExamen' => 'Psicosensométricos',
+                    'tipoExamen' => 'Psicosensometricos',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
                     'hojaruta_id' => $request->get('hojaruta_id'),
@@ -169,7 +169,7 @@ class TriajeController extends Controller
             if($examen->examen_id == 8){
                 ExamenEspecial::create([
                     'estado' => 'pendiente',
-                    'tipoExamen' => 'Oftalmología',
+                    'tipoExamen' => 'Oftalmologia',
                     'detalleorden_id' => $request->get('orden_id'),
                     'protocolo_id' => $request->get('protocolo_id'),
                     'hojaruta_id' => $request->get('hojaruta_id'),

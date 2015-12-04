@@ -97,7 +97,7 @@
         <div class="box-body">
         <label for="comment">Seleccionar un Tema Tratado:</label>
             <?php
-                $connection =mysqli_connect("localhost","root","","lezama");
+                $connection =mysqli_connect("localhost","root","","sil");
                 $res=mysqli_query($connection,"select distinct temaConsultoria from resultadoconsutoria");
                 echo '<select disabled id="selector" class="selectpicker"">';
                 echo "<option>Seleccione....</option>";

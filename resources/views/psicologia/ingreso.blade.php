@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label for="empresa">Empresa</label>
                         <?php
-                            $connection =mysqli_connect("localhost","root","","lezama");
+                            $connection =mysqli_connect("localhost","root","","sil");
                             $res=mysqli_query($connection,"select distinct id,nombre_comercial from empresas");
                             echo '<select  id="empresa" name="empresa"  class="form-control">';
                             echo "<option value=''></option>";

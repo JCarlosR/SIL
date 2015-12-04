@@ -98,7 +98,7 @@
         <div class="box-body">
           <label for="comment">Seleccionar un Tipo de Radiologia:</label>
           <?php
-                $connection =mysqli_connect("localhost","root","","lezama");
+                $connection =mysqli_connect("localhost","root","","sil");
                 $res=mysqli_query($connection,"select distinct tipoRadiologia from resultadoradiologia");
                 echo '<select disabled id="selector" class="selectpicker"">';
                 echo "<option>Seleccione....</option>";
