@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
 
         //SoleS
         $this->call(SolicitadosTableSeeder::class);
+        $this->call(ContratarRequisitosTableSeeder::class);
+        $this->call(PostulantesTableSeeder::class);
+        $this->call(PostulacionesTableSeeder::class);
 
         // Villarroel
         $this->call(RitsTableSeeder::class);

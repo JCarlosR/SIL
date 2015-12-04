@@ -16,8 +16,8 @@
 @endsection
 
 @section('content')
-    <div class="col-md-offset-1 col-md-10">
-        @if (count($postulantes) > 0)
+    <div class="col-md-12">
+        @if ( count($postulantes) > 0 )
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Resultados de convocatoria
@@ -26,6 +26,7 @@
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <thead>
+                            <th>Cargo</th>
                             <th>Nombres</th>
                             <th>DNI</th>
                             <th>Correo electrónico</th>
@@ -36,6 +37,19 @@
                         <tbody>
                         @foreach ($postulantes as $postulante)
                             <tr>
+                                <td class="table-text">
+                                    <div>
+                                        @foreach ( $postulaciones as $postulacion)
+                                            @if( $postulacion->postulante_id == $postulante->id)
+                                                @foreach($cargos as $cargo)
+                                                    @if($postulacion->cargo_id == $cargo->id)
+                                                        {{ $cargo->nombre }}
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </td>
                                 <td class="table-text"><div>{{ $postulante->full_name  }}</div></td>
                                 <td class="table-text"><div>{{ $postulante->dni  }}</div></td>
                                 <td class="table-text"><div>{{ $postulante->email  }}</div></td>

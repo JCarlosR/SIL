@@ -11,7 +11,9 @@ use App\Postulacion;
 use App\Postulante;
 use App\Solicitado;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -157,16 +159,18 @@ class PersonalController extends Controller
                 ->withInput($request->all())
                 ->with($data);
         }
-        $postulante = Postulante::create([
-            'full_name' => $request->get('nombres'),
-            'dni' =>$request->get('dni'),
-            'email' =>$request->get('email'),
-            'phone' =>$request->get('telefono'),
-            'address' =>$request->get('direccion')
-        ]);
-        $dni = $request->get('dni');
+
         if($request->hasFile('cv') )
         {
+            $postulante = Postulante::create([
+                'full_name' => $request->get('nombres'),
+                'dni' =>$request->get('dni'),
+                'email' =>$request->get('email'),
+                'phone' =>$request->get('telefono'),
+                'address' =>$request->get('direccion')
+            ]);
+            $dni = $request->get('dni');
+
             $file = $request->file('cv');
 
             // Ruta donde queremos guardar las imágenes para los proveedores
@@ -179,16 +183,21 @@ class PersonalController extends Controller
             $file->move($path , $fileName);
 
             $postulante->cVitae = $simpleName;
+            $postulante->save();
+
+            $fechaActual = Carbon::now()->toDateString();
+
+            $postulacion=Postulacion::create([
+                'postulante_id'=>$postulante->id,
+                'cargo_id' =>$id,
+                'fecha'=>$fechaActual
+            ]);
+            $postulacion->save();
+
+            return redirect('personal/personal');
         }
-        $postulante->save();
-
-        $postulacion=Postulacion::create([
-            'postulante_id'=>$postulante->id,
-            'cargo_id' =>$id
-        ]);
-        $postulacion->save();
-
-        return redirect('personal/personal');
+        else
+            return redirect('personal/seleccion/postulante/'.$id);
     }
 
     public function getCargosSeleccion()
@@ -233,6 +242,17 @@ class PersonalController extends Controller
         return redirect('personal/seleccion/listaPostulantes/'.$cargo->id);
     }
 
+    public function getNoEstadoPostulante($id)
+    {
+        $postulacion = Postulacion::where('postulante_id',$id)->first();
+        $cargo = Cargo::find($postulacion->cargo_id);
+        $postulante=Postulante::find($id);
+        $postulante->estado = 0;
+        $postulante->save();
+
+        return redirect('personal/seleccion/listaPostulantes/'.$cargo->id);
+    }
+
     public function getCvPostulante( $id )
     {
         $postulante = Postulante::find($id);
@@ -248,29 +268,35 @@ class PersonalController extends Controller
     public function getSeleccionResultados()
     {
         $postulantes = Postulante::where('estado',1)->get();
+        $postulaciones = Postulacion::all();
+        $cargos = Cargo::all();
 
-        return view('personal.seleccion.seleccionados')->with(compact(['postulantes']));
+        return view('personal.seleccion.seleccionados')->with(compact(['postulantes','postulaciones','cargos']));
     }
 
     public function getPersonalContratado()
     {
         $postulantes = Postulante::where('estado',1)->get();
+        $postulaciones = Postulacion::all();
+        $cargos = Cargo::all();
         $personal = [];
-        return view('personal.contratacion.contratacion')->with(compact(['postulantes','personal']));;
+        return view('personal.contratacion.contratacion')->with(compact(['postulantes','personal','cargos','postulaciones']));;
     }
 
     public function getCargarDatos($id)
     {
         $postulantes = Postulante::where('estado',1)->get();
+        $postulaciones = Postulacion::all();
+        $cargos = Cargo::all();
         $personal = Postulante::find($id);
 
-        return view('personal.contratacion.contratacion')->with(compact(['postulantes','personal']));;
+        return view('personal.contratacion.contratacion')->with(compact(['postulantes','personal','cargos','postulaciones']));;
     }
 
     public function postRegistrarPersonal( Request $request )
     {
         $personal = Personal::create([
-            'user_id'=> 4,
+            'user_id'=> Auth::user()->id,
             'full_name'=>$request->get('nombres'),
             'dni'=>$request->get('dni'),
             'email'=>$request->get('email'),
@@ -288,5 +314,23 @@ class PersonalController extends Controller
         $usuario->save();
 
         return redirect('personal/contratacion');
+    }
+
+    public function getPersonalContratadoFecha(Request $request)
+    {
+        $postulacion_es = Postulacion::all();
+        $postulaciones =[];
+        foreach($postulacion_es as $postulacion){
+                if( date_create( $postulacion->fecha )>= date_create( $request->get('fechaI') ) AND date_create( $postulacion->fecha )<= date_create( $request->get('fechaF') ) )
+                {
+                    $postulaciones[]=$postulacion;
+                }
+        }
+
+        $postulantes = Postulante::where('estado',1)->get();
+        $personal = [];
+        $cargos = Cargo::all();
+
+        return view('personal.contratacion.contratacion')->with(compact(['postulantes','personal','cargos','postulaciones']));;
     }
 }

@@ -49,14 +49,14 @@
 
                     <div class="form-group">
                         <label for="cv">Curriculum Vitae</label>
-                        <div class="btn btn-primary btn-file">
+                        <div class="btn btn-primary btn-file btn-lg">
                             <span class="glyphicon glyphicon-open"></span>
                             <input type="file" name="cv" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/pdf">
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Postular <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button>
+            <button type="submit" class="btn btn-primary pull-right btn-lg">Postular <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button>
         </form>
     </div>
 

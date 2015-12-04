@@ -8,8 +8,6 @@ class Postulante extends Model
 {
     protected $table = 'Postulantes';
 
-    public $timestamps = false;
-
     protected $fillable = ['full_name','dni','email','phone','address','cVitae'];
 
     public function selecciones()

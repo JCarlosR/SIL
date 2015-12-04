@@ -9,8 +9,6 @@ class Postulacion extends Model
 
     protected $table = 'Postulaciones';
 
-    public $timestamps = false;
-
     protected $fillable = ['postulante_id','cargo_id'];
 
     public function pustulantes()

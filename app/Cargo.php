@@ -54,7 +54,7 @@ class Cargo extends Model
 
     public function postulaciones()
     {
-        return $this->hasMany('App\UsuarioPostulacion','postulacion_id');
+        return $this->hasMany('App\Postulacion','postulacion_id');
     }
 
     public function contrataciones()

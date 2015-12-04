@@ -17,7 +17,7 @@
 @endsection
 
 @section('content')
-    <div class="col-md-offset-1 col-md-10">
+    <div class="col-md-12">
         <h3>{{ $cargo->nombre }}</h3>
         @if (count($postulantes) > 0)
             <div class="panel panel-default">
@@ -35,7 +35,7 @@
                         <th>Dirección</th>
                         <th>Curriculum Vitae</th>
                         <th>Estado</th>
-                        <th>Opción</th>
+                        <th>Aprobación</th>
                         </thead>
                         <tbody>
                         @foreach ($postulantes as $postulante)
@@ -45,16 +45,23 @@
                                 <td class="table-text"><div>{{ $postulante->email  }}</div></td>
                                 <td class="table-text"><div>{{ $postulante->phone  }}</div></td>
                                 <td class="table-text"><div>{{ $postulante->address  }}</div></td>
-                                <td class="table-text"><div>
-                                    <button type="submit" onclick="location.href='{{ url('personal/seleccion/cv/'.$postulante->id)}}'"  class="btn btn-primary">
-                                        <i class="glyphicon glyphicon-download-alt"></i>{{ $postulante->cVitae  }}
-                                    </button></div>
+                                <td class="table-text">
+                                    <div>
+                                        <button type="submit" onclick="location.href='{{ url('personal/seleccion/cv/'.$postulante->id)}}'"  class="btn btn-primary">
+                                            <i class="glyphicon glyphicon-download-alt"></i>{{ $postulante->cVitae  }}
+                                        </button>
+                                    </div>
                                 </td>
                                 <td class="table-text"><div> @if($postulante->estado==0 )No aprobado @else Aprobado @endif</div></td>
-                                <td><div>
-                                    <button type="submit" onclick="location.href='{{ url('personal/seleccion/estado/'.$postulante->id)}}'" class="btn btn-primary">
-                                        <i class="fa fa-ok"></i>Aprobar
-                                    </button></div>
+                                <td>
+                                    <div>
+                                        <button type="submit" onclick="location.href='{{ url('personal/seleccion/estado/'.$postulante->id)}}'" class="btn btn-primary">
+                                            <i class="fa fa-ok"></i>Aprobar
+                                        </button>
+                                        <button type="submit" onclick="location.href='{{ url('personal/seleccion/noEstado/'.$postulante->id)}}'" class="btn btn-primary">
+                                            <i class="fa fa-ok"></i>No aprobar
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
