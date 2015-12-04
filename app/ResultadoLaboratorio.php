@@ -4,18 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ResultadoRadiologia extends Model
+class ResultadoLaboratorio extends Model
 {
-    protected $table = 'ResultadosLaboratorio';
+    protected $table = 'resultadoslaboratorio';
 
     public $timestamps = false;
 
-    protected $fillable = [ 'fechaRegistro',
-                            'estado',
+    protected $fillable = ['tipoAnalisis',
+                            'fechaRegistro',
                             'descripcion',
-                            'resultadoDescriptivo',
-                            'codFolder',
-                            'nombreImagen',
+                            'estado',
+                            'resultado',
                             'historialClinico_id',
                             'hojaruta_id',
                             'protocolo_id',

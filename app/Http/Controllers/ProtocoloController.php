@@ -9,6 +9,7 @@ use App\Orden;
 use App\Paciente;
 use App\PacienteExamen;
 use App\Protocolo;
+use App\ResultadoLaboratorio;
 use App\User;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;

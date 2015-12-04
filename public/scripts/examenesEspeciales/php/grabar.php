@@ -5,7 +5,7 @@
   @$id=substr($total, 0, $pos);
   @$examen=substr($total,(int)$pos+1);
 
-  $connection =mysqli_connect("localhost","root","","lezama");
+  $connection =mysqli_connect("localhost","root","","sil");
 
 	$update="update examenesespeciales set resultado='".$examen."',fechaRegistro=curdate(),estado='realizado' where id=".$id."";
 	mysqli_query($connection,$update);

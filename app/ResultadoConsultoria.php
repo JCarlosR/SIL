@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ResultadoLaboratorio extends Model
+class ResultadoConsultoria extends Model
 {
-    protected $table = 'ResultadosLaboratorio';
+    protected $table = 'resultadoconsutoria';
 
     public $timestamps = false;
 
-    protected $fillable = ['tipoAnalisis',
+    protected $fillable = ['temaConsultoria',
                             'fechaRegistro',
                             'descripcion',
                             'estado',

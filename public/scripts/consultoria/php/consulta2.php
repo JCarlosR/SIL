@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$id 	= $_REQUEST['id'];
 	if ($id<>null or $id<>"no") {
 		$query="select id,temaConsultoria,descripcion,hojaruta_id from resultadoconsutoria where hojaruta_id=".$id." and estado='pendiente'";

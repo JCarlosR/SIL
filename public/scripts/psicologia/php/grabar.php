@@ -15,7 +15,7 @@
 	@$conclusiones=$_POST['conclusiones'];
 	@$fechaIngre=$_POST['txtfechaIngreso'];
 
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 
 	$query="select historialClinico_id,hojaruta_id,protocolo_id,detalleorden_id from psicologia where id=".$ID."";
 	$update="update psicologia set fechaRegistro='".$txtFecha."', estado='realizado',fortaleza='".$fortaleza."',debilidad='".$debilidad."',motivacion='".$motivacion."',perosnalidad='".$personalidad."',recomendacion='".$recomendaciones."',conclusion='".$conclusiones."' where id=".$ID."";

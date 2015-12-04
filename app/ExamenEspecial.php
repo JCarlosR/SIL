@@ -4,17 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ResultadoLaboratorio extends Model
+class ExamenEspecial extends Model
 {
-    protected $table = 'ResultadosLaboratorio';
+    protected $table = 'examenesespeciales';
 
     public $timestamps = false;
 
-    protected $fillable = ['temaConsultoria',
-                            'fechaRegistro',
-                            'descripcion',
+    protected $fillable = [ 'tipoExamen',
                             'estado',
-                            'resultado',
                             'historialClinico_id',
                             'hojaruta_id',
                             'protocolo_id',
