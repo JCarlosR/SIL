@@ -22,4 +22,8 @@ class Orden extends Model
         return $this->hasMany('App\PacienteExamen', 'orden_id');
     }
 
+    public function protocolo()
+    {
+        return $this->belongsTo('App\Protocolo', 'protocolo_id');
+    }
 }

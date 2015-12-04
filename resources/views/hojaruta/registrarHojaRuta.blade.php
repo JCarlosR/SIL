@@ -22,50 +22,90 @@
                                 {{--NO OLVIDAR CAMBIAR LOS NAMES DE LOS INPUT--}}
                                 <div class="form-group">
                                     <label for="txtnombre">Nombre Comercial</label>
-                                    <input type="text" class="form-control" id="txtnombre" placeholder="Nombre Comercial" readonly>
+                                    <input type="text" class="form-control" id="txtnombre" value="{{ $empresa->nombre_comercial }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtRUC">RUC</label>
-                                    <input type="text" class="form-control" id="txtRUC" placeholder="RUC" readonly>
+                                    <input type="text" class="form-control" id="txtRUC" value="{{ $empresa->ruc }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtDireccion">Dirección</label>
-                                    <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección" readonly>
+                                    <label for="txtDireccion">Web</label>
+                                    <input type="text" class="form-control" id="txtDireccion" value="{{ $empresa->web }}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <h3>Datos del Paciente</h3>
                                 <div class="form-group">
                                     <label for="txtpaciente">Nombre</label>
-                                    <input type="text" class="form-control" id="txtpaciente" placeholder="Nombre" readonly>
+                                    <input type="text" class="form-control" id="txtpaciente" value="{{ $paciente->nombre }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtNumHijo">Número de hijos</label>
-                                    <input type="text" class="form-control" id="txtNumHijo" placeholder="Número de hijos" readonly>
+                                    <input type="text" class="form-control" id="txtNumHijo" value="{{ $paciente->numhijos }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtNivelEstudio">Nivel de estudios</label>
-                                    <input type="text" class="form-control" id="txtNivelEstudio" placeholder="Nivel de estudios" readonly>
+                                    <input type="text" class="form-control" id="txtNivelEstudio" value="{{ $paciente->estudios }}" readonly>
                                 </div>
                             </div>
                             <br>
-                            <table class="table table-hover">
+                            <table class="table table-bordered">
+                                <thead>
                                 <tr>
-                                    <td>Tipo de examen</td>
-                                    <td>Medico</td>
-                                    <td>Firma</td>
+                                    <th>#</th>
+                                    <th>Trabajador</th>
+                                    <th>Espi.</th>
+                                    <th>Psic.</th>
+                                    <th>R.X</th>
+                                    <th>M.E.</th>
+                                    <th>Psi.en.</th>
+                                    <th>E.A.</th>
+                                    <th>Lab.</th>
+                                    <th>Oft.</th>
                                 </tr>
-
-                                <tr>
-                                    <td>Triaje</td>
-                                    <td>Edith Bocanegra</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Triaje</td>
-                                    <td>Edith Bocanegra</td>
-                                    <td></td>
-                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php $i = 0; ?>
+                                    <?php $i=$i+1; $esp = 'no'; $psi = 'no'; $rx = 'no'; $me = 'no'; $psien='no'; $ea = 'no'; $lab= 'no'; $oft= 'no'; ?>
+                                    <tr>
+                                        <td>{{ $i }}</td>
+                                        <td>{{$paciente->nombre}}</td>
+                                       @foreach($examenes as $pexamen)
+                                            @if($pexamen->examen_id == 1)
+                                                <?php $esp = 'si'; ?>
+                                            @endif
+                                            @if($pexamen->examen_id == 2)
+                                                <?php $psi = 'si'; ?>
+                                            @endif
+                                            @if($pexamen->examen_id == 3)
+                                                <?php $rx = 'si'; ?>
+                                            @endif
+                                            @if($pexamen->examen_id == 4)
+                                                <?php $me = 'si'; ?>
+                                            @endif
+                                            @if($pexamen->examen_id == 5)
+                                                <?php $psien = 'si'; ?>
+                                            @endif
+                                            @if($pexamen->examen_id == 6)
+                                                <?php $ea = 'si' ?>
+                                            @endif
+                                            @if($pexamen->examen_id == 7)
+                                                <?php $lab = 'si' ?>
+                                            @endif
+                                            @if($pexamen->examen_id == 8)
+                                                <?php $oft = 'si' ?>
+                                            @endif
+                                        @endforeach
+                                        <td>{{ $esp }}</td>
+                                        <td>{{ $psi }}</td>
+                                        <td>{{ $rx }}</td>
+                                        <td>{{ $me }}</td>
+                                        <td>{{ $psien }}</td>
+                                        <td>{{ $ea }}</td>
+                                        <td>{{ $lab }}</td>
+                                        <td>{{ $oft }}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <br>
                             <div class="col-md-offset-4 col-md-4">
@@ -76,14 +116,11 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-primary btn-lg btn-block" >Volver</button>
+                                <div class=" col-md-6">
+                                    <a class="btn btn-primary btn-lg btn-block" href="{{ url('orden/verificar') }}/{{ $protocolo->id }}">Volver</a>
                                 </div>
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="button" class="btn btn-warning btn-lg btn-block" >Imprimir</button>
-                                </div>
-                                <div class=" col-md-4">
-                                    <button id="btnRegistrar" type="submit" class="btn btn-success btn-lg btn-block" >Registrar</button>
+                                <div class=" col-md-6">
+                                    <a target="_blank" class="btn btn-warning btn-lg btn-block" href="{{ url('hojaruta/visualizar') }}/{{ $orden }}/{{ $paciente->id }}">Imprimir</a>
                                 </div>
                             </div>
                         </form>

@@ -17,6 +17,10 @@ class CreatePacientesTable extends Migration
 
             $table->string('nombre');
             $table->string('dni');
+            $table->integer('numhijos');
+            $table->string('estudios');
+            $table->string('sexo');
+            $table->string('gruposangre');
 
             $table->integer('pacienteperfil_id')->unsigned();
             $table->foreign('pacienteperfil_id')->references('id')->on('pacienteperfiles');

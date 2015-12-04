@@ -9,8 +9,6 @@ class Seleccion extends Model
 
     protected $table = 'Selecciones';
 
-    public $timestamps = false;
-
     protected $fillable = ['user_id','postulante_id','mensaje','seleccionado'];
 
     public function usuarios()

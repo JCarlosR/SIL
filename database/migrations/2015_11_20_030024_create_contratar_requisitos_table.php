@@ -18,7 +18,6 @@ class CreateContratarRequisitosTable extends Migration
             $table->integer('cargo_id')->unsigned();
             $table->foreign('cargo_id')->references('id')->on('cargos');
 
-            $table->string('nombre');
             $table->string('descripcion');
 
             $table->timestamps();

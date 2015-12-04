@@ -75,7 +75,8 @@ Route::post('cargos/requisitos/eliminar', 'RequisitoController@destroy');
 
 
 // Relacionadas a la hoja de ruta
-Route::get('hojaruta/registrar', 'HojaRutaController@getHojaRuta');
+Route::get('hojaruta/registrar/{orden_id}/{paciente_id}', 'HojaRutaController@getHojaRuta');
+Route::get('hojaruta/visualizar/{orden_id}/{paciente_id}', 'HojaRutaController@getVisualizar');
 
 // Relacionadas al triaje
 Route::get('triaje/registrar', 'TriajeController@getTriaje');
@@ -84,13 +85,17 @@ Route::get('pacientes/listar', 'TriajeController@getPacientes');
 
 // Relacionadas al historial
 Route::get('historial/registrar/{triaje_id}', 'HistorialClinicoController@getHistorial');
+Route::get('historial/visualizar/{paciente_id}', 'HistorialClinicoController@getVisualizar');
 
 // Relacionadas a psicología
 Route::get('psicologia', 'PsicologiaController@getIngreso');
+// Relacionadas a examenes especiales
+Route::get('examenesEspeciales', 'examenesEspecialesController@getIngreso');
 
 //Relacionadas con laboratorio
 Route::get('LaboratorioHDR', 'LaboratorioController@getIndex');
 Route::get('LaboratorioHC', 'LaboratorioController@getHC');
+Route::get('resultadoslab/ver/pdf/{id}', 'LaboratorioController@getPrevisualizar');
 
 //Relacionadas con consultoria
 Route::get('consultoria', 'ConsultoriaController@getIndex');
@@ -100,3 +105,47 @@ Route::get('consultoriaHC', 'ConsultoriaController@getHCl');
 Route::get('radiologia', 'RadiologiaController@getIndex');
 Route::get('radiologiHC', 'RadiologiaController@getHR');
 
+
+//Relacionadas con RIT
+Route::get('rit/index', 'RitController@getIndex');
+Route::put('modificar/rit', 'RitController@putRit');
+Route::get('rit/titulos', 'RitController@getTitulos');
+Route::get('rit/capitulos/{id}', 'RitController@getCapitulos');
+Route::get('rit/articulos/{id}', 'RitController@getArticulos');
+Route::get('rit/items/{id}', 'RitController@getItems');
+Route::put('modificar/titulo', 'RitController@putTitulo');
+Route::put('modificar/capitulo', 'RitController@putCapitulo');
+Route::put('modificar/articulo', 'RitController@putArticulo');
+Route::put('modificar/item', 'RitController@putItem');
+Route::get('rit/ver', 'RitController@getPrevisualizar');
+Route::post('registrar/titulo', 'RitController@postTitulo');
+Route::post('registrar/capitulo', 'RitController@postCapitulo');
+Route::post('registrar/articulo', 'RitController@postArticulo');
+Route::post('registrar/item', 'RitController@postItem');
+
+//Relación a personal de personal
+Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');
+Route::post('personal/convocatoria', 'PersonalController@postCargosConvocatoria');
+
+Route::get('personal/requisitos/{id}', 'PersonalController@getRequisitos');
+Route::post('personal/registrar/requisitos/{id}', 'PersonalController@postRegistrarRequisitos');
+Route::post('personal/modificar/requisitos/{id}', 'PersonalController@postModificarRequisitos');
+Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postEliminarRequisitos');
+
+Route::get('personal/personal', 'PersonalController@getCargosPreSeleccion');
+
+Route::get('personal/seleccion/requerimientos/{id}', 'PersonalController@getSeleccionRequerimientos');
+Route::get('personal/seleccion/postulante/{id}', 'PersonalController@getSeleccionPostulante');
+Route::post('personal/registrar/postulante/{id}', 'PersonalController@postSeleccionRegistrarPostulante');
+
+Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
+Route::get('personal/seleccion/listaPostulantes/{id}', 'PersonalController@getListaPostulantes');
+Route::get('personal/seleccion/estado/{id}', 'PersonalController@getEstadoPostulante');
+Route::get('personal/seleccion/noEstado/{id}', 'PersonalController@getNoEstadoPostulante');
+Route::get('personal/seleccion/cv/{id}', 'PersonalController@getCvPostulante');
+
+Route::get('personal/seleccionados', 'PersonalController@getSeleccionResultados');
+Route::get('personal/contratacion', 'PersonalController@getPersonalContratado');
+Route::post('personal/contratacion/listarFecha', 'PersonalController@getPersonalContratadoFecha');
+Route::get('personal/datos/personal/{id}', 'PersonalController@getCargarDatos');
+Route::post('personal/registrar/personal', 'PersonalController@postRegistrarPersonal');

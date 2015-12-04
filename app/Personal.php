@@ -8,8 +8,6 @@ class Personal extends Model
 {
     protected $table = 'Personals';
 
-    public $timestamps = false;
-
     protected $fillable = ['user_id','full_name','dni','email','phone','address'];
 
     public function usuario()

@@ -58,6 +58,7 @@
                             </tbody>
                         </table>
                         <br>
+                    </div>
                 </div>
             </div>
         </div><!-- /.box-body -->
@@ -65,5 +66,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('protocolo') }}"></script>
+    <script src="{{ asset('scripts/protocolo/verificar.js') }}"></script>
 @endsection

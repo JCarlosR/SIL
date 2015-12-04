@@ -24,6 +24,22 @@ class DatabaseSeeder extends Seeder
         $this->call(MOFTableSeeder::class);
         $this->call(CargosTableSeeder::class);
 
+        //SoleS
+        $this->call(SolicitadosTableSeeder::class);
+        $this->call(ContratarRequisitosTableSeeder::class);
+        $this->call(PostulantesTableSeeder::class);
+        $this->call(PostulacionesTableSeeder::class);
+
+        // Villarroel
+        $this->call(RitsTableSeeder::class);
+        $this->call(TitulosTableSeeder::class);
+        $this->call(CapitulosTableSeeder::class);
+        $this->call(ArticulosTableSeeder::class);
+        $this->call(ItemsTableSeeder::class);
+
+        // Gonzales
+        $this->call(EmpresasTableSeeder::class);
+
         Model::reguard();
     }
 }

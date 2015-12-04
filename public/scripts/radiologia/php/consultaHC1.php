@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$nombre 	= $_REQUEST['nombre'];
 	if ($nombre<>null) {
 		$query="select R.historialClinico_id, P.nombre 

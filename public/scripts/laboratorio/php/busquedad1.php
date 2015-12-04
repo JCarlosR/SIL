@@ -1,12 +1,12 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$stirn 	= $_REQUEST['stirn'];
   $pos=strpos($stirn,"-");
   $id=substr($stirn, 0, $pos);
   $examen=substr($stirn,(int)$pos+1);
 
 	if ($id<>null) {
-		$query="select fechaRegistro,Resultado from resultadoslaboratorio where historialClinico_id=".$id." and tipoAnalisis='".$examen."' and Resultado!=''";
+		$query="select fechaRegistro,Resultado,id from resultadoslaboratorio where historialClinico_id=".$id." and tipoAnalisis='".$examen."' and Resultado!=''";
 		$query1="select COUNT(*) from resultadoslaboratorio where historialClinico_id=".$id." and tipoAnalisis='".$examen."' and Resultado!=''";
 		$Con=mysqli_query($connection,$query);
     $Con1=mysqli_query($connection,$query1);
@@ -37,7 +37,7 @@
                                       <label for='comment'>Resultado:</label>
                                       <textarea class='form-control' readonly rows='5' id='comment".$j."' style='resize: none;'>".$cre[1]."</textarea>
                                     </div>
-                                    <input type='button' id='".$cre[0]."' onClick='' class='btn btn-success' align='center' value='Imprimir'> 
+                                    <a href='http://localhost:50/SIL/public/resultadoslab/ver/pdf/".$cre[2]."' id='".$cre[2]."' class='btn btn-success' align='center'>Imprimir</a>
                           </div>";
             }
             if ($j<>1) {

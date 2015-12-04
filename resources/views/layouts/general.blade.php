@@ -142,10 +142,14 @@
                 <span>Triaje</span>
               </a>
             </li>
-            <li>
-              <a href="{{ url('psicologia') }}">
+            <li><a href="{{ url('psicologia') }}">
                 <i class="glyphicon glyphicon-tint"></i>
                 <span>Psicología</span>
+              </a>
+            </li>
+            <li><a href="{{ url('examenesEspeciales') }}">
+                <i class="glyphicon glyphicon-book"></i>
+                <span>Examenes Especiales</span>
               </a>
             </li>
             <li class="treeview">
@@ -195,6 +199,37 @@
               <ul class="treeview-menu">
                 <li><a href="{{ url('MOF') }}"><i class="fa fa-circle-o"></i> Gestionar MOF</a></li>
                 <li><a href="{{ url('MOF/cargos') }}"><i class="fa fa-circle-o"></i> Lista de cargos</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="{{ url('rit/index') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Elaboración del RIT</span>
+              </a>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-book"></i></i>
+                <span>Personal</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('personal/convocatoria') }}"><i class="fa fa-circle-o"></i> Convocatoria</a></li>
+                <li><a href="{{ url('personal/seleccion') }}"><i class="fa fa-circle-o"></i> Selección</a></li>
+                <li><a href="{{ url('personal/contratacion') }}"><i class="fa fa-circle-o"></i> Contratación</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-book"></i></i>
+                <span>Postulantes</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('personal/personal') }}"><i class="fa fa-circle-o"></i> Postulación</a></li>
+                <li><a href="{{ url('personal/seleccionados') }}"><i class="fa fa-circle-o"></i> Seleccionados</a></li>
               </ul>
             </li>
 

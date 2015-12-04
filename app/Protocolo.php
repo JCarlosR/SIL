@@ -17,4 +17,9 @@ class Protocolo extends Model
         return $this->belongsTo('App\Empresa', 'empresa_id');
     }
 
+    public function ordenes()
+    {
+        return $this->hasMany('App\Orden', 'orden_id');
+    }
+
 }
