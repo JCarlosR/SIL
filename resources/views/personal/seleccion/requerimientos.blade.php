@@ -13,7 +13,7 @@
 
 @section('items')
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{url('personal/seleccion')}}">Selección</a></li>
+    <li><a href="{{url('personal/personal')}}">Postulación</a></li>
 @endsection
 
 @section('content')
@@ -40,6 +40,6 @@
                 @endforeach
             </div>
         </div>
-            <button type="button" onclick="location.href='{{ url('personal/seleccion/postulante')}}'" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Continuar</button>
+            <button type="button" onclick="location.href='{{ url('personal/seleccion/postulante/'.$cargo->id)}}'" class="btn btn-primary pull-right btn-lg"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Continuar</button>
     </div>
 @endsection

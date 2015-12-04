@@ -21,6 +21,7 @@ class CreatePostulantesTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('cVitae');
+            $table->tinyInteger('estado');
 
             $table->timestamps();
         });

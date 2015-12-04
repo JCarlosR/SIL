@@ -13,12 +13,12 @@
 
 @section('items')
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{url('personal/seleccion')}}">Selección</a></li>
+    <li><a href="{{url('personal/personal')}}">Postulación</a></li>
 @endsection
 
 @section('content')
     <div class="col col-md-offset-2 col-md-8">
-        <form action="{{ url('personal/registrar/postulante') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('personal/registrar/postulante/'.$id) }}" method="POST" enctype="multipart/form-data">
             <div class="box">
                 <div class="box-header with-border">
                     <div class="box-header with-border">
@@ -46,30 +46,17 @@
                         <label for="direccion">Dirección</label>
                         <input type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}" required/>
                     </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-header with-border">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Documentos</h3>
-                    </div>
-                    <div class="col col-md-6 form-group">
+
+                    <div class="form-group">
                         <label for="cv">Curriculum Vitae</label>
-                        <div class="btn btn-success btn-file">
+                        <div class="btn btn-primary btn-file btn-lg">
                             <span class="glyphicon glyphicon-open"></span>
-                            <input type="file" name="" id="">
-                        </div>
-                    </div>
-                    <div class="col col-md-6 form-group">
-                        <label for="cv">Anexos</label>
-                        <div class="btn btn-success btn-file">
-                            <span class="glyphicon glyphicon-open"></span>
-                            <input type="file" name="" id="">
+                            <input type="file" name="cv" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/pdf">
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Postular <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button>
+            <button type="submit" class="btn btn-primary pull-right btn-lg">Postular <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button>
         </form>
     </div>
 
