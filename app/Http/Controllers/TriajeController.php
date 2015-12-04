@@ -36,17 +36,13 @@ class TriajeController extends Controller
 
     public function getPacientes(Request $request)
     {
-        $pacientes = Paciente::where('nombre', 'like', $request->get('inicio').'%')->get();
-//        $ordenes = collect([]);
-//        foreach($pacientes as $paciente){
-//            $ordenes = $ordenes->merge(Orden::where('paciente_id', $paciente->id)->get());
-//        }
         $ordenes = DB::table('pacientes')
+
         ->join('ordenes', 'pacientes.id','=', 'ordenes.paciente_id')
+        ->where('pacientes.nombre', 'like', $request->get('inicio').'%')
         ->select('ordenes.*','pacientes.nombre')
         ->get();
 
-        //dd($ordenes);
         return response()->json($ordenes);
     }
 

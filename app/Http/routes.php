@@ -92,21 +92,21 @@ Route::get('psicologia', 'PsicologiaController@getIngreso');
 // Relacionadas a examenes especiales
 Route::get('examenesEspeciales', 'examenesEspecialesController@getIngreso');
 
-//Relacionadas con laboratorio
+// Relacionadas con laboratorio
 Route::get('LaboratorioHDR', 'LaboratorioController@getIndex');
 Route::get('LaboratorioHC', 'LaboratorioController@getHC');
 Route::get('resultadoslab/ver/pdf/{id}', 'LaboratorioController@getPrevisualizar');
 
-//Relacionadas con consultoria
+// Relacionadas con consultoría
 Route::get('consultoria', 'ConsultoriaController@getIndex');
 Route::get('consultoriaHC', 'ConsultoriaController@getHCl');
 
-//Relacionadas con radiologia
+// Relacionadas con radiologia
 Route::get('radiologia', 'RadiologiaController@getIndex');
 Route::get('radiologiHC', 'RadiologiaController@getHR');
 
 
-//Relacionadas con RIT
+// Relacionadas con RIT
 Route::get('rit/index', 'RitController@getIndex');
 Route::put('modificar/rit', 'RitController@putRit');
 Route::get('rit/titulos', 'RitController@getTitulos');
@@ -123,7 +123,7 @@ Route::post('registrar/capitulo', 'RitController@postCapitulo');
 Route::post('registrar/articulo', 'RitController@postArticulo');
 Route::post('registrar/item', 'RitController@postItem');
 
-//Relación a personal de personal
+// Con relación a personal de personal
 Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');
 Route::post('personal/convocatoria', 'PersonalController@postCargosConvocatoria');
 

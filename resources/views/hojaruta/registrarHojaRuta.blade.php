@@ -18,10 +18,10 @@
                     <div class="col-md-offset-1 col-md-10">
                         <form action="#">
                             <div class="col-md-6">
-                                <h3>Datos de la Empresa</h3>
-                                {{--NO OLVIDAR CAMBIAR LOS NAMES DE LOS INPUT--}}
+                                <h3>Datos de la empresa</h3>
+
                                 <div class="form-group">
-                                    <label for="txtnombre">Nombre Comercial</label>
+                                    <label for="txtnombre">Nombre comercial</label>
                                     <input type="text" class="form-control" id="txtnombre" value="{{ $empresa->nombre_comercial }}" readonly>
                                 </div>
                                 <div class="form-group">
@@ -66,34 +66,34 @@
                                 </thead>
                                 <tbody>
                                 <?php $i = 0; ?>
-                                    <?php $i=$i+1; $esp = 'no'; $psi = 'no'; $rx = 'no'; $me = 'no'; $psien='no'; $ea = 'no'; $lab= 'no'; $oft= 'no'; ?>
+                                    <?php $i=$i+1; $esp = 'NO'; $psi = 'NO'; $rx = 'NO'; $me = 'NO'; $psien='NO'; $ea = 'NO'; $lab= 'NO'; $oft= 'NO'; ?>
                                     <tr>
                                         <td>{{ $i }}</td>
                                         <td>{{$paciente->nombre}}</td>
                                        @foreach($examenes as $pexamen)
                                             @if($pexamen->examen_id == 1)
-                                                <?php $esp = 'si'; ?>
+                                                <?php $esp = 'SÍ'; ?>
                                             @endif
                                             @if($pexamen->examen_id == 2)
-                                                <?php $psi = 'si'; ?>
+                                                <?php $psi = 'SÍ'; ?>
                                             @endif
                                             @if($pexamen->examen_id == 3)
-                                                <?php $rx = 'si'; ?>
+                                                <?php $rx = 'SÍ'; ?>
                                             @endif
                                             @if($pexamen->examen_id == 4)
-                                                <?php $me = 'si'; ?>
+                                                <?php $me = 'SÍ'; ?>
                                             @endif
                                             @if($pexamen->examen_id == 5)
-                                                <?php $psien = 'si'; ?>
+                                                <?php $psien = 'SÍ'; ?>
                                             @endif
                                             @if($pexamen->examen_id == 6)
-                                                <?php $ea = 'si' ?>
+                                                <?php $ea = 'SÍ' ?>
                                             @endif
                                             @if($pexamen->examen_id == 7)
-                                                <?php $lab = 'si' ?>
+                                                <?php $lab = 'SÍ' ?>
                                             @endif
                                             @if($pexamen->examen_id == 8)
-                                                <?php $oft = 'si' ?>
+                                                <?php $oft = 'SÍ' ?>
                                             @endif
                                         @endforeach
                                         <td>{{ $esp }}</td>
@@ -128,9 +128,5 @@
                 </div>
             </div>
         </div><!-- /.box-body -->
-        <div class="box-footer">
-            Lezama Consultores
-        </div><!-- /.box-footer-->
     </div>
-
 @endsection

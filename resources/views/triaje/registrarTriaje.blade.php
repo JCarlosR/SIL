@@ -33,7 +33,7 @@
                                 {{--NO OLVIDAR CAMBIAR LOS NAMES DE LOS INPUT--}}
                                 {{ csrf_field() }}
 
-                                <input type="hidden" class="form-control" name="paciente_id" >
+                                <input type="hidden" class="form-control" name="paciente_id">
                                 <input type="hidden" class="form-control" name="hojaruta_id" value="1">
                                 <input type="hidden" class="form-control" name="protocolo_id" value="1">
                                 <input type="hidden" class="form-control" name="orden_id" value="1">
@@ -106,7 +106,7 @@
                         <input type="hidden" name="id" />
                         <div class="form-group">
                             <label for="nombre">Nombre del paciente</label>
-                            <input type="text" class="form-control" name="buscado" placeholder="Nuevo nombre del detalle" required/>
+                            <input type="text" class="form-control" name="buscado" placeholder="Nombre del paciente a buscar" required/>
                         </div>
                         <table class="table table-hover">
                             <thead>
