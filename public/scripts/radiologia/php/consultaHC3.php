@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$idR 	= $_REQUEST['idR'];
 	$pos=strpos($idR,"-");
 	$pos1=strpos($idR,"*");

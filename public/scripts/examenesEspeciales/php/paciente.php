@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$dni 	= $_REQUEST['dni'];
 	if ($dni<>null or strlen($dni)<8) {
 		$query="select P.nombre from pacientes P where P.dni='".$dni."'";

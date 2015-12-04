@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$stirn 	= $_REQUEST['stirn'];
   $pos=strpos($stirn,"-");
   $id=substr($stirn, 0, $pos);

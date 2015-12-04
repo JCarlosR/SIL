@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$id 	= $_REQUEST['id'];
 	if ($id<>null or $id<>"no") {
 		$query="select id,tipoRadiologia,historialClinico_id from resultadoradiologia where historialClinico_id=".$id." and resultadoDescriptivo='' and estado='realizado'";
