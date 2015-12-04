@@ -9,6 +9,7 @@ use App\Orden;
 use App\Paciente;
 use App\PacienteExamen;
 use App\Protocolo;
+use App\ResultadoLaboratorio;
 use App\User;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
@@ -95,6 +96,27 @@ class ProtocoloController extends Controller
                 'orden_id' => $orden->id,
                 'examen_id' => $examen
             ]);
+
+            if($examen == 7){
+                $insert1 = ResultadoLaboratorio::create([
+                    'tipoAnalisis' => 'Análisis de Sangre',
+                    'estado' => 'pendiente',
+                    'detalleorden_id' => $orden->id,
+                    'protocolo_id' => $idprotocolo
+                ]);
+                $insert2 = ResultadoLaboratorio::create([
+                    'tipoAnalisis' => 'Análisis de Orina',
+                    'estado' => 'pendiente',
+                    'detalleorden_id' => $orden->id,
+                    'protocolo_id' => $idprotocolo
+                ]);
+                $insert3 = ResultadoLaboratorio::create([
+                    'tipoAnalisis' => 'Análisis de Triglicéridos',
+                    'estado' => 'pendiente',
+                    'detalleorden_id' => $orden->id,
+                    'protocolo_id' => $idprotocolo
+                ]);
+            }
 
             if (! $insert)
                 return ['exito'=>false];
