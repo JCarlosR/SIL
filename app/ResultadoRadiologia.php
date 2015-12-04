@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResultadoRadiologia extends Model
 {
-    protected $table = 'ResultadosLaboratorio';
+    protected $table = 'resultadoradiologia';
 
     public $timestamps = false;
 
     protected $fillable = [ 'fechaRegistro',
                             'estado',
+                            'tipoRadiologia',
                             'descripcion',
                             'resultadoDescriptivo',
                             'codFolder',

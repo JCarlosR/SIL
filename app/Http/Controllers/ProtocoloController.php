@@ -97,27 +97,6 @@ class ProtocoloController extends Controller
                 'examen_id' => $examen
             ]);
 
-            if($examen == 7){
-                $insert1 = ResultadoLaboratorio::create([
-                    'tipoAnalisis' => 'Análisis de Sangre',
-                    'estado' => 'pendiente',
-                    'detalleorden_id' => $orden->id,
-                    'protocolo_id' => $idprotocolo
-                ]);
-                $insert2 = ResultadoLaboratorio::create([
-                    'tipoAnalisis' => 'Análisis de Orina',
-                    'estado' => 'pendiente',
-                    'detalleorden_id' => $orden->id,
-                    'protocolo_id' => $idprotocolo
-                ]);
-                $insert3 = ResultadoLaboratorio::create([
-                    'tipoAnalisis' => 'Análisis de Triglicéridos',
-                    'estado' => 'pendiente',
-                    'detalleorden_id' => $orden->id,
-                    'protocolo_id' => $idprotocolo
-                ]);
-            }
-
             if (! $insert)
                 return ['exito'=>false];
         }
