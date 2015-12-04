@@ -20,8 +20,8 @@
     <div class="col-md-offset-2 col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Se requiere personal para el año 2016
-                    Convocatoria desde 01 Enero  hasta 10 Febrero
+                <h4>Se requiere personal para el año 2015
+                    Convocatoria desde 01 Enero  hasta 10 Diciembre
                 </h4>
             </div>
 

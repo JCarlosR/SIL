@@ -37,7 +37,7 @@ class PostulantesTableSeeder extends Seeder
             'phone'=>'891230467',
             'address'=>'Trujillo',
             'cVitae'=>'82458912.docx',
-            'estado'=>0
+            'estado'=>1
         ]);
         Postulante::create([
             'full_name'=>'Cinthya Blas Vera',
@@ -46,7 +46,7 @@ class PostulantesTableSeeder extends Seeder
             'phone'=>'891205678',
             'address'=>'Chao - Viru',
             'cVitae'=>'35419876.docx',
-            'estado'=>0
+            'estado'=>1
         ]);
         Postulante::create([
             'full_name'=>'Cristian Ravelo Saavedra',
@@ -121,15 +121,6 @@ class PostulantesTableSeeder extends Seeder
             'estado'=>1
         ]);
         Postulante::create([
-            'full_name'=>'Sharick Aranda Cavero',
-            'dni'=>'80129012',
-            'email'=>'sharick@hotmail.com',
-            'phone'=>'908978787',
-            'address'=>'Trujillo  - Larco Helera',
-            'cVitae'=>'80129012.docx',
-            'estado'=>1
-        ]);
-        Postulante::create([
             'full_name'=>'Segundo Soles Cavero',
             'dni'=>'91019812',
             'email'=>'soles@hotmail.com',
@@ -148,15 +139,6 @@ class PostulantesTableSeeder extends Seeder
             'estado'=>1
         ]);
         Postulante::create([
-            'full_name'=>'Sheyla Aranda Cavero',
-            'dni'=>'89098910',
-            'email'=>'sheyla@hotmail.com',
-            'phone'=>'990108907',
-            'address'=>'Viru - Centro',
-            'cVitae'=>'89098910.docx',
-            'estado'=>1
-        ]);
-        Postulante::create([
             'full_name'=>'Jorge Urquiza',
             'dni'=>'99998910',
             'email'=>'jorge_U@hotmail.com',
@@ -167,4 +149,3 @@ class PostulantesTableSeeder extends Seeder
         ]);
     }
 }
-

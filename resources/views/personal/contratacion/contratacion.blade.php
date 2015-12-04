@@ -55,31 +55,29 @@
                          <tbody id="myTable">
                         @foreach ($postulantes as $postulante)
                             <tr>
-                                <td class="table-text">
-                                    <div>
-                                    @foreach ( $postulaciones as $postulacion)
-                                        @if( $postulacion->postulante_id == $postulante->id)
-                                            @foreach($cargos as $cargo)
-                                                @if($postulacion->cargo_id == $cargo->id)
-                                                    {{ $cargo->nombre }}
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                    </div>
-                                </td>
-                                <td class="table-text"><div>{{ $postulante->full_name  }}</div></td>
-                                <td class="table-text"><div>{{ $postulante->dni  }}</div></td>
-                                <td class="table-text"><div>{{ $postulante->email  }}</div></td>
-                                <td class="table-text"><div>{{ $postulante->phone  }}</div></td>
-                                <td class="table-text"><div>{{ $postulante->address  }}</div></td>
-                                <td>
-                                    <div>
-                                        <button type="submit" onclick="location.href='{{ url('personal/datos/personal/'.$postulante->id)}}'" class="btn btn-primary">
-                                            <i class="fa fa-ok"></i>Contratar
-                                        </button>
-                                    </div>
-                                </td>
+                                @foreach ( $postulaciones as $postulacion)
+                                    @if( $postulacion->postulante_id == $postulante->id)
+                                        @foreach($cargos as $cargo)
+                                            @if($postulacion->cargo_id == $cargo->id)
+                                            <td class="table-text"><div>
+                                                {{ $cargo->nombre }} </div>
+                                            </td>
+                                            <td class="table-text"><div>{{ $postulante->full_name  }}</div></td>
+                                            <td class="table-text"><div>{{ $postulante->dni  }}</div></td>
+                                            <td class="table-text"><div>{{ $postulante->email  }}</div></td>
+                                            <td class="table-text"><div>{{ $postulante->phone  }}</div></td>
+                                            <td class="table-text"><div>{{ $postulante->address  }}</div></td>
+                                            <td>
+                                                <div>
+                                                    <button type="submit" onclick="location.href='{{ url('personal/datos/personal/'.$postulante->id)}}'" class="btn btn-primary">
+                                                        <i class="fa fa-ok"></i>Contratar
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
                             </tr>
                         @endforeach
                         </tbody>
