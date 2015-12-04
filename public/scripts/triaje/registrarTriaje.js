@@ -55,6 +55,11 @@ function elegirPaciente() {
     $('#formRegistraTriaje [name="paciente_id"]').val(id);
     $('#formRegistraTriaje [name="nombre"]').val(nombre);
     $('#formRegistraTriaje [name="txtHoja"]').val(hoja);
+
+    // Sorry, but i have to do this hacky method
+    var orden = parseInt(hoja.split('-')[1]);
+
+    $('#formRegistraTriaje [name="orden_id"]').val(orden);
     $('#formRegistraTriaje [name="txtEmpresa"]').val(empresa);
     $('#formRegistraTriaje [name="txtEstudios"]').val(estudios);
     $modalBuscar.modal('hide');

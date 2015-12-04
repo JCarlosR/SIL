@@ -36,7 +36,7 @@
                                 <input type="hidden" class="form-control" name="paciente_id">
                                 <input type="hidden" class="form-control" name="hojaruta_id" value="1">
                                 <input type="hidden" class="form-control" name="protocolo_id" value="1">
-                                <input type="hidden" class="form-control" name="orden_id" value="1">
+                                <input type="hidden" class="form-control" name="orden_id" value="">
 
 
                                 <div class="form-group">
