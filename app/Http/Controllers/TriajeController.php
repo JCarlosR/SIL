@@ -77,7 +77,6 @@ class TriajeController extends Controller
         ]);
 
         $examenes = PacienteExamen::where('orden_id',$request->get('orden_id'))->get();
-
         foreach($examenes as $examen){
             if($examen->examen_id == 7){
                 ResultadoLaboratorio::create([
