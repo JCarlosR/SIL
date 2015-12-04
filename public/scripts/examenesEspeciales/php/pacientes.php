@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$dni 	= $_REQUEST['dni'];
 	if ($dni<>null or $dni<>"no") {
 		$query="select R.tipoExamen,R.fechaRegistro,R.estado,R.id 

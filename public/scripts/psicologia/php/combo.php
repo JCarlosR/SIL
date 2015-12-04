@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$id 	= $_REQUEST['id'];
 	if ($id<>null) {
 		$query="select distinct id,observacion from protocolos where empresa_id=".$id."";

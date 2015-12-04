@@ -1,5 +1,5 @@
 <?php
-	$connection =mysqli_connect("localhost","root","","lezama");
+	$connection =mysqli_connect("localhost","root","","sil");
 	$id 	= $_REQUEST['ids'];
 	if ($id<>null or $id<>"no") {
 		$query="select P.nombre,R.historialClinico_id,H.id,R.id 
