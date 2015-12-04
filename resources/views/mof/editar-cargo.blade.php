@@ -25,6 +25,16 @@
             </div>
         </div>
         <div class="box-body">
+            @if ($errors->has())
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <ul class="list-unstyled">
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             @if (session('notif'))
             <div class="alert alert-success fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

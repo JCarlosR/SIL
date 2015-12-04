@@ -29,7 +29,7 @@
       <div class="login-logo">
         <a href="#"><b>SI</b> Lezama</a>
       </div><!-- /.login-logo -->
-      @if($errors->has())
+      @if ($errors->has())
       <div class="alert alert-danger">
         <ul class="list-unstyled">
           @foreach($errors->all() as $error)
