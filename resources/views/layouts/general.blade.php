@@ -149,7 +149,7 @@
             </li>
             <li><a href="{{ url('examenesEspeciales') }}">
                 <i class="glyphicon glyphicon-book"></i>
-                <span>Examenes Especiales</span>
+                <span>Exámenes especiales</span>
               </a>
             </li>
             <li class="treeview">
@@ -159,8 +159,8 @@
                   <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="{{ url('LaboratorioHDR') }}"><i class="fa fa-circle-o"></i>Gestionar Hojas de Ruta</a></li>
-                  <li><a href="{{ url('LaboratorioHC') }}"><i class="fa fa-circle-o"></i>Registrar Resultados</a></li>
+                  <li><a href="{{ url('LaboratorioHDR') }}"><i class="fa fa-circle-o"></i>Gestionar hojas de ruta</a></li>
+                  <li><a href="{{ url('LaboratorioHC') }}"><i class="fa fa-circle-o"></i>Registrar resultados</a></li>
                 </ul>
               </li>
              <li class="treeview">

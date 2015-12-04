@@ -30,7 +30,7 @@
                         <form action="{{ url('triaje/registrar') }}" id="formRegistraTriaje" method="POST">
                             <div class="col-md-offset-2 col-md-8">
                                 <h3>Datos del Paciente</h3>
-                                {{--NO OLVIDAR CAMBIAR LOS NAMES DE LOS INPUT--}}
+
                                 {{ csrf_field() }}
 
                                 <input type="hidden" class="form-control" name="paciente_id">
@@ -41,8 +41,14 @@
 
                                 <div class="form-group">
                                     <label for="nombre">Paciente</label>
-                                    <input type="text" class="form-control" name="nombre" required readonly>
-                                    <button type="button" class="btn btn-primary pull-right" data-buscar>Buscar</button>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="nombre" required readonly>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-primary" data-buscar>Buscar</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtDNI">Hoja de ruta</label>
@@ -51,10 +57,6 @@
                                 <div class="form-group">
                                     <label for="txtEmpresa">Empresa</label>
                                     <input type="text" class="form-control" name="txtEmpresa" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtHijos">Número de hijos</label>
-                                    <input type="text" class="form-control" name="txtHijos" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEstudios">Nivel de estudios</label>
@@ -83,7 +85,7 @@
                             <br>
 
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Registrar Historial Clínico</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Registrar historial clínico</button>
                             </div>
 
                         </form>
@@ -94,10 +96,10 @@
     </div>
 
     <div id="buscarPaciente" class="modal fade in">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Buscar Hoja de Ruta</h4>
+                    <h4 class="modal-title">Buscar hoja de ruta</h4>
                 </div>
                 <form action="{{ url('#') }}" method="POST" >
                     <div class="modal-body">
@@ -118,6 +120,12 @@
                                         Paciente
                                     </td>
                                     <td>
+                                        Empresa
+                                    </td>
+                                    <td>
+                                        Estudios
+                                    </td>
+                                    <td>
                                         Acción
                                     </td>
                                 </tr>
@@ -132,6 +140,8 @@
                                         <td data-paciente>
                                             Edith Carbajal
                                         </td>
+                                        <td data-empresa></td>
+                                        <td data-estudios></td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-id="">Elegir</button>
                                         </td>

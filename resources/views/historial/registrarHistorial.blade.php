@@ -6,7 +6,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h2 class="box-title">Registro del Historial CLínico</h2>
+            <h2 class="box-title">Registro de historial clínico</h2>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -17,9 +17,9 @@
                 <div class="row">
                     <div class="col-md-offset-1 col-md-10">
                         <form action="#">
-                            <h3>Datos del Paciente</h3>
+                            <h3>Datos del paciente</h3>
                             <div class="col-md-6">
-                                {{--NO OLVIDAR CAMBIAR LOS NAMES DE LOS INPUT--}}
+
                                 <div class="form-group">
                                     <label for="txtnombre">Paciente</label>
                                     <input type="text" class="form-control" id="txtnombre" value="{{ $paciente->nombre }}" readonly>

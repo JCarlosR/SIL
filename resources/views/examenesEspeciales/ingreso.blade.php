@@ -1,11 +1,11 @@
 @extends('layouts.general')
 
 @section('title', 'Examenes Especiales')
-@section('sub-title', 'Consultor de Examenes Especiales')
+@section('sub-title', 'Consultor de exámenes especiales')
 
 @section('items')
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Examenes Especiales</a></li>
+    <li><a href="#">Exámenes especiales</a></li>
 @endsection
 
 @section('content')

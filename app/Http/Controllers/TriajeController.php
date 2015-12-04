@@ -37,10 +37,11 @@ class TriajeController extends Controller
     public function getPacientes(Request $request)
     {
         $ordenes = DB::table('pacientes')
-
-        ->join('ordenes', 'pacientes.id','=', 'ordenes.paciente_id')
+        ->join('ordenes', 'pacientes.id', '=', 'ordenes.paciente_id')
+        ->join('protocolos', 'ordenes.protocolo_id', '=', 'protocolos.id')
+        ->join('empresas', 'protocolos.empresa_id', '=', 'empresas.id')
         ->where('pacientes.nombre', 'like', $request->get('inicio').'%')
-        ->select('ordenes.*','pacientes.nombre')
+        ->select('ordenes.*','pacientes.nombre','pacientes.estudios', 'empresas.nombre_comercial')
         ->get();
 
         return response()->json($ordenes);

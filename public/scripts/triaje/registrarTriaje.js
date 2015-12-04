@@ -19,8 +19,8 @@ function mostrarBuscar() {
     $modalBuscar.modal('show');
 }
 
-function traerDatos(){
-    //cadena que sera buscada en la base de datos
+function traerDatos() {
+    // Cadena que será buscada en la base de datos
     var buscado = $(this).val();
 
     $.ajax({
@@ -35,24 +35,28 @@ function traerDatos(){
 
             var id = datos[i].id;
             var hoja = 'HDR-00'+id;
-            var nombre = datos[i].nombre;
+            var paciente = datos[i].nombre;
+            var empresa = datos[i].nombre_comercial;
+            var estudios = datos[i].estudios;
 
-            agregarFila(id, hoja, nombre);
+            agregarFila(id, hoja, paciente, empresa, estudios);
         }
     });
 }
 
 function elegirPaciente() {
     var id = $(this).data('id');
-    var nombre = $(this).parent().prev().text();
-    var hoja = $(this).parent().prev().prev().text();
+    var $fila = $(this).parents('tr');
+    var nombre = $fila.find('[data-paciente]').text();
+    var hoja = $fila.find('[data-hoja]').text();
+    var empresa = $fila.find('[data-empresa]').text();
+    var estudios = $fila.find('[data-estudios]').text();
 
     $('#formRegistraTriaje [name="paciente_id"]').val(id);
     $('#formRegistraTriaje [name="nombre"]').val(nombre);
     $('#formRegistraTriaje [name="txtHoja"]').val(hoja);
-    $('#formRegistraTriaje [name="txtEmpresa"]').val('Cartavio SAC');
-    $('#formRegistraTriaje [name="txtHijos"]').val('2');
-    $('#formRegistraTriaje [name="txtEstudios"]').val('Secundaria completa');
+    $('#formRegistraTriaje [name="txtEmpresa"]').val(empresa);
+    $('#formRegistraTriaje [name="txtEstudios"]').val(estudios);
     $modalBuscar.modal('hide');
 }
 
@@ -64,11 +68,13 @@ function activateTemplate(id) {
     return $(document.importNode(t.content, true));
 }
 
-function agregarFila(id, hoja, paciente) {
+function agregarFila(id, hoja, paciente, empresa, estudios) {
     var $fila = activateTemplate('#template-fila');
+    $fila.find('[data-id]').data('id', id);
     $fila.find('[data-hoja]').text(hoja);
     $fila.find('[data-paciente]').text(paciente);
-    $fila.find('[data-id]').data('id', id);
+    $fila.find('[data-empresa]').text(empresa);
+    $fila.find('[data-estudios]').text(estudios);
 
     var $tbody = $('table').find('tbody');
     $tbody.append($fila);
