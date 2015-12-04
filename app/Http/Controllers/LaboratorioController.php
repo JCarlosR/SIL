@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Orden;
+use App\Paciente;
+use App\ResultadoLaboratorio;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -28,4 +31,16 @@ class LaboratorioController extends Controller
     {
         return view('mof.editar-cargo');
     }
+
+    public function getPrevisualizar($id)
+    {
+        $examen = ResultadoLaboratorio::find($id);
+        $pacienteid = Orden::find($examen->detalleorden_id);
+        $paciente = Paciente::find($pacienteid->paciente_id);
+        $vista =  view('Laboratorio.pdf', compact('examen','paciente'))->render();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML($vista);
+        return $pdf->stream();
+    }
+
 }

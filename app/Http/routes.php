@@ -95,6 +95,7 @@ Route::get('examenesEspeciales', 'examenesEspecialesController@getIngreso');
 //Relacionadas con laboratorio
 Route::get('LaboratorioHDR', 'LaboratorioController@getIndex');
 Route::get('LaboratorioHC', 'LaboratorioController@getHC');
+Route::get('resultadoslab/ver/pdf/{id}', 'LaboratorioController@getPrevisualizar');
 
 //Relacionadas con consultoria
 Route::get('consultoria', 'ConsultoriaController@getIndex');
