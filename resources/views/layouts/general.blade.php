@@ -233,6 +233,47 @@
               </ul>
             </li>
 
+
+
+            <li class="header">MÓDULO GESTIÓN DE CALIDAD</li>
+            <li>
+              <a href="{{ url('proceso/registrar') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Procesos</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('operacion/registrar') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Operaciones</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('area/registrar') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Procesos</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('presupuesto/registrar') }}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <span>Operaciones</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-book"></i></i>
+                <span>KPIs</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('#') }}"><i class="fa fa-circle-o"></i> Indice de tiempo util</a></li>
+                <li><a href="{{ url('#') }}"><i class="fa fa-circle-o"></i> Indice de gastos</a></li>
+              </ul>
+            </li>
+
+
+
             <li class="header">SALIR</li>
             <li>
               <a href="{{ url('salir') }}">

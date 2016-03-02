@@ -39,6 +39,8 @@ class DatabaseSeeder extends Seeder
 
         // Gonzales
         $this->call(EmpresasTableSeeder::class);
+        $this->call(ProcesosTableSeeder::class);
+        $this->call(OperacionsTableSeeder::class);
 
         Model::reguard();
     }
