@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Queja;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -16,8 +17,15 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function getpanel()
+    public function getPanel()
     {
         return view('welcome');
+    }
+
+    public function getQuejas()
+    {
+        $quejas = Queja::where('estado', 'Pendiente')->get();
+        $q = 0;
+        return view('queja.listar')->with(compact(['quejas', 'q']));
     }
 }

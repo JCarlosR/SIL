@@ -135,9 +135,20 @@
                                 class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ url('protocolo/registrar') }} "><i class="fa fa-circle-o"></i> Registrar
-                                protocolo</a></li>
-                        <li><a href="{{ url('orden/verificar') }}"><i class="fa fa-circle-o"></i> Verificar orden</a>
+                        <li>
+                            <a href="{{ url('protocolo/registrar') }} ">
+                                <i class="fa fa-circle-o"></i> Registrar protocolo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('orden/verificar') }}">
+                                <i class="fa fa-circle-o"></i> Verificar orden
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('quejas') }}">
+                                <i class="fa fa-circle-o"></i> Atender quejas
+                            </a>
                         </li>
                     </ul>
                 </li>

@@ -29,7 +29,9 @@ Route::get('orden/ver/{id}', 'ProtocoloController@getPrevisualizar');
 
 // Gestión de quejas
 Route::get('queja/registrar', 'QuejaController@getRegister');
-
+Route::post('queja/registrar', 'QuejaController@postRegister');
+Route::get('quejas', 'HomeController@getQuejas');
+Route::get('queja/{id}/estado/{estado}', 'QuejaController@postEstado');
 
 // Relacionadas al perfil de trabajador
 Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');

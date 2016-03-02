@@ -9,6 +9,7 @@ use App\Orden;
 use App\Paciente;
 use App\PacienteExamen;
 use App\Protocolo;
+use App\Queja;
 use App\ResultadoLaboratorio;
 use App\User;
 use Barryvdh\DomPDF\PDF;
@@ -18,12 +19,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class ProtocoloController extends Controller
+class QuejaController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     public function getRegister()
@@ -33,45 +34,29 @@ class ProtocoloController extends Controller
 
     public function postRegister(Request $request)
     {
-        $filas = $request->get('filas');
-
-        $insert1 = Protocolo::create([
-           'empresa_id'=> $request->get('empresa')
+        $this->validate($request, [
+            'email' => 'required|email',
+            'descripcion' => 'required|min:50',
+        ], [
+            'email.required' => 'Es obligatorio ingresar un e-mail.',
+            'email.email' => 'Debe ingresar un e-mail válido.',
+            'descripcion.required' => 'Por favor ingrese un mensaje.',
+            'descripcion.min' => 'Por favor sea más descriptivo (al menos 50 caracteres).'
         ]);
 
-        foreach($filas as $fila){
-            $paciente = Paciente::create([
-                'nombre'=>$fila[1],
-                'dni'=>$fila[2],
-                'pacienteperfil_id'=>$fila[3],
-                'numhijos'=>$fila[4],
-                'estudios'=>$fila[5],
-                'sexo'=>$fila[6],
-                'gruposangre'=>$fila[7]
-            ]);
+        Queja::create([
+           'email' => $request->get('email'),
+            'descripcion' => $request->get('descripcion')
+        ]);
 
-            $orden = Orden::create([
-                'paciente_id' => $paciente->id,
-                'protocolo_id' => $request->get('id')
-            ]);
-            HojaRuta::create([
-                'protocolo_id' => $request->get('id'),
-                'orden_id' => $orden->id
-            ]);
-            //inserts en las tablas que usan la hoja ruta
-        }
-
-        if ($insert1)
-            return ['exito'=>true];
-
-        return ['exito'=>false];
+        return back()->with('notif', 'Queja enviada correctamente.');;
     }
 
     public function postEstado($id, $estado)
     {
-        $protocolo = Protocolo::find($id);
-        $protocolo->estado = $estado;
-        $protocolo->save();
+        $queja = Queja::find($id);
+        $queja->estado = $estado;
+        $queja->save();
 
         return back();
     }
