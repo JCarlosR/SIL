@@ -138,3 +138,15 @@ Route::get('personal/contratacion', 'PersonalController@getPersonalContratado');
 Route::post('personal/contratacion/listarFecha', 'PersonalController@getPersonalContratadoFecha');
 Route::get('personal/datos/personal/{id}', 'PersonalController@getCargarDatos');
 Route::post('personal/registrar/personal', 'PersonalController@postRegistrarPersonal');
+
+Route::get('proceso/registrar', 'ProcesoController@getRegister');
+Route::post('registrar', 'ProcesoController@postRegister');
+Route::get('proceso/{id}', 'ProcesoController@getEditar');
+Route::put('proceso/{id}', 'ProcesoController@putEditar');
+Route::delete('proceso/{id}', 'ProcesoController@delete');
+
+Route::get('operacion/registrar', 'OperacionController@getRegister');
+Route::post('registrarOperacion', 'OperacionController@postRegister');
+Route::get('operacion/{id}', 'OperacionController@getEditar');
+Route::put('operacion/{id}', 'OperacionController@putEditar');
+Route::delete('operacion/{id}', 'OperacionController@delete');
