@@ -1,0 +1,155 @@
+/* ---------------------------------------------------------------------------------------------------- */
+/* --- page structure --------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+
+.jtk-demo-main {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+
+    background-color: transparent;
+    font-family: Arial,sans-serif;
+    max-width:1500px;
+    position: relative;
+    margin: 1.2em auto;
+}
+
+.jtk-demo-canvas {
+    margin-left: 160px;
+    border:1px solid #CCC;
+    background-color:white;
+}
+
+.canvas-wide {
+    margin-left:0;
+}
+
+.miniview {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 100;
+}
+
+
+.jtk-demo-dataset {
+    text-align: left;
+    max-height: 600px;
+    overflow: auto;
+}
+
+.demo-title {
+    float:left;
+    font-size:18px;
+}
+
+.controls {
+    top: 25px;
+    color: #FFF;
+    margin-right: 10px;
+    position: absolute;
+    left: 25px;
+    z-index: 1;
+}
+
+.controls i {
+    background-color: #3E7E9C;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0;
+    padding: 4px;
+}
+
+li {
+    list-style-type: none;
+}
+
+@media (max-width: 600px) {
+    .jtk-demo-canvas {
+        margin-left: 0;
+        margin-top:10px;
+        height:364px;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* --- jsPlumb setup ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+
+._jsPlumb_connector {
+    z-index:9;
+}
+
+._jsPlumb_endpoint {
+    z-index:12;
+    opacity:0.8;
+    cursor:pointer;
+}
+
+._jsPlumb_overlay {
+    background-color: white;
+    color: #434343;
+    font-weight: 400;
+    padding: 4px;
+    z-index:10;
+
+}
+
+._jsPlumb_overlay._jsPlumb_hover {
+    color: #434343;
+}
+
+path {
+    cursor:pointer;
+}
+
+.delete {
+    padding: 2px;
+    cursor: pointer;
+    float: left;
+    font-size: 10px;
+    line-height: 20px;
+}
+
+.add, .edit {
+    cursor: pointer;
+    float:right;
+    font-size: 10px;
+    line-height: 20px;
+    margin-right:2px;
+    padding: 2px;
+}
+
+.edit:hover {
+    color: #ff8000;
+}
+
+.selected-mode {
+    color:#E4F013;
+}
+
+.connect {
+    width:10px;
+    height:10px;
+    background-color:#f76258;
+    position:absolute;
+    bottom: 13px;
+    right: 5px;
+}
+
+/* Mis estilos */
+.perspectiva {
+    border: 1px dashed #18bc9c;
+    line-height: 3em;
+    width: 100%;
+    vertical-align: middle;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.perspectiva p {
+    max-width: 5em;
+    text-transform: uppercase;
+    line-height: normal;
+    margin: 0.4em 0;
+}

@@ -13,6 +13,7 @@ Route::get('registro', 'Auth\AuthController@getRegister');
 // Usuario autenticado
 Route::get('panel', 'HomeController@getPanel');
 
+
 // Atención y consulta
 Route::get('protocolo/registrar', 'ProtocoloController@getRegister');
 Route::get('empresa/registrar', 'EmpresaController@getRegister');
@@ -112,41 +113,47 @@ Route::post('registrar/capitulo', 'RitController@postCapitulo');
 Route::post('registrar/articulo', 'RitController@postArticulo');
 Route::post('registrar/item', 'RitController@postItem');
 
-// Con relación a personal de personal
+
+// Módulo de RRHH - Convocatoria
 Route::get('personal/convocatoria', 'PersonalController@getCargosConvocatoria');
 Route::post('personal/convocatoria', 'PersonalController@postCargosConvocatoria');
-
+// Módulo de RRHH - Requisitos
 Route::get('personal/requisitos/{id}', 'PersonalController@getRequisitos');
 Route::post('personal/registrar/requisitos/{id}', 'PersonalController@postRegistrarRequisitos');
 Route::post('personal/modificar/requisitos/{id}', 'PersonalController@postModificarRequisitos');
 Route::post('personal/eliminar/requisitos/{id}', 'PersonalController@postEliminarRequisitos');
-
+// Módulo de RRHH - Requerimientos
 Route::get('personal/personal', 'PersonalController@getCargosPreSeleccion');
-
 Route::get('personal/seleccion/requerimientos/{id}', 'PersonalController@getSeleccionRequerimientos');
 Route::get('personal/seleccion/postulante/{id}', 'PersonalController@getSeleccionPostulante');
 Route::post('personal/registrar/postulante/{id}', 'PersonalController@postSeleccionRegistrarPostulante');
-
+// Módulo de RRHH - Selección
 Route::get('personal/seleccion', 'PersonalController@getCargosSeleccion');
 Route::get('personal/seleccion/listaPostulantes/{id}', 'PersonalController@getListaPostulantes');
 Route::get('personal/seleccion/estado/{id}', 'PersonalController@getEstadoPostulante');
 Route::get('personal/seleccion/noEstado/{id}', 'PersonalController@getNoEstadoPostulante');
 Route::get('personal/seleccion/cv/{id}', 'PersonalController@getCvPostulante');
-
+// Módulo de RRHH - Contratación
 Route::get('personal/seleccionados', 'PersonalController@getSeleccionResultados');
 Route::get('personal/contratacion', 'PersonalController@getPersonalContratado');
 Route::post('personal/contratacion/listarFecha', 'PersonalController@getPersonalContratadoFecha');
 Route::get('personal/datos/personal/{id}', 'PersonalController@getCargarDatos');
 Route::post('personal/registrar/personal', 'PersonalController@postRegistrarPersonal');
 
+
+// Procesos
 Route::get('proceso/registrar', 'ProcesoController@getRegister');
-Route::post('registrar', 'ProcesoController@postRegister');
+Route::post('proceso/registrar', 'ProcesoController@postRegister');
 Route::get('proceso/{id}', 'ProcesoController@getEditar');
 Route::put('proceso/{id}', 'ProcesoController@putEditar');
 Route::delete('proceso/{id}', 'ProcesoController@delete');
-
+// Operaciones
 Route::get('operacion/registrar', 'OperacionController@getRegister');
-Route::post('registrarOperacion', 'OperacionController@postRegister');
+Route::post('operacion/registrar', 'OperacionController@postRegister');
 Route::get('operacion/{id}', 'OperacionController@getEditar');
 Route::put('operacion/{id}', 'OperacionController@putEditar');
 Route::delete('operacion/{id}', 'OperacionController@delete');
+
+
+// Indicadores de gestión
+Route::get('indicadores/atencion-cliente', 'IndicadorController@getAtencionCliente');
