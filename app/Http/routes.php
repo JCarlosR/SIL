@@ -19,12 +19,16 @@ Route::get('protocolo/registrar', 'ProtocoloController@getRegister');
 Route::get('empresa/registrar', 'EmpresaController@getRegister');
 Route::post('empresa/registrar', 'EmpresaController@postRegister');
 Route::post('protocolo/registrar', 'ProtocoloController@postRegister');
+Route::get('protocolo/{id}/estado/{estado}', 'ProtocoloController@postEstado');
 Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
 Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
 Route::get('orden/verificar', 'ProtocoloController@getOrdenes');
 Route::post('orden/verificar', 'ProtocoloController@getOrdenesEmpresa');
 Route::get('orden/verificar/{id}', 'ProtocoloController@getOrdenesProtocolo');
 Route::get('orden/ver/{id}', 'ProtocoloController@getPrevisualizar');
+
+// Gestión de quejas
+Route::get('queja/registrar', 'QuejaController@getRegister');
 
 
 // Relacionadas al perfil de trabajador

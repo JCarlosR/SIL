@@ -65,8 +65,6 @@ class ProtocoloController extends Controller
                 'orden_id' => $orden->id
             ]);
             //inserts en las tablas que usan la hoja ruta
-
-
         }
 
         if ($insert1)
@@ -75,7 +73,17 @@ class ProtocoloController extends Controller
         return ['exito'=>false];
     }
 
-    public function getExamenes(){
+    public function postEstado($id, $estado)
+    {
+        $protocolo = Protocolo::find($id);
+        $protocolo->estado = $estado;
+        $protocolo->save();
+
+        return back();
+    }
+
+    public function getExamenes()
+    {
         $maxid = Protocolo::all()->max('id');
         $examenes = Examen::all();
         $ordenes = Orden::where('protocolo_id',$maxid)->get();
@@ -83,10 +91,12 @@ class ProtocoloController extends Controller
         foreach($ordenes as $orden) {
             $pacientes[] = Paciente::find($orden->paciente_id);
         }
+
         return view('protocolo.examenes')->with(compact(['maxid','pacientes','examenes']));
     }
 
-    public function asignarExamenes(Request $request){
+    public function asignarExamenes(Request $request)
+    {
         $idpaciente = $request->get('pacienteid');
         $idprotocolo = $request->get('protocoloid');
         $examenes = $request->get('examenes');
@@ -107,7 +117,7 @@ class ProtocoloController extends Controller
 
     public function getOrdenes(){
         $empresas = Empresa::all();
-        $protocolos = Protocolo::all();
+        $protocolos = Protocolo::where('estado', 'Pendiente')->get();
         return view('protocolo.verificar')->with(compact(['empresas','protocolos']));
     }
 

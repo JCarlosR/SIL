@@ -8,10 +8,12 @@ class PacientePerfil extends Model
 {
     protected $table = 'pacientePerfiles';
 
-    /**
-     * The attributes that are mass assignable.
-     */
     protected $fillable = ['descripcion'];
 
+    // Relaciones
 
+    public function pacientes()
+    {
+        return $this->hasMany('App\Paciente');
+    }
 }

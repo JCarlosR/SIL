@@ -18,6 +18,8 @@ class CreateProtocolosTable extends Migration
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')->references('id')->on('empresas');
 
+            $table->enum('estado', ['Pendiente', 'Verificado', 'Cancelado'])->default('Pendiente');
+
             $table->string('observacion');
 
             $table->timestamps();

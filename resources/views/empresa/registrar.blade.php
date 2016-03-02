@@ -6,7 +6,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h2 class="box-title">Registro de empresas</h2>
+            <h2 class="box-title">Registrar nueva empresa</h2>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -15,7 +15,7 @@
         <div class="box-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-offset-1 col-md-6">
+                    <div class="col-md-6">
                         @if($errors->has())
                             <div class="alert alert-danger fade in">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -58,5 +58,4 @@
             </div>
         </div><!-- /.box-body -->
     </div>
-
 @endsection

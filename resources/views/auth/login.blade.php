@@ -64,7 +64,7 @@
           </div>
         </form>
 
-        <a href="{{ url('registro') }}" class="text-center">Realizar un nuevo registro</a>
+        <a href="{{ url('queja/registrar') }}" class="text-center">Realizar una queja</a>
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

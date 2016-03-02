@@ -41,11 +41,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtNombre">Nombre</label>
-                                <input type="text" class="form-control" id="txtNombre" placeholder="Nombre" required>
+                                <input type="text" class="form-control" id="txtNombre" placeholder="Nombre completo" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtNumhijos">Número de hijos</label>
-                                <input type="number" step="1" min="0" class="form-control" id="txtNumhijos" required>
+                                <input type="number" step="1" min="0" class="form-control" placeholder="Cantidad de hijos" id="txtNumhijos" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtNivel">Nivel de instrucción</label>
