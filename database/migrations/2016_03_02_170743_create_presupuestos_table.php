@@ -15,7 +15,7 @@ class CreatePresupuestosTable extends Migration
         Schema::create('presupuestos', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->int('area');
+            $table->integer('area');
             $table->string('anual');
             $table->decimal('presupuesto', 6, 3);
             $table->decimal('real', 6, 3);
