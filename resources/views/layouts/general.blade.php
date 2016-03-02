@@ -296,7 +296,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="{{ url('/') }}"><i class="glyphicon glyphicon-info-sign"></i>
+                            <a href="{{ url('indicadores/gestion-calidad') }}"><i class="glyphicon glyphicon-info-sign"></i>
                                 <span>Gestión de calidad</span>
                             </a>
                         </li>

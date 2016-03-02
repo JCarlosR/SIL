@@ -18,7 +18,7 @@
             @include('common.errors')
 
                     <!-- New Task Form -->
-            <form action="{{ url('registrar') }}" method="POST">
+            <form action="{{ url('proceso/registrar') }}" method="POST">
                 {{ csrf_field() }}
 
                 <div class="form-group">
