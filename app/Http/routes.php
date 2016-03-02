@@ -159,7 +159,6 @@ Route::post('operacion/registrar', 'OperacionController@postRegister');
 Route::get('operacion/{id}', 'OperacionController@getEditar');
 Route::put('operacion/{id}', 'OperacionController@putEditar');
 Route::delete('operacion/{id}', 'OperacionController@delete');
-
 // Áreas
 Route::get('area/registrar', 'AreaController@getRegister');
 Route::post('area/registrar', 'AreaController@postRegister');
@@ -171,6 +170,14 @@ Route::delete('area/{id}', 'AreaController@delete');
 // Indicadores de gestión
 Route::get('indicadores/atencion-cliente', 'IndicadorController@getAtencionCliente');
 Route::get('indicadores/gestion-calidad', 'IndicadorController@getGestionCalidad');
-Route::get('indicadores/gestion-calidad/finaciero', 'IndicadorController@getGCFinanciero');
-Route::get('indicadores/gestion-calidad/proceso', 'IndicadorController@getGCProceso');
-Route::post('indicadores/gestion-calidad/proceso/grafica', 'IndicadorController@postGCProcesoGrafica');
+
+// Indicadores - Atención al cliente
+
+// Indicadores - Gestión de calidad
+Route::get('indicadores/gestion-calidad/finaciero', 'GestionCalidadController@getGCFinanciero');
+Route::get('indicadores/gestion-calidad/proceso', 'GestionCalidadController@getGCProceso');
+Route::post('indicadores/gestion-calidad/proceso/grafica', 'GestionCalidadController@postGCProcesoGrafica');
+
+// Indicadores - Recursos humanos
+
+// Indicadores - Planeamiento estratégico
