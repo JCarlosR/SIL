@@ -166,6 +166,12 @@ Route::get('area/{id}', 'AreaController@getEditar');
 Route::put('area/{id}', 'AreaController@putEditar');
 Route::delete('area/{id}', 'AreaController@delete');
 
+// Presupuestos
+Route::get('presupuesto/registrar', 'PresupuestoController@getRegister');
+Route::post('presupuesto/registrar', 'PresupuestoController@postRegister');
+Route::get('presupuesto/{id}', 'PresupuestoController@getEditar');
+Route::put('presupuesto/{id}', 'PresupuestoController@putEditar');
+Route::delete('presupuesto/{id}', 'AreaController@delete');
 
 // Indicadores de gestión
 Route::get('indicadores/atencion-cliente', 'IndicadorController@getAtencionCliente');
@@ -182,7 +188,8 @@ Route::get('indicadores/indice-atencion', 'AtencionClienteController@getIndiceAt
 Route::get('calcular/indice-atencion', 'AtencionClienteController@calcIndiceAtencion');
 
 // Indicadores - Gestión de calidad
-Route::get('indicadores/gestion-calidad/finaciero', 'GestionCalidadController@getGCFinanciero');
+Route::get('indicadores/gestion-calidad/financiero', 'GestionCalidadController@getGCFinanciero');
+Route::post('indicadores/gestion-calidad/financiero/grafica', 'GestionCalidadController@postGCFinancieroGrafica');
 Route::get('indicadores/gestion-calidad/proceso', 'GestionCalidadController@getGCProceso');
 Route::post('indicadores/gestion-calidad/proceso/grafica', 'GestionCalidadController@postGCProcesoGrafica');
 

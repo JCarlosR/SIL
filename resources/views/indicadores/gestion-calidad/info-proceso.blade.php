@@ -50,6 +50,8 @@
                     <div class="col-md-offset-1 col-md-6">
                         <label for="">Controles del indicador</label>
                         <p>KPI por proceso</p>
+                        <br>
+                        <label for="">Elija el proceso a analizar:</label>
                         <form action="{{ url('indicadores/gestion-calidad/proceso/grafica') }}" method="POST" id="formulario">
                             {{ csrf_field() }}
                             <select name="proceso" id="proceso">
@@ -58,7 +60,8 @@
                                 @endforeach
 
                             </select>
-
+                            <br>
+                            <br>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-success" id="btnGenerar" value="Generar gráfico"/>
                             </div>
