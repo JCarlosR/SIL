@@ -172,6 +172,10 @@ Route::get('indicadores/atencion-cliente', 'IndicadorController@getAtencionClien
 Route::get('indicadores/gestion-calidad', 'IndicadorController@getGestionCalidad');
 
 // Indicadores - Atención al cliente
+Route::get('indicadores/indice-perdidas', 'AtencionClienteController@getIndicePerdidas');
+Route::get('indicadores/indice-crecimiento', 'AtencionClienteController@getIndiceCrecimiento');
+Route::get('indicadores/indice-aceptacion', 'AtencionClienteController@getIndiceAceptacion');
+Route::get('indicadores/indice-atencion', 'AtencionClienteController@getIndiceAtencion');
 
 // Indicadores - Gestión de calidad
 Route::get('indicadores/gestion-calidad/finaciero', 'GestionCalidadController@getGCFinanciero');

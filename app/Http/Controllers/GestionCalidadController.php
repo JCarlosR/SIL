@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class IndicadorController extends Controller
+class GestionCalidadController extends Controller
 {
 
     public function __construct()
