@@ -17,8 +17,8 @@ class CreatePresupuestosTable extends Migration
 
             $table->integer('area');
             $table->integer('anual');
-            $table->decimal('presupuesto', 6, 3);
-            $table->decimal('real', 6, 3);
+            $table->decimal('presupuesto', 9, 3);
+            $table->decimal('real', 9, 3);
             $table->timestamps();
         });
     }

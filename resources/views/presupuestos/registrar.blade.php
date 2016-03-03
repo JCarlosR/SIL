@@ -1,58 +1,43 @@
 @extends('layouts.general')
 
-@section('title', 'Diagrama de tiempos de la empresa')
-@section('sub-title', 'Edición del diagrama de la empresa')
+@section('title', 'Presupuesto por área de la empresa')
+@section('sub-title', 'Edición del presupuesto por área de la empresa')
 
 @section('items')
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Procesos y diagrama de tiempos</a></li>
+    <li><a href="#">Presupuesto por área de la empresa</a></li>
 @endsection
 
 @section('content')
     <div class="col-sm-offset-3 col-sm-6">
         <div class="panel-title">
-            <h1>Diagrama de tiempos</h1>
+            <h1>Presupuesto por área</h1>
         </div>
         <div class="panel-body">
             <!-- Display Validation Errors -->
             @include('common.errors')
 
                     <!-- New Task Form -->
-            <form action="{{ url('operacion/registrar') }}" method="POST">
+            <form action="{{ url('presupuesto/registrar') }}" method="POST">
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="proceso" class="control-label">Nombre</label>
-                    <select name="proceso" id="proceso">
-                        @foreach($procesos as $proceso)
-                            <option value="{{ $proceso->id }}">{{ $proceso->nombre }}</option>
+                    <label for="area" class="control-label">Área</label>
+                    <select name="area" id="proceso">
+                        @foreach($areas as $area)
+                            <option value="{{ $area->id }}">{{ $area->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="operacion" class="control-label">Operación: </label>
-                    <input type="number" name="operacion" class="form-control" min="0" step="0.1">
+                    <label for="anual" class="control-label">Año: </label>
+                    <input type="number" name="anual" class="form-control" min="2000" step="1">
                 </div>
+
                 <div class="form-group">
-                    <label for="transporte" class="control-label">Transporte: </label>
-                    <input type="number" name="transporte" class="form-control" min="0" step="0.1">
-                </div>
-                <div class="form-group">
-                    <label for="inspeccion" class="control-label">Inspección: </label>
-                    <input type="number" name="inspeccion" class="form-control" min="0" step="0.1">
-                </div>
-                <div class="form-group">
-                    <label for="demora" class="control-label">Demora: </label>
-                    <input type="number" name="demora" class="form-control" min="0" step="0.1">
-                </div>
-                <div class="form-group">
-                    <label for="almacenaje" class="control-label">Almacenaje: </label>
-                    <input type="number" name="almacenaje" class="form-control" min="0" step="0.1">
-                </div>
-                <div class="form-group">
-                    <label for="combinada" class="control-label">Combinada: </label>
-                    <input type="number" name="combinada" class="form-control" min="0" step="0.1">
+                    <label for="real" class="control-label">Gasto real: </label>
+                    <input type="number" name="real" class="form-control" min="0" step="1">
                 </div>
 
 
@@ -67,7 +52,7 @@
 
     <div class="col-md-12">
         <!-- Tabla -->
-        @if (count($operaciones) > 0)
+        @if (count($presupuestos) > 0)
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Diagrama de procesos y operaciones
@@ -76,33 +61,27 @@
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <thead>
-                        <th>Proceso</th>
-                        <th>Operación</th>
-                        <th>Transporte</th>
-                        <th>Inspección</th>
-                        <th>Demora</th>
-                        <th>Almacenaje</th>
-                        <th>Combinada</th>
+                        <th>Area</th>
+                        <th>Año</th>
+                        <th>Presupuesto</th>
+                        <th>Real</th>
                         <th>Acción</th>
                         </thead>
 
                         <tbody>
-                        @foreach ($operaciones as $operacion)
+                        @foreach ($presupuestos as $presupuesto)
                             <tr>
-                                <td class="table-text"><div>{{ $operacion->nombre}}</div></td>
-                                <td class="table-text"><div>{{ $operacion->operacion }}</div></td>
-                                <td class="table-text"><div>{{ $operacion->transporte }}</div></td>
-                                <td class="table-text"><div>{{ $operacion->inspeccion }}</div></td>
-                                <td class="table-text"><div>{{ $operacion->demora }}</div></td>
-                                <td class="table-text"><div>{{ $operacion->almacenaje }}</div></td>
-                                <td class="table-text"><div>{{ $operacion->combinada }}</div></td>
+                                <td class="table-text"><div>{{ $presupuesto->nombre }}</div></td>
+                                <td class="table-text"><div>{{ $presupuesto->anual }}</div></td>
+                                <td class="table-text"><div>{{ $presupuesto->presupuesto }}</div></td>
+                                <td class="table-text"><div>{{ $presupuesto->real }}</div></td>
 
                                 <td>
-                                    <button type="submit" class="btn btn-success" onclick="location.href='../operacion/{{ $operacion->id }}'">
+                                    <button type="submit" class="btn btn-success" onclick="location.href='../presupuesto/{{ $presupuesto->id }}'">
                                         <i class="fa fa-pencil"></i>Editar
                                     </button>
 
-                                    <form action="{{ url('operacion') }}/{{ $operacion->id }}" method="POST">
+                                    <form action="{{ url('presupuesto') }}/{{ $presupuesto->id }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 

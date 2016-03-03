@@ -10,7 +10,9 @@
 
 @section('content')
     <div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
-
+    <br>
+    <br>
+    <div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
 @endsection
 
 @section('scripts')
@@ -28,7 +30,7 @@
                         },
 
                         title: {
-                            text: 'Indice de Tiempo Util por proceso'
+                            text: 'Indice de Tiempo Util del proceso - {{ $nombreProceso->nombre }}'
                         },
 
                         pane: {
@@ -115,6 +117,109 @@
                     function (chart) {
 
                     });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#container2').highcharts({
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Tiempo de cada tipo de operación por proceso'
+                },
+                subtitle: {
+                    text: 'Fuente: Elaboración propia'
+                },
+                xAxis: {
+                    categories: [
+                        @foreach($procesos as $proceso)
+                            '{{ $proceso->nombre }}',
+                        @endforeach
+
+                    ],
+                    title: {
+                        text: 'Procesos de la empresa'
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Tiempo (minutos)',
+                        align: 'high'
+                    },
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ' minutos'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -40,
+                    y: 100,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                    shadow: true
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Operación',
+                    data: [
+                            @foreach($operaciones as $operacion)
+                                {{ $operacion->operacion }},
+                            @endforeach
+                    ]
+                }, {
+                    name: 'Transporte',
+                    data: [
+                        @foreach($transportes as $transporte)
+                            {{ $transporte->transporte }},
+                        @endforeach
+                ]
+                }, {
+                    name: 'Inspeccion',
+                    data: [
+                        @foreach($inspecciones as $inspeccion)
+                        {{ $inspeccion->inspeccion }},
+                        @endforeach
+                    ]
+                }, {
+                    name: 'Demoras',
+                    data: [
+                        @foreach($demoras as $demora)
+                        {{ $demora->demora }},
+                        @endforeach
+                    ]
+                }, {
+                    name: 'Almacenaje',
+                    data: [
+                        @foreach($almacenajes as $almacenaje)
+                        {{ $almacenaje->almacenaje }},
+                        @endforeach
+                    ]
+                }, {
+                    name: 'Combinadas',
+                    data: [
+                        @foreach($combinadas as $combinada)
+                        {{ $combinada->combinada }},
+                        @endforeach
+                    ]
+                }]
+            });
         });
     </script>
     <script src="{{ asset('Highcharts/js/highcharts.js') }}"></script>
