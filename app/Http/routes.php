@@ -19,6 +19,7 @@ Route::get('protocolo/registrar', 'ProtocoloController@getRegister');
 Route::get('empresa/registrar', 'EmpresaController@getRegister');
 Route::post('empresa/registrar', 'EmpresaController@postRegister');
 Route::post('protocolo/registrar', 'ProtocoloController@postRegister');
+Route::get('protocolo/{id}/estado/{estado}', 'ProtocoloController@postEstado');
 Route::get('registrar/examenes', 'ProtocoloController@getExamenes');
 Route::post('asignar/examenes/paciente', 'ProtocoloController@asignarExamenes');
 Route::get('orden/verificar', 'ProtocoloController@getOrdenes');
@@ -26,6 +27,11 @@ Route::post('orden/verificar', 'ProtocoloController@getOrdenesEmpresa');
 Route::get('orden/verificar/{id}', 'ProtocoloController@getOrdenesProtocolo');
 Route::get('orden/ver/{id}', 'ProtocoloController@getPrevisualizar');
 
+// Gestión de quejas
+Route::get('queja/registrar', 'QuejaController@getRegister');
+Route::post('queja/registrar', 'QuejaController@postRegister');
+Route::get('quejas', 'HomeController@getQuejas');
+Route::get('queja/{id}/estado/{estado}', 'QuejaController@postEstado');
 
 // Relacionadas al perfil de trabajador
 Route::get('perfil-trabajador', 'WorkerProfileController@getIndex');
@@ -153,7 +159,6 @@ Route::post('operacion/registrar', 'OperacionController@postRegister');
 Route::get('operacion/{id}', 'OperacionController@getEditar');
 Route::put('operacion/{id}', 'OperacionController@putEditar');
 Route::delete('operacion/{id}', 'OperacionController@delete');
-
 // Áreas
 Route::get('area/registrar', 'AreaController@getRegister');
 Route::post('area/registrar', 'AreaController@postRegister');
@@ -165,6 +170,14 @@ Route::delete('area/{id}', 'AreaController@delete');
 // Indicadores de gestión
 Route::get('indicadores/atencion-cliente', 'IndicadorController@getAtencionCliente');
 Route::get('indicadores/gestion-calidad', 'IndicadorController@getGestionCalidad');
-Route::get('indicadores/gestion-calidad/finaciero', 'IndicadorController@getGCFinanciero');
-Route::get('indicadores/gestion-calidad/proceso', 'IndicadorController@getGCProceso');
-Route::post('indicadores/gestion-calidad/proceso/grafica', 'IndicadorController@postGCProcesoGrafica');
+
+// Indicadores - Atención al cliente
+
+// Indicadores - Gestión de calidad
+Route::get('indicadores/gestion-calidad/finaciero', 'GestionCalidadController@getGCFinanciero');
+Route::get('indicadores/gestion-calidad/proceso', 'GestionCalidadController@getGCProceso');
+Route::post('indicadores/gestion-calidad/proceso/grafica', 'GestionCalidadController@postGCProcesoGrafica');
+
+// Indicadores - Recursos humanos
+
+// Indicadores - Planeamiento estratégico

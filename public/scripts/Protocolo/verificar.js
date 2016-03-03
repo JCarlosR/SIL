@@ -21,7 +21,7 @@ function buscarProtocolo() {
         var i = 0;
         $.each(datos,function(index,element){
             i = i+1;
-            $('tbody').append('<tr><td>'+i+'</td><td>'+(1000+element.id)+'</td><td>'+$('#cboEmpresa option:selected').text()+'</td><td><a href="'+location.href+'/'+element.id+'" id="'+element.id+'" class="asignar btn btn-danger">Ver Orden</a></td></tr>');
+            $('tbody').append('<tr><td>'+i+'</td><td>'+(1000+element.id)+'</td><td>'+$('#cboEmpresa option:selected').text()+'</td><td><a href="'+location.href+'/'+element.id+'" id="'+element.id+'" class="btn btn-danger">Ver Orden</a></td></tr>');
         });
     });
 }

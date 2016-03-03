@@ -1,12 +1,12 @@
 @extends('layouts.general')
 
 @section('title', 'MODULO DE ATENCIÓN Y CONSULTA')
-@section('sub-title', '¡ Bienvenido a Lezama Consultores !')
+@section('sub-title', 'Asignación de exámenes')
 
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h2 class="box-title">Registro de protocolo <span id="max">{{ $maxid }}</span></h2>
+            <h2 class="box-title">Protocolo #<span id="max">{{ (1000 + $maxid) }}</span></h2>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -32,9 +32,9 @@
                             <td>{{ $paciente->id }}</td>
                             <td>{{ $paciente->nombre }}</td>
                             <td>{{ $paciente->dni }}</td>
-                            <td>{{ $paciente->pacienteperfil_id }}</td>
+                            <td>{{ $paciente->perfil->descripcion }}</td>
                             <td>
-                                <button type="button" id="{{ $paciente->id }}" class="asignar btn btn-danger">Asignar</button>
+                                <button type="button" id="{{ $paciente->id }}" class="asignar btn btn-success">Asignar</button>
                             </td>
                         </tr>
                         @endforeach

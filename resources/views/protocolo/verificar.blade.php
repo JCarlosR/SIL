@@ -1,7 +1,15 @@
 @extends('layouts.general')
 
 @section('title', 'MODULO DE ATENCIÓN Y CONSULTA')
-@section('sub-title', 'Formulario para verificar órdenes registradas')
+@section('sub-title', 'Formulario para verificar o cancelar protocolos')
+
+@section('styles')
+    <style>
+        .separar {
+            margin-top: 6em;
+        }
+    </style>
+@endsection
 
 @section('content')
     <template id="template-alerta">
@@ -13,7 +21,7 @@
 
     <div class="box">
         <div class="box-header with-border">
-            <h2 class="box-title">Verificación de Orden</h2>
+            <h2 class="box-title">Verificación de protocolos</h2>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -22,25 +30,30 @@
         <div class="box-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-offset-1 col-md-6">
+                    <div class="col-md-offset-1 col-md-8">
+
                         <div class="form-group">
                             <h3>Empresa</h3>
-                            <select class="form-control" id="cboEmpresa" required>
-                                @foreach($empresas as $empresa)
-                                <option value="{{ $empresa->id }}">{{ $empresa->nombre_comercial }}</option>
-                                @endforeach
-                            </select>
+                            <div class="col-md-9">
+                                <select class="form-control" id="cboEmpresa" required>
+                                    @foreach($empresas as $empresa)
+                                        <option value="{{ $empresa->id }}">{{ $empresa->nombre_comercial }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="buscar" class="btn btn-primary">Filtrar por empresa</button>
+                            </div>
                         </div>
-                        <a id="buscar" class="btn btn-primary">Buscar</a>
 
-                        <br>
-                        <p>Listado de órdenes por empresa</p>
+                        <p class="separar">Listado de protocolos pendientes de aprobación</p>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Codigo</th>
                                     <th>Empresa</th>
+                                    <th>Fecha</th>
                                     <th>Orden</th>
                                 </tr>
                             </thead>
@@ -50,8 +63,11 @@
                                     <td>{{ $protocolo->id }}</td>
                                     <td>{{ 1000 + $protocolo->id }}</td>
                                     <td>{{ $protocolo->empresa->nombre_comercial }}</td>
+                                    <td>{{ $protocolo->fecha }}</td>
                                     <td>
-                                        <button type="button" id="{{ $protocolo->id }}" class="asignar btn btn-danger" onclick="location.href='{{ url('orden/verificar') }}/{{ $protocolo->id }}'">Ver Orden</button>
+                                        <a href="{{ url('orden/verificar') }}/{{ $protocolo->id }}" class="btn btn-primary">Ver orden</a>
+                                        <a href="{{ url('protocolo/'.$protocolo->id.'/estado/Verificado') }}" class="btn btn-success">Verificar</a>
+                                        <a href="{{ url('protocolo/'.$protocolo->id.'/estado/Cancelado') }}" class="btn btn-danger">Cancelar</a>
                                     </td>
                                 </tr>
                             @endforeach

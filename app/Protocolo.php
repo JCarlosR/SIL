@@ -22,4 +22,10 @@ class Protocolo extends Model
         return $this->hasMany('App\Orden', 'orden_id');
     }
 
+    // Custom attributes
+    public function getFechaAttribute()
+    {
+        return $this->created_at->format('d-m-y h:i');
+    }
+
 }
