@@ -34,10 +34,10 @@ class IndicadorController extends Controller
 
         // Enlaces hacia las vistas de cada sub-proceso (KPI)
         $enlaces = [
-            'http://www.google.com',
-            '/',
-            '/',
-            '/'
+            'indice-perdidas',
+            'indice-crecimiento',
+            'indice-aceptacion',
+            'indice-atencion'
         ];
 
         return view('indicadores.atencion_cliente')->with(compact(['objetivos', 'enlaces']));

@@ -14,12 +14,12 @@ class Protocolo extends Model
 
     public function empresa()
     {
-        return $this->belongsTo('App\Empresa', 'empresa_id');
+        return $this->belongsTo('App\Empresa');
     }
 
     public function ordenes()
     {
-        return $this->hasMany('App\Orden', 'orden_id');
+        return $this->hasMany('App\Orden');
     }
 
     // Custom attributes
@@ -28,4 +28,14 @@ class Protocolo extends Model
         return $this->created_at->format('d-m-y h:i');
     }
 
+    public function getMontoAttribute()
+    {
+        $ordenes = $this->ordenes;
+        $monto = 0;
+        foreach ($ordenes as $orden) {
+            $monto += $orden->monto;
+        }
+
+        return $monto;
+    }
 }

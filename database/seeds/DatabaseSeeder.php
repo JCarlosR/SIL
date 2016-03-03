@@ -18,11 +18,14 @@ class DatabaseSeeder extends Seeder
         // Juarez
         $this->call(PacientePerfilesTableSeeder::class);
         $this->call(ExamenesTableSeeder::class);
+        $this->call(EmpresasTableSeeder::class);
 
         // Ramos
         $this->call(WorkerProfilesTableSeeder::class);
         $this->call(MOFTableSeeder::class);
         $this->call(CargosTableSeeder::class);
+        $this->call(ProtocolosTableSeeder::class);
+        $this->call(QuejasTableSeeder::class);
 
         //SoleS
         $this->call(SolicitadosTableSeeder::class);
@@ -38,7 +41,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ItemsTableSeeder::class);
 
         // Gonzales
-        $this->call(EmpresasTableSeeder::class);
         $this->call(ProcesosTableSeeder::class);
         $this->call(OperacionsTableSeeder::class);
         $this->call(AreasTableSeeder::class);

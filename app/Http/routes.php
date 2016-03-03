@@ -173,9 +173,13 @@ Route::get('indicadores/gestion-calidad', 'IndicadorController@getGestionCalidad
 
 // Indicadores - Atención al cliente
 Route::get('indicadores/indice-perdidas', 'AtencionClienteController@getIndicePerdidas');
+Route::get('calcular/indice-perdidas', 'AtencionClienteController@calcIndicePerdidas');
 Route::get('indicadores/indice-crecimiento', 'AtencionClienteController@getIndiceCrecimiento');
+Route::get('calcular/indice-crecimiento', 'AtencionClienteController@calcIndiceCrecimiento');
 Route::get('indicadores/indice-aceptacion', 'AtencionClienteController@getIndiceAceptacion');
+Route::get('calcular/indice-aceptacion', 'AtencionClienteController@calcIndiceAceptacion');
 Route::get('indicadores/indice-atencion', 'AtencionClienteController@getIndiceAtencion');
+Route::get('calcular/indice-atencion', 'AtencionClienteController@calcIndiceAtencion');
 
 // Indicadores - Gestión de calidad
 Route::get('indicadores/gestion-calidad/finaciero', 'GestionCalidadController@getGCFinanciero');

@@ -26,4 +26,13 @@ class Orden extends Model
     {
         return $this->belongsTo('App\Protocolo', 'protocolo_id');
     }
+
+    public function getMontoAttribute()
+    {
+        $perfil = $this->paciente->pacienteperfil_id;
+        if ($perfil == 1)
+            return 70;
+
+        return 50;
+    }
 }

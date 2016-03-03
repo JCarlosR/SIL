@@ -12,5 +12,8 @@ class Empresa extends Model
      */
     protected $fillable = ['nombre_comercial','ruc','web','contacto1','contacto2'];
 
-
+    public function protocolos()
+    {
+        return $this->hasMany('App\Protocolo');
+    }
 }
