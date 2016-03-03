@@ -11,7 +11,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h2 class="box-title">Índice de tiempo útil por proceso</h2>
+            <h2 class="box-title">Índice de gastos por área</h2>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -23,28 +23,26 @@
                     <div class="col-md-offset-1 col-md-6">
                         <label for="">Descripción del indicador</label>
                         <p>
-                            Este indicador servira para mostrar la relacion entre el tiempo
-                            útil en cada proceso con respecto al total del tiempo empleado.
+                            Este indicador servira para mostrar la relacion entre los presupuestos y los
+                            gastos reales, de esta manera se podra analizar el cumplimiento de estos.
                         </p>
                         <p>
                             De esta manera se podrá analizar si el proceso esta bien o mal y
                             realizar acciones de mejora.
-                            Tiempo útil(operacion, inspeccion, combinada, almacenaje)
-                            Tiempo no útil(demora, transporte)
                         </p>
                         <label for="">Fórmula del indicador</label>
                         <h3>
-                            Tiempo útil/Total de tiempo
+                            Gasto Real/Gasto Presupuestado
                         </h3>
                         <label for="">Semáforo del indicador</label>
                         <p>
-                            Mas de 60%
+                            Mas de 1
                         </p>
                         <p>
-                            50 – 60%
+                            1
                         </p>
                         <p>
-                            Menos de 50%
+                            Menos de 1
                         </p>
                     </div>
                     <div class="col-md-offset-1 col-md-6">
